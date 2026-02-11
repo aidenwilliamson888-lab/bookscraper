@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ KEYWORD TURUNAN GENERATOR - 25+ VARIASI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(145deg, #f0f4f8 0%, #e9edf2 100%);
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: #0a1a2f;
+            color: white;
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(10,26,47,0.15);
+        }
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; }
+        .subhead {
+            font-size: 1.1rem;
+            color: #b0d4f0;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+        }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #0a1a2f;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 18px;
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #dfe5ec;
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: white;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #0a1a2f;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(10,26,47,0.05);
+        }
+        textarea {
+            font-family: 'SF Mono', 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            resize: vertical;
+            min-height: 200px;
+        }
+        .btn {
+            background: #0a1a2f;
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn:hover {
+            background: #1e3a5a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(10,26,47,0.2);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #0a1a2f;
+            border: 2px solid #0a1a2f;
+        }
+        .btn-outline:hover {
+            background: #0a1a2f;
+            color: white;
+        }
+        .keyword-chip {
+            display: inline-block;
+            background: #e9f0f9;
+            color: #0a1a2f;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin: 0 8px 10px 0;
+            border: 1px solid #d0e0f0;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+        .keyword-chip:hover {
+            background: #0a1a2f;
+            color: white;
+            transform: translateY(-2px);
+            cursor: pointer;
+        }
+        .count-badge {
+            background: #0a1a2f;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .stats-panel {
+            background: linear-gradient(145deg, #f8fbfe, #f0f5fa);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid #d0e0f0;
+        }
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #d0e0f0;
+        }
+        .stats-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .stats-label { color: #4a6572; font-weight: 500; }
+        .stats-value { font-weight: 700; color: #0a1a2f; }
+        .copy-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #d0e0f0;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .copy-btn:hover {
+            background: #0a1a2f;
+            color: white;
+        }
+        .relative { position: relative; }
+        .template-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .template-item {
+            background: #f8fbfe;
+            border: 1px solid #d0e0f0;
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .template-item:hover {
+            background: #0a1a2f;
+            color: white;
+            border-color: #0a1a2f;
+        }
+        .template-item.active {
+            background: #0a1a2f;
+            color: white;
+            border-color: #0a1a2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎯 KEYWORD TURUNAN GENERATOR</h1>
+            <p class="subhead">
+                Dari 1 keyword utama → 25+ keyword turunan siap pakai untuk Google Books API
+            </p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <span class="count-badge" style="background: #3498db;">📚 40 buku/keyword</span>
+                <span class="count-badge" style="background: #27ae60;">🎯 25 keyword = 1000 buku</span>
+                <span class="count-badge" style="background: #e67e22;">⚡ 1 klik generate</span>
+            </div>
+        </div>
+
+        <!-- MAIN GRID -->
+        <div class="grid">
+            <!-- LEFT PANEL - INPUT -->
+            <div class="card">
+                <h2>
+                    <span>🔑</span>
+                    1. Input Keyword Utama
+                </h2>
+                
+                <div class="input-group">
+                    <label>🎯 Keyword Utama (Contoh: programming, fiction, history)</label>
+                    <input type="text" id="mainKeyword" value="programming" placeholder="Masukkan keyword utama">
+                </div>
+
+                <div class="input-group">
+                    <label>📋 Template Turunan</label>
+                    <select id="templateSelect">
+                        <option value="programming" selected>💻 Programming Languages</option>
+                        <option value="fiction">📚 Fiction Genres</option>
+                        <option value="history">🏛️ History Topics</option>
+                        <option value="science">🔬 Science Fields</option>
+                        <option value="business">💼 Business & Marketing</option>
+                        <option value="selfhelp">🧠 Self-Improvement</option>
+                        <option value="custom">✏️ Custom (isi manual)</option>
+                    </select>
+                </div>
+
+                <div id="customTemplateArea" style="display: none;" class="input-group">
+                    <label>✏️ Daftar Keyword Turunan (1 baris = 1 keyword)</label>
+                    <textarea id="customKeywords" rows="8" placeholder="python programming&#10;java programming&#10;javascript programming&#10;c++ programming&#10;c# programming&#10;php programming&#10;ruby programming&#10;go programming&#10;rust programming&#10;swift programming&#10;kotlin programming&#10;typescript programming&#10;sql programming&#10;html programming&#10;css programming&#10;react programming&#10;angular programming&#10;vue programming&#10;nodejs programming&#10;django programming&#10;flask programming&#10;spring programming&#10;laravel programming&#10;rails programming&#10;asp.net programming"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button onclick="generateKeywords()" class="btn" style="flex: 2;">
+                        ⚡ GENERATE 25+ KEYWORD TURUNAN
+                    </button>
+                    <button onclick="resetToDefault()" class="btn btn-outline" style="flex: 1;">
+                        🔄 RESET
+                    </button>
+                </div>
+
+                <!-- STATISTICS -->
+                <div class="stats-panel">
+                    <div class="stats-row">
+                        <span class="stats-label">📊 Keyword Utama:</span>
+                        <span class="stats-value" id="statsMain">-</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">🎯 Jumlah Keyword Turunan:</span>
+                        <span class="stats-value" id="statsCount">0</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">📚 Total Buku (40/keyword):</span>
+                        <span class="stats-value" id="statsBooks">0</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">⚡ API Calls (1/keyword):</span>
+                        <span class="stats-value" id="statsApi">0</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">💾 Quota Terpakai:</span>
+                        <span class="stats-value" id="statsQuota">0 / 1000</span>
+                    </div>
+                </div>
+
+                <!-- TEMPLATE QUICK PICK -->
+                <div style="margin-top: 25px;">
+                    <label style="margin-bottom: 15px;">🔥 Template Populer:</label>
+                    <div class="template-selector">
+                        <div class="template-item" onclick="loadTemplate('programming')">💻 Programming</div>
+                        <div class="template-item" onclick="loadTemplate('fiction')">📚 Fiction</div>
+                        <div class="template-item" onclick="loadTemplate('history')">🏛️ History</div>
+                        <div class="template-item" onclick="loadTemplate('science')">🔬 Science</div>
+                        <div class="template-item" onclick="loadTemplate('business')">💼 Business</div>
+                        <div class="template-item" onclick="loadTemplate('selfhelp')">🧠 Self-Help</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL - OUTPUT -->
+            <div class="card relative">
+                <h2>
+                    <span>📋</span>
+                    2. Hasil Keyword Turunan
+                </h2>
+                
+                <button onclick="copyAllKeywords()" class="copy-btn">
+                    📋 COPY ALL
+                </button>
+
+                <div style="margin-bottom: 20px;">
+                    <label>🎯 25+ Keyword Siap Pakai (1 baris = 1 keyword)</label>
+                    <textarea id="resultKeywords" rows="20" readonly placeholder="Klik GENERATE untuk menghasilkan keyword turunan..." style="background: #f8fbfe; font-size: 0.9rem;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <button onclick="downloadTxt()" class="btn" style="background: #27ae60; flex: 1;">
+                        📥 DOWNLOAD .TXT
+                    </button>
+                    <button onclick="downloadCsv()" class="btn" style="background: #3498db; flex: 1;">
+                        📊 DOWNLOAD .CSV
+                    </button>
+                </div>
+
+                <!-- PREVIEW KEYWORD CHIPS -->
+                <div style="margin-top: 25px;">
+                    <label>🔍 Preview (15 keyword pertama):</label>
+                    <div id="keywordPreview" style="margin-top: 15px; min-height: 80px; background: #f8fbfe; border-radius: 16px; padding: 20px;">
+                        <span style="color: #6c7a89;">⏳ Generate untuk preview...</span>
+                    </div>
+                </div>
+
+                <!-- USAGE INSTRUCTION -->
+                <div style="margin-top: 25px; background: #e3f2fd; border-radius: 16px; padding: 20px;">
+                    <span style="font-weight: 700; color: #0a1a2f;">📌 CARA PAKAI UNTUK 1000 BUKU:</span>
+                    <ol style="margin-top: 12px; margin-left: 20px; color: #1e3a5a;">
+                        <li style="margin-bottom: 8px;">Copy semua keyword turunan dari textarea</li>
+                        <li style="margin-bottom: 8px;">Paste ke tools Google Books Generator sebelumnya</li>
+                        <li style="margin-bottom: 8px;">Generate 1 per 1 keyword (40 buku/keyword)</li>
+                        <li style="margin-bottom: 8px;">25 keyword × 40 buku = <strong>1000 BUKU</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMPLATE DATABASE (Tersembunyi) -->
+        <div style="display: none;">
+            <div id="template-programming">
+python programming
+java programming
+javascript programming
+c++ programming
+c# programming
+php programming
+ruby programming
+go programming
+rust programming
+swift programming
+kotlin programming
+typescript programming
+sql programming
+html programming
+css programming
+react programming
+angular programming
+vue programming
+nodejs programming
+django programming
+flask programming
+spring programming
+laravel programming
+rails programming
+asp.net programming
+scala programming
+perl programming
+haskell programming
+lua programming
+matlab programming
+            </div>
+            <div id="template-fiction">
+fiction fantasy
+fiction science fiction
+fiction mystery
+fiction thriller
+fiction romance
+fiction horror
+fiction historical
+fiction adventure
+fiction dystopian
+fiction paranormal
+fiction contemporary
+fiction young adult
+fiction literary
+fiction magical realism
+fiction graphic novels
+fiction crime
+fiction suspense
+fiction comedy
+fiction drama
+fiction poetry
+fiction short stories
+fiction war
+fiction western
+fiction urban fantasy
+fiction steampunk
+fiction cyberpunk
+fiction alternate history
+fiction fairy tales
+fiction mythology
+fiction satire
+            </div>
+            <div id="template-history">
+history ancient
+history medieval
+history modern
+history world war
+history american
+history european
+history asian
+history african
+history military
+history political
+history social
+history cultural
+history economic
+history religious
+history intellectual
+history diplomatic
+history environmental
+history women
+history colonialism
+history revolution
+history industrial
+history renaissance
+history reformation
+history enlightenment
+history cold war
+history roman
+history greek
+history egyptian
+history chinese
+history indian
+            </div>
+            <div id="template-science">
+physics science
+chemistry science
+biology science
+astronomy science
+geology science
+neuroscience science
+genetics science
+ecology science
+climate science
+quantum physics
+molecular biology
+organic chemistry
+astrophysics science
+biochemistry science
+microbiology science
+zoology science
+botany science
+marine biology
+environmental science
+computer science
+data science
+cognitive science
+material science
+forensic science
+food science
+exercise science
+sports science
+animal science
+plant science
+earth science
+            </div>
+            <div id="template-business">
+business marketing
+business management
+business finance
+business accounting
+business entrepreneurship
+business leadership
+business strategy
+business economics
+business investing
+business real estate
+business ecommerce
+business digital marketing
+business social media
+business branding
+business sales
+business negotiation
+business communication
+business project management
+business human resources
+business operations
+business supply chain
+business logistics
+business international
+business small business
+business startup
+business corporate
+business innovation
+business consulting
+business analytics
+business intelligence
+            </div>
+            <div id="template-selfhelp">
+self help mindfulness
+self help meditation
+self help happiness
+self help productivity
+self help time management
+self help habit
+self help discipline
+self help motivation
+self help confidence
+self help success
+self help leadership
+self help communication
+self help relationship
+self help parenting
+self help marriage
+self help anxiety
+self help depression
+self help therapy
+self help healing
+self help trauma
+self help addiction
+self help weight loss
+self help fitness
+self help nutrition
+self help sleep
+self help stress
+self help burnout
+self help career
+self help money
+self help minimalist
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // KEYWORD TURUNAN GENERATOR
+        // 1 CLICK = 25-30 KEYWORD SIAP PAKAI
+        // ============================================
+        
+        let currentKeywords = [];
+        
+        // Initialize
+        window.onload = function() {
+            document.getElementById('statsMain').innerHTML = 'programming';
+            generateKeywords();
+        };
+        
+        // Handle template change
+        document.getElementById('templateSelect').addEventListener('change', function(e) {
+            if (e.target.value === 'custom') {
+                document.getElementById('customTemplateArea').style.display = 'block';
+                // Load default custom keywords
+                document.getElementById('customKeywords').value = 
+                    document.getElementById('template-programming').innerText.trim();
+            } else {
+                document.getElementById('customTemplateArea').style.display = 'none';
+                generateKeywords();
+            }
+        });
+        
+        function generateKeywords() {
+            const mainKeyword = document.getElementById('mainKeyword').value.trim();
+            if (!mainKeyword) {
+                alert('Masukkan keyword utama!');
+                return;
+            }
+            
+            document.getElementById('statsMain').innerHTML = mainKeyword;
+            
+            const templateType = document.getElementById('templateSelect').value;
+            let keywords = [];
+            
+            if (templateType === 'custom') {
+                // Ambil dari custom textarea
+                const customText = document.getElementById('customKeywords').value.trim();
+                keywords = customText.split('\n')
+                    .map(k => k.trim())
+                    .filter(k => k.length > 0);
+            } else {
+                // Ambil dari template
+                let templateContent = '';
+                switch(templateType) {
+                    case 'programming':
+                        templateContent = document.getElementById('template-programming').innerText;
+                        break;
+                    case 'fiction':
+                        templateContent = document.getElementById('template-fiction').innerText;
+                        break;
+                    case 'history':
+                        templateContent = document.getElementById('template-history').innerText;
+                        break;
+                    case 'science':
+                        templateContent = document.getElementById('template-science').innerText;
+                        break;
+                    case 'business':
+                        templateContent = document.getElementById('template-business').innerText;
+                        break;
+                    case 'selfhelp':
+                        templateContent = document.getElementById('template-selfhelp').innerText;
+                        break;
+                }
+                
+                keywords = templateContent.split('\n')
+                    .map(k => k.trim())
+                    .filter(k => k.length > 0);
+            }
+            
+            // Filter dan format
+            keywords = keywords
+                .map(k => k.trim())
+                .filter(k => k.length > 0)
+                .filter((v, i, a) => a.indexOf(v) === i); // Remove duplicates
+            
+            currentKeywords = keywords;
+            
+            // Update UI
+            const resultText = keywords.join('\n');
+            document.getElementById('resultKeywords').value = resultText;
+            
+            // Update stats
+            const count = keywords.length;
+            document.getElementById('statsCount').innerHTML = count;
+            document.getElementById('statsBooks').innerHTML = count * 40;
+            document.getElementById('statsApi').innerHTML = count;
+            document.getElementById('statsQuota').innerHTML = count + ' / 1000 (' + (count/1000*100).toFixed(1) + '%)';
+            
+            // Update preview chips
+            updatePreview(keywords);
+        }
+        
+        function updatePreview(keywords) {
+            const preview = document.getElementById('keywordPreview');
+            let html = '';
+            
+            keywords.slice(0, 15).forEach(k => {
+                html += `<span class="keyword-chip">🎯 ${k}</span>`;
+            });
+            
+            if (keywords.length > 15) {
+                html += `<span class="keyword-chip" style="background: #0a1a2f; color: white;">+${keywords.length - 15} lainnya</span>`;
+            }
+            
+            preview.innerHTML = html;
+        }
+        
+        function copyAllKeywords() {
+            const text = document.getElementById('resultKeywords').value;
+            if (!text) {
+                alert('Generate keyword dulu!');
+                return;
+            }
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ ' + currentKeywords.length + ' keyword berhasil dicopy ke clipboard!');
+            }).catch(() => {
+                alert('❌ Gagal copy, silakan select manual');
+            });
+        }
+        
+        function downloadTxt() {
+            const text = document.getElementById('resultKeywords').value;
+            if (!text) {
+                alert('Generate keyword dulu!');
+                return;
+            }
+            
+            const mainKeyword = document.getElementById('mainKeyword').value.trim().replace(/\s+/g, '-');
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `keywords-${mainKeyword}-${currentKeywords.length}.txt`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function downloadCsv() {
+            const keywords = currentKeywords;
+            if (keywords.length === 0) {
+                alert('Generate keyword dulu!');
+                return;
+            }
+            
+            let csv = 'Keyword Utama,Keyword Turunan,Estimasi Buku\n';
+            const mainKeyword = document.getElementById('mainKeyword').value.trim();
+            
+            keywords.forEach(k => {
+                csv += `"${mainKeyword}","${k}",40\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `keywords-${mainKeyword.replace(/\s+/g, '-')}-${keywords.length}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function loadTemplate(type) {
+            document.getElementById('templateSelect').value = type;
+            document.getElementById('customTemplateArea').style.display = 'none';
+            
+            // Set main keyword based on template
+            if (type === 'programming') document.getElementById('mainKeyword').value = 'programming';
+            if (type === 'fiction') document.getElementById('mainKeyword').value = 'fiction';
+            if (type === 'history') document.getElementById('mainKeyword').value = 'history';
+            if (type === 'science') document.getElementById('mainKeyword').value = 'science';
+            if (type === 'business') document.getElementById('mainKeyword').value = 'business';
+            if (type === 'selfhelp') document.getElementById('mainKeyword').value = 'self help';
+            
+            generateKeywords();
+        }
+        
+        function resetToDefault() {
+            document.getElementById('mainKeyword').value = 'programming';
+            document.getElementById('templateSelect').value = 'programming';
+            document.getElementById('customTemplateArea').style.display = 'none';
+            generateKeywords();
+        }
+    </script>
+</body>
+</html>
