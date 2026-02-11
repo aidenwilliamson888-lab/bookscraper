@@ -1,547 +1,674 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goodreads Scraper Tools - Google Books API</title>
+    <title>⚡ GOOGLE BOOKS MASS GENERATOR - 40 BUKU PER KEYWORD</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f5f7fa; 
+            padding: 30px 20px;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .api-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #555;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(145deg, #1a2e3c, #0e2a3a);
             color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: 600;
+            border-radius: 28px;
+            padding: 40px;
+            margin-bottom: 35px;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102,126,234,0.4);
-        }
-
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .results {
-            margin-top: 30px;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .book-card {
-            background: white;
+        h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; }
+        .warning {
+            background: #fef9e7;
+            border-left: 6px solid #e67e22;
+            padding: 20px;
             border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #f0f0f0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .book-cover {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background: #f0f0f0;
-        }
-
-        .book-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-
-        .book-author {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .book-id {
-            color: #999;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-
-        .book-link {
-            margin-top: auto;
-            padding-top: 15px;
-        }
-
-        .book-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .book-link a:hover {
-            text-decoration: underline;
-        }
-
-        .error-message {
-            background: #fee;
-            color: #c33;
-            padding: 15px;
-            border-radius: 8px;
             margin: 20px 0;
-            border-left: 4px solid #c33;
+            color: #2c3e50;
         }
-
-        .statistics {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: flex;
+        .grid-main {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
             gap: 30px;
         }
-
-        .stat-item {
-            flex: 1;
+        @media (max-width: 1100px) { .grid-main { grid-template-columns: 1fr; } }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #e9edf4;
         }
-
-        .stat-label {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .stat-value {
-            color: #333;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .export-buttons {
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 18px;
         }
-
-        .btn-secondary {
-            background: #6c757d;
+        .form-group { margin-bottom: 25px; }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
         }
-
-        .btn-success {
-            background: #28a745;
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #dfe5ec;
+            border-radius: 14px;
+            font-size: 1rem;
+            background: #fafcff;
+        }
+        .btn {
+            background: #1a2e3c;
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+        .btn:hover { background: #2c4a5a; transform: translateY(-2px); }
+        .btn-warning { background: #e67e22; }
+        .btn-warning:hover { background: #d35400; }
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .book-card {
+            background: white;
+            border: 1px solid #ecf0f1;
+            border-radius: 16px;
+            padding: 16px;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .book-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .book-cover {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #1a2e3c;
+            width: 0%;
+            transition: width 0.25s;
+        }
+        .badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>
-            <span>📚 Goodreads Scraper Tools</span>
-        </h1>
-        <div class="subtitle">
-            Scrape buku dari Goodreads menggunakan Google Books API
+        <div class="header">
+            <h1>📚 GOOGLE BOOKS API · MASS GENERATOR</h1>
+            <p style="font-size: 1.1rem; color: #b0e0e0;">
+                ⚠️ Maksimal 40 buku per keyword (batasan API resmi)
+            </p>
         </div>
 
-        <div class="api-section">
-            <div class="form-group">
-                <label for="apiKey">🔑 Google Books API Key</label>
-                <input type="text" id="apiKey" placeholder="Masukkan Google Books API Key Anda" value="AIzaSyA1gP1UtMp2TYJ5FSGgxx8Y6V4qVvLrS0k">
-                <small style="color: #666; display: block; margin-top: 5px;">
-                    Dapatkan API key di <a href="https://console.cloud.google.com/apis/library/books.googleapis.com" target="_blank">Google Cloud Console</a>
-                </small>
+        <!-- WARNING CARD - BATASAN API -->
+        <div class="warning">
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <span style="background: #e67e22; color: white; padding: 8px 20px; border-radius: 40px; font-weight: bold;">🚨 BATASAN RESMI API</span>
+                <span style="font-weight: 600;">Google Books API: maxResults = 40 per keyword [citation:4]</span>
             </div>
-
-            <div class="form-group">
-                <label for="searchInput">📖 Cari Buku di Goodreads</label>
-                <input type="text" id="searchInput" placeholder="Masukkan judul buku, penulis, atau ISBN..." value="Harry Potter">
-            </div>
-
-            <div class="form-group">
-                <label for="maxResults">📊 Jumlah Hasil</label>
-                <input type="text" id="maxResults" placeholder="Maksimal hasil (1-40)" value="12">
-            </div>
-
-            <button class="btn" onclick="searchBooks()">
-                🔍 Cari Buku
-            </button>
+            <p style="margin-top: 15px; color: #5a4a2a;">
+                <strong>Anda minta 1.000 buku dari 1 keyword → TIDAK MUNGKIN.</strong><br>
+                Solusi: Tools ini akan generate 40 buku per keyword. Untuk 1.000 buku, Anda harus input 25 keyword turunan (otomatis).
+            </p>
         </div>
 
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>Mencari buku...</p>
-        </div>
-
-        <div id="error" class="error-message" style="display: none;"></div>
-
-        <div id="results" class="results" style="display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h2>📚 Hasil Pencarian</h2>
-                <span id="resultCount" style="background: #667eea; color: white; padding: 5px 15px; border-radius: 20px;"></span>
-            </div>
-
-            <div class="statistics" id="statistics" style="display: none;">
-                <div class="stat-item">
-                    <div class="stat-label">Total Buku</div>
-                    <div class="stat-value" id="totalBooks">0</div>
+        <div class="grid-main">
+            <!-- LEFT PANEL - INPUT -->
+            <div class="card">
+                <h2><span>🔑</span> 1. Input Keyword</h2>
+                
+                <div class="form-group">
+                    <label>📘 Keyword Utama</label>
+                    <input type="text" id="mainKeyword" value="programming" placeholder="Contoh: programming, fiction, history">
+                    <p style="color: #666; font-size: 0.85rem; margin-top: 6px;">
+                        Akan mengambil 40 buku dari keyword ini.
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Penulis Unik</div>
-                    <div class="stat-value" id="uniqueAuthors">0</div>
+
+                <div class="form-group">
+                    <label>🔢 API Key Google Books</label>
+                    <input type="text" id="apiKey" placeholder="Masukkan API Key Anda" value="AIzaSyA1gP1UtMp2TYJ5FSGgxx8Y6V4qVvLrS0k">
+                    <p style="color: #e67e22; font-size: 0.85rem; margin-top: 6px;">
+                        ⚠️ Quota: 1.000 permintaan/hari. 1 keyword = 1 permintaan (40 buku).
+                    </p>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Rata-rata Rating</div>
-                    <div class="stat-value" id="avgRating">0</div>
+
+                <div class="form-group">
+                    <label>🌐 Domain (untuk canonical URL)</label>
+                    <input type="text" id="domain" value="yourbooksite.com" placeholder="domainkamu.com">
+                </div>
+
+                <div style="background: #f0f9ff; border: 1px dashed #3498db; border-radius: 16px; padding: 20px; margin: 20px 0;">
+                    <label style="color: #1a4a5a;">📢 ADS SCRIPT</label>
+                    <textarea id="adsScript" rows="3" placeholder="&lt;!-- Script iklan Adsterra/Adsense --&gt;">&lt;div style=&quot;background: #1a2e3c; color: white; padding: 20px; border-radius: 12px; text-align: center;&quot;&gt;📢 IKLAN ANDA DI SINI&lt;/div&gt;</textarea>
+                </div>
+
+                <div style="background: #fef9e7; border: 1px dashed #f39c12; border-radius: 16px; padding: 20px; margin: 20px 0;">
+                    <label style="color: #b45f06;">📊 HISTATS COUNTER</label>
+                    <textarea id="histatsScript" rows="3">&lt;!-- Histats.com --&gt;
+&lt;script&gt;_Hasync.push(['Histats.start','1,1234567,4,0,0,0,00000000']);&lt;/script&gt;</textarea>
+                </div>
+
+                <button onclick="fetchBooks()" class="btn">
+                    📥 AMBIL 40 BUKU DARI GOOGLE BOOKS API
+                </button>
+                <p style="text-align: center; margin-top: 15px; color: #27ae60; font-weight: 600;">
+                    ✅ 1 permintaan = 40 buku (maxResults = 40)
+                </p>
+                
+                <div style="margin-top: 30px; background: #e8f5e9; padding: 20px; border-radius: 16px;">
+                    <span style="background: #27ae60; color: white; padding: 5px 16px; border-radius: 30px; font-weight: bold;">💡 INGIN 1.000 BUKU?</span>
+                    <p style="margin-top: 12px; color: #1e4a2a;">
+                        Tools ini akan generate 40 buku. Untuk 1.000 buku, Anda harus:
+                    </p>
+                    <ol style="margin-left: 20px; margin-top: 10px; color: #2c3e50;">
+                        <li style="margin-bottom: 8px;">Gunakan 25 keyword TURUNAN (contoh: programming python, programming java, dll)</li>
+                        <li style="margin-bottom: 8px;">Jalankan tools ini 25x dengan keyword berbeda</li>
+                        <li style="margin-bottom: 8px;">Gabungkan hasil ZIP-nya</li>
+                    </ol>
+                    <button onclick="showExampleKeywords()" class="btn" style="background: #27ae60; margin-top: 15px;">
+                        🔍 CONTOH 25 KEYWORD TURUNAN
+                    </button>
+                    <div id="keywordExample" style="display: none; margin-top: 15px; background: white; padding: 15px; border-radius: 12px; font-family: monospace;">
+                        programming python, programming java, programming javascript, programming c++, programming c#, programming php, programming ruby, programming go, programming rust, programming swift, programming kotlin, programming typescript, programming sql, programming html, programming css, programming react, programming angular, programming vue, programming nodejs, programming django, programming flask, programming spring, programming laravel, programming rails, programming asp.net
+                    </div>
                 </div>
             </div>
-
-            <div class="export-buttons">
-                <button class="btn btn-success" onclick="exportToCSV()">
-                    📥 Export ke CSV
-                </button>
-                <button class="btn btn-secondary" onclick="exportToJSON()">
-                    📋 Export ke JSON
-                </button>
-                <button class="btn" onclick="clearResults()">
-                    🗑️ Clear Hasil
-                </button>
+            
+            <!-- RIGHT PANEL - PREVIEW & OUTPUT -->
+            <div class="card">
+                <h2><span>📋</span> 2. Hasil Generate</h2>
+                
+                <div id="progressBlock" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span id="progressStatus">Mengambil data dari Google Books API...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span style="font-weight: 700;">📁 FILE OUTPUT:</span>
+                        <span id="fileCounter" style="background: #1a2e3c; color: white; padding: 5px 16px; border-radius: 30px;">0 buku</span>
+                    </div>
+                    <div id="bookPreviewGrid" class="book-grid" style="min-height: 200px; border: 1px solid #ecf0f1; border-radius: 16px; padding: 15px;">
+                        <div style="grid-column: 1/-1; text-align: center; color: #7f8c8d; padding: 40px;">
+                            ⏳ Generate untuk melihat 40 buku
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button onclick="downloadAllBooks()" class="btn btn-warning" id="downloadBtn" disabled>
+                        📦 DOWNLOAD 40 BUKU (ZIP)
+                    </button>
+                    <button onclick="downloadSitemap()" class="btn" id="sitemapBtn" disabled style="background: #3498db;">
+                        🗺️ SITEMAP.XML
+                    </button>
+                </div>
+                
+                <div style="margin-top: 25px; background: #f8f9fa; border-radius: 14px; padding: 20px;">
+                    <span style="font-weight: 700;">📊 STATISTIK:</span>
+                    <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                        <span>📚 Total buku:</span>
+                        <span id="statTotal" style="font-weight: 700;">0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                        <span>🔢 Keyword:</span>
+                        <span id="statKeyword">-</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                        <span>📏 Ukuran estimasi:</span>
+                        <span id="statSize">0 MB</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+                        <span>⚠️ Batasan API:</span>
+                        <span style="color: #e67e22;">40 buku maksimal</span>
+                    </div>
+                </div>
             </div>
-
-            <div id="booksGrid" class="results-grid"></div>
         </div>
     </div>
 
     <script>
+        // ============================================
+        // GOOGLE BOOKS API MASS GENERATOR
+        // BATASAN: maxResults = 40 per keyword [citation:4]
+        // ============================================
+        
         let currentBooks = [];
-
-        async function searchBooks() {
-            const apiKey = document.getElementById('apiKey').value.trim();
-            const query = document.getElementById('searchInput').value.trim();
-            const maxResults = document.getElementById('maxResults').value.trim() || 12;
-
-            if (!apiKey) {
-                showError('API Key tidak boleh kosong!');
-                return;
-            }
-
-            if (!query) {
-                showError('Masukkan kata kunci pencarian!');
-                return;
-            }
-
-            // Tampilkan loading
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('error').style.display = 'none';
-
-            try {
-                // Panggil Google Books API
-                const response = await fetch(
-                    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}+subject:fiction&key=${apiKey}&maxResults=${maxResults}`
-                );
-
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                if (data.error) {
-                    throw new Error(data.error.message);
-                }
-
-                if (!data.items || data.items.length === 0) {
-                    showError('Tidak ada buku ditemukan.');
-                    return;
-                }
-
-                // Transform data ke format yang diinginkan
-                currentBooks = data.items.map(item => {
-                    const volumeInfo = item.volumeInfo || {};
-                    const industryIdentifiers = volumeInfo.industryIdentifiers || [];
-                    
-                    // Ambil ISBN jika ada
-                    const isbn = industryIdentifiers.find(id => id.type === 'ISBN_13')?.identifier || 
-                                industryIdentifiers.find(id => id.type === 'ISBN_10')?.identifier ||
-                                'N/A';
-
-                    return {
-                        id: item.id,
-                        goodreads_id: isbn, // Gunakan ISBN sebagai Goodreads ID
-                        title: volumeInfo.title || 'No Title',
-                        author: volumeInfo.authors ? volumeInfo.authors.join(', ') : 'Unknown Author',
-                        cover_url: volumeInfo.imageLinks?.thumbnail?.replace('http:', 'https:') || 
-                                  volumeInfo.imageLinks?.smallThumbnail?.replace('http:', 'https:') ||
-                                  'https://via.placeholder.com/128x200?text=No+Cover',
-                        link: volumeInfo.infoLink || '#',
-                        description: volumeInfo.description || 'No description available',
-                        publishedDate: volumeInfo.publishedDate || 'Unknown',
-                        pageCount: volumeInfo.pageCount || 'N/A',
-                        categories: volumeInfo.categories ? volumeInfo.categories.join(', ') : 'Uncategorized',
-                        averageRating: volumeInfo.averageRating || 'No rating',
-                        ratingsCount: volumeInfo.ratingsCount || 0
-                    };
-                });
-
-                // Tampilkan hasil
-                displayResults(currentBooks);
-                updateStatistics(currentBooks);
-
-            } catch (error) {
-                showError(`Error: ${error.message}`);
-            } finally {
-                document.getElementById('loading').style.display = 'none';
+        let currentKeyword = '';
+        let zipFile = null;
+        let generatedHTML = [];
+        
+        function showExampleKeywords() {
+            const el = document.getElementById('keywordExample');
+            if (el.style.display === 'none') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
             }
         }
-
-        function displayResults(books) {
-            const booksGrid = document.getElementById('booksGrid');
-            const resultsDiv = document.getElementById('results');
-            const resultCount = document.getElementById('resultCount');
-
-            resultCount.textContent = `${books.length} buku ditemukan`;
+        
+        async function fetchBooks() {
+            const keyword = document.getElementById('mainKeyword').value.trim();
+            const apiKey = document.getElementById('apiKey').value.trim();
             
-            booksGrid.innerHTML = books.map(book => `
-                <div class="book-card">
-                    <img 
-                        class="book-cover" 
-                        src="${book.cover_url}" 
-                        alt="${book.title}"
-                        onerror="this.src='https://via.placeholder.com/128x200?text=No+Cover'"
-                    >
-                    <div class="book-title">${escapeHtml(book.title)}</div>
-                    <div class="book-author">✍️ ${escapeHtml(book.author)}</div>
-                    <div class="book-id">📌 ID: ${escapeHtml(book.id)}</div>
-                    <div class="book-id">📚 Goodreads ID: ${escapeHtml(book.goodreads_id)}</div>
-                    ${book.averageRating !== 'No rating' ? `
-                        <div style="color: #f39c12; font-size: 14px; margin-bottom: 5px;">
-                            ⭐ ${book.averageRating} (${book.ratingsCount} ratings)
-                        </div>
-                    ` : ''}
-                    <div class="book-link">
-                        <a href="${book.link}" target="_blank">
-                            🔗 Lihat di Google Books
-                        </a>
+            if (!keyword) {
+                alert('Masukkan keyword!');
+                return;
+            }
+            
+            if (!apiKey) {
+                alert('Masukkan API Key!');
+                return;
+            }
+            
+            currentKeyword = keyword;
+            document.getElementById('statKeyword').innerHTML = keyword;
+            
+            // Reset & show progress
+            document.getElementById('progressBlock').style.display = 'block';
+            document.getElementById('progressFill').style.width = '20%';
+            document.getElementById('progressPercent').innerHTML = '20%';
+            document.getElementById('progressStatus').innerHTML = '📡 Menghubungi Google Books API...';
+            
+            try {
+                // Google Books API - maxResults WAJIB 40 [citation:4]
+                const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(keyword)}&maxResults=40&key=${apiKey}`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error.message || 'Error dari Google Books API');
+                }
+                
+                if (!data.items || data.items.length === 0) {
+                    throw new Error('Tidak ada buku ditemukan untuk keyword ini');
+                }
+                
+                document.getElementById('progressFill').style.width = '60%';
+                document.getElementById('progressPercent').innerHTML = '60%';
+                document.getElementById('progressStatus').innerHTML = `📚 Memproses ${data.items.length} buku...`;
+                
+                // Batasi maksimal 40 (sebenarnya API sudah batasi, tapi jaga-jaga)
+                const items = data.items.slice(0, 40);
+                currentBooks = items;
+                
+                // Update stat
+                document.getElementById('statTotal').innerHTML = items.length;
+                document.getElementById('fileCounter').innerHTML = `${items.length} buku`;
+                document.getElementById('statSize').innerHTML = ((items.length * 35) / 1000).toFixed(1) + ' MB';
+                
+                // Tampilkan preview grid
+                displayBookGrid(items);
+                
+                // Enable download buttons
+                document.getElementById('downloadBtn').disabled = false;
+                document.getElementById('sitemapBtn').disabled = false;
+                
+                document.getElementById('progressFill').style.width = '100%';
+                document.getElementById('progressPercent').innerHTML = '100%';
+                document.getElementById('progressStatus').innerHTML = '✅ Selesai! 40 buku siap didownload';
+                
+            } catch (error) {
+                console.error(error);
+                alert('❌ Error: ' + error.message);
+                document.getElementById('progressBlock').style.display = 'none';
+            }
+        }
+        
+        function displayBookGrid(books) {
+            const grid = document.getElementById('bookPreviewGrid');
+            
+            let html = '';
+            books.slice(0, 8).forEach((book, index) => { // Preview 8 buku pertama
+                const volumeInfo = book.volumeInfo || {};
+                const title = volumeInfo.title || 'No Title';
+                const authors = volumeInfo.authors ? volumeInfo.authors.join(', ') : 'Unknown Author';
+                let cover = volumeInfo.imageLinks ? 
+                    (volumeInfo.imageLinks.thumbnail || volumeInfo.imageLinks.smallThumbnail) : 
+                    'https://via.placeholder.com/128x192?text=No+Cover';
+                
+                // Force HTTPS
+                if (cover && cover.startsWith('http:')) {
+                    cover = cover.replace('http:', 'https:');
+                }
+                
+                html += `
+                    <div class="book-card">
+                        <img class="book-cover" src="${cover}" alt="${title}" onerror="this.src='https://via.placeholder.com/128x192?text=No+Cover'">
+                        <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 4px;">${title.substring(0, 30)}${title.length > 30 ? '...' : ''}</div>
+                        <div style="color: #666; font-size: 0.75rem;">${authors.substring(0, 25)}...</div>
+                        <div style="margin-top: 8px;"><span class="badge" style="background: #3498db; font-size: 0.65rem;">ID: ${book.id || '-'}</span></div>
+                    </div>
+                `;
+            });
+            
+            if (books.length > 8) {
+                html += `<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #7f8c8d;">
+                    ... dan ${books.length - 8} buku lainnya (total ${books.length} buku)
+                </div>`;
+            }
+            
+            grid.innerHTML = html;
+        }
+        
+        async function downloadAllBooks() {
+            if (currentBooks.length === 0) {
+                alert('Tidak ada buku untuk didownload');
+                return;
+            }
+            
+            document.getElementById('progressBlock').style.display = 'block';
+            document.getElementById('progressFill').style.width = '30%';
+            document.getElementById('progressPercent').innerHTML = '30%';
+            document.getElementById('progressStatus').innerHTML = '📦 Membuat file HTML...';
+            
+            const zip = new JSZip();
+            const folderName = currentKeyword.replace(/\s+/g, '-').toLowerCase();
+            const folder = zip.folder(folderName);
+            
+            const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+            const adsScript = document.getElementById('adsScript').value;
+            const histatsScript = document.getElementById('histatsScript').value;
+            
+            generatedHTML = [];
+            const sitemapUrls = [];
+            
+            for (let i = 0; i < currentBooks.length; i++) {
+                const book = currentBooks[i];
+                const volumeInfo = book.volumeInfo || {};
+                const accessInfo = book.accessInfo || {};
+                
+                // Generate ID unik
+                const uniqueId = generateId();
+                
+                // Data buku
+                const title = volumeInfo.title || 'Untitled';
+                const authors = volumeInfo.authors ? volumeInfo.authors.join(', ') : 'Unknown Author';
+                const publisher = volumeInfo.publisher || 'Unknown Publisher';
+                const publishedDate = volumeInfo.publishedDate || 'Unknown Date';
+                const description = volumeInfo.description || 'No description available.';
+                const pageCount = volumeInfo.pageCount || 'N/A';
+                const categories = volumeInfo.categories ? volumeInfo.categories.join(', ') : 'Uncategorized';
+                const averageRating = volumeInfo.averageRating || 'N/A';
+                const ratingsCount = volumeInfo.ratingsCount || 0;
+                
+                // Cover
+                let coverUrl = volumeInfo.imageLinks ? 
+                    (volumeInfo.imageLinks.thumbnail || volumeInfo.imageLinks.smallThumbnail) : 
+                    'https://via.placeholder.com/128x192?text=No+Cover';
+                if (coverUrl.startsWith('http:')) coverUrl = coverUrl.replace('http:', 'https:');
+                
+                // Preview link
+                const previewLink = volumeInfo.previewLink || `https://books.google.com/books?id=${book.id}`;
+                const infoLink = volumeInfo.infoLink || previewLink;
+                
+                // Slug untuk filename
+                const slug = title.toLowerCase()
+                    .replace(/[^\w\s]/gi, '')
+                    .replace(/\s+/g, '-')
+                    .substring(0, 50);
+                
+                const filename = `${slug}-${uniqueId}.html`;
+                const canonicalUrl = `https://${domain}/books/${folderName}/${filename}`;
+                
+                // Generate HTML
+                const html = generateBookHTML(
+                    title, authors, publisher, publishedDate, description, 
+                    pageCount, categories, averageRating, ratingsCount,
+                    coverUrl, previewLink, infoLink, book.id, uniqueId,
+                    canonicalUrl, domain, adsScript, histatsScript
+                );
+                
+                folder.file(filename, html);
+                
+                generatedHTML.push({
+                    title: title,
+                    filename: filename,
+                    url: canonicalUrl,
+                    id: book.id,
+                    uniqueId: uniqueId
+                });
+                
+                sitemapUrls.push(canonicalUrl);
+                
+                // Update progress
+                const progress = 30 + ((i + 1) / currentBooks.length * 60);
+                document.getElementById('progressFill').style.width = progress + '%';
+                document.getElementById('progressPercent').innerHTML = Math.round(progress) + '%';
+                document.getElementById('progressStatus').innerHTML = `📝 Membuat file ${i+1}/${currentBooks.length}...`;
+                
+                await new Promise(r => setTimeout(r, 5));
+            }
+            
+            // Generate sitemap.xml
+            const sitemap = generateSitemap(sitemapUrls, domain);
+            folder.file('sitemap.xml', sitemap);
+            
+            // Generate index.html (daftar semua buku)
+            const indexHtml = generateIndexHTML(currentBooks, domain, folderName);
+            folder.file('index.html', indexHtml);
+            
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressPercent').innerHTML = '100%';
+            document.getElementById('progressStatus').innerHTML = '✅ Selesai! Download ZIP...';
+            
+            // Download ZIP
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+            saveAs(zipBlob, `${folderName}-${currentBooks.length}buku-${Date.now()}.zip`);
+        }
+        
+        function generateId() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+            let id = '';
+            for (let i = 0; i < 6; i++) {
+                id += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return id;
+        }
+        
+        function generateBookHTML(title, authors, publisher, publishedDate, description, 
+                                 pageCount, categories, averageRating, ratingsCount,
+                                 coverUrl, previewLink, infoLink, bookId, uniqueId,
+                                 canonicalUrl, domain, adsScript, histatsScript) {
+            
+            const year = new Date().getFullYear();
+            const today = new Date().toLocaleDateString('en-US', { 
+                day: 'numeric', month: 'long', year: 'numeric' 
+            });
+            
+            // Bersihkan description dari HTML
+            const cleanDesc = description.replace(/<[^>]*>/g, '').substring(0, 300);
+            
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} - ${authors} [${uniqueId}]</title>
+    <meta name="description" content="${cleanDesc}">
+    <meta name="keywords" content="${title}, ${authors}, ${publisher}, book review">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="${canonicalUrl}">
+    
+    <meta property="og:type" content="book">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="${cleanDesc}">
+    <meta property="og:image" content="${coverUrl}">
+    <meta property="og:url" content="${canonicalUrl}">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${title}">
+    <meta name="twitter:description" content="${cleanDesc}">
+    <meta name="twitter:image" content="${coverUrl}">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #2c3e50; line-height: 1.7; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+        .book-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); border: 1px solid #ecf0f1; }
+        .book-header { display: flex; gap: 35px; margin-bottom: 40px; flex-wrap: wrap; }
+        .cover { flex: 0 0 200px; }
+        .cover img { width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .info { flex: 1; }
+        h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; color: #1a2e3c; line-height: 1.2; }
+        .meta { color: #5a6f7a; margin-bottom: 20px; }
+        .meta-item { margin-bottom: 8px; }
+        .badge { display: inline-block; background: #3498db; color: white; padding: 5px 16px; border-radius: 30px; font-size: 0.8rem; margin-right: 10px; }
+        .description { margin: 30px 0; padding: 25px; background: #f8fafc; border-radius: 16px; border-left: 5px solid #3498db; }
+        .ads { margin: 40px 0; padding: 25px; background: #fef9e7; border-radius: 16px; text-align: center; border: 1px dashed #f39c12; }
+        .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #ecf0f1; color: #7f8c8d; text-align: center; }
+        .id-badge { background: #1a2e3c; color: white; padding: 5px 18px; border-radius: 30px; display: inline-block; margin-bottom: 20px; }
+        @media (max-width: 768px) { .book-header { flex-direction: column; } h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-card">
+            
+            <div class="ads">${adsScript}</div>
+            
+            <span class="id-badge">🔢 ID: ${uniqueId} · Google Books</span>
+            
+            <div class="book-header">
+                <div class="cover">
+                    <img src="${coverUrl}" alt="${title}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
+                </div>
+                <div class="info">
+                    <h1>${title}</h1>
+                    <div class="meta">
+                        <div class="meta-item"><strong>Author:</strong> ${authors}</div>
+                        <div class="meta-item"><strong>Publisher:</strong> ${publisher}</div>
+                        <div class="meta-item"><strong>Published:</strong> ${publishedDate}</div>
+                        <div class="meta-item"><strong>Pages:</strong> ${pageCount}</div>
+                        <div class="meta-item"><strong>Categories:</strong> ${categories}</div>
+                        ${averageRating !== 'N/A' ? `<div class="meta-item"><strong>Rating:</strong> ⭐ ${averageRating} (${ratingsCount} reviews)</div>` : ''}
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="${previewLink}" target="_blank" rel="nofollow" style="background: #3498db; color: white; padding: 12px 28px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block;">📖 Preview on Google Books</a>
+                        <a href="${infoLink}" target="_blank" rel="nofollow" style="background: #1a2e3c; color: white; padding: 12px 28px; border-radius: 40px; text-decoration: none; font-weight: 600; display: inline-block; margin-left: 10px;">🔗 More Info</a>
                     </div>
                 </div>
-            `).join('');
-
-            resultsDiv.style.display = 'block';
-        }
-
-        function updateStatistics(books) {
-            const statsDiv = document.getElementById('statistics');
+            </div>
             
-            if (books.length > 0) {
-                // Hitung statistik
-                const totalBooks = books.length;
-                
-                const authors = new Set();
-                books.forEach(book => {
-                    book.author.split(', ').forEach(author => {
-                        if (author !== 'Unknown Author') authors.add(author);
-                    });
-                });
-                
-                const ratings = books.filter(b => b.averageRating !== 'No rating')
-                                   .map(b => parseFloat(b.averageRating));
-                const avgRating = ratings.length > 0 
-                    ? (ratings.reduce((a,b) => a + b, 0) / ratings.length).toFixed(1)
-                    : 'N/A';
-
-                document.getElementById('totalBooks').textContent = totalBooks;
-                document.getElementById('uniqueAuthors').textContent = authors.size;
-                document.getElementById('avgRating').textContent = avgRating;
-
-                statsDiv.style.display = 'flex';
-            } else {
-                statsDiv.style.display = 'none';
-            }
+            <div class="description">
+                <h2 style="margin-bottom: 15px; font-size: 1.3rem;">📖 Description</h2>
+                <p style="margin-bottom: 15px;">${description}</p>
+                <p style="color: #3498db; margin-top: 15px;"><strong>Google Books ID:</strong> ${bookId}</p>
+            </div>
+            
+            <div class="ads">${adsScript}</div>
+            
+            <div class="footer">
+                <p>© ${year} ${domain} · All rights reserved</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Source: Google Books API · ID: ${uniqueId}</p>
+            </div>
+        </div>
+    </div>
+    
+    ${histatsScript}
+</body>
+</html>`;
         }
-
-        function exportToCSV() {
-            if (currentBooks.length === 0) {
-                showError('Tidak ada data untuk diexport');
+        
+        function generateSitemap(urls, domain) {
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+            
+            urls.forEach(url => {
+                xml += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+            });
+            
+            xml += `</urlset>`;
+            return xml;
+        }
+        
+        function generateIndexHTML(books, domain, folderName) {
+            let html = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Books Collection - ${folderName}</title>
+<style>
+    body { font-family: Arial; padding: 30px; background: #f8f9fa; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 20px; }
+    .card { background: white; border-radius: 12px; padding: 16px; border: 1px solid #e0e0e0; }
+    img { width: 100%; height: 200px; object-fit: contain; }
+</style></head>
+<body>
+    <h1>📚 ${books.length} Books from Google Books API</h1>
+    <div class="grid">`;
+            
+            books.forEach((book, i) => {
+                const v = book.volumeInfo || {};
+                const title = v.title || 'Untitled';
+                const cover = v.imageLinks?.thumbnail?.replace('http:', 'https:') || 'https://via.placeholder.com/128x192?text=No+Cover';
+                html += `<div class="card">
+                    <img src="${cover}">
+                    <h3>${title.substring(0,50)}</h3>
+                    <a href="book-${i}.html">Read More</a>
+                </div>`;
+            });
+            
+            html += `</div></body></html>`;
+            return html;
+        }
+        
+        function downloadSitemap() {
+            if (generatedHTML.length === 0) {
+                alert('Generate dulu!');
                 return;
             }
-
-            const headers = ['Title', 'Author', 'Book ID', 'Goodreads ID', 'Cover URL', 'Link', 'Rating', 'Page Count'];
-            const csvData = currentBooks.map(book => [
-                book.title,
-                book.author,
-                book.id,
-                book.goodreads_id,
-                book.cover_url,
-                book.link,
-                book.averageRating,
-                book.pageCount
-            ]);
-
-            let csv = headers.join(',') + '\n';
-            csv += csvData.map(row => 
-                row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',')
-            ).join('\n');
-
-            downloadFile(csv, 'goodreads_books.csv', 'text/csv');
+            
+            const urls = generatedHTML.map(b => b.url);
+            const sitemap = generateSitemap(urls, document.getElementById('domain').value);
+            const blob = new Blob([sitemap], { type: 'application/xml' });
+            saveAs(blob, `sitemap-${currentKeyword}-${Date.now()}.xml`);
         }
-
-        function exportToJSON() {
-            if (currentBooks.length === 0) {
-                showError('Tidak ada data untuk diexport');
-                return;
-            }
-
-            const json = JSON.stringify(currentBooks, null, 2);
-            downloadFile(json, 'goodreads_books.json', 'application/json');
-        }
-
-        function downloadFile(content, filename, type) {
-            const blob = new Blob([content], { type });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        function clearResults() {
-            currentBooks = [];
-            document.getElementById('booksGrid').innerHTML = '';
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('statistics').style.display = 'none';
-            document.getElementById('searchInput').value = '';
-        }
-
-        function showError(message) {
-            const errorDiv = document.getElementById('error');
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-            document.getElementById('loading').style.display = 'none';
-        }
-
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        // Load initial data
-        window.onload = function() {
-            // Auto search with default query
-            setTimeout(() => {
-                searchBooks();
-            }, 500);
-        };
     </script>
 </body>
 </html>
