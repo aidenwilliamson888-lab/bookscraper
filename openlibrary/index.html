@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 OPEN LIBRARY · FULL DESCRIPTION · COVER 100%</title>
+    <title>📚 OPEN LIBRARY · INSTANT COVER FALLBACK · NO LOOPING</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -93,11 +93,28 @@
         
         .cover-preview {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: contain;
             background: #f8fafc;
             border-radius: 8px;
             margin-bottom: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .nocover-preview {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(145deg, #e2e8f0, #d0d8e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #4a5a6a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #94a3b8;
         }
         
         .smartlink-section {
@@ -116,15 +133,13 @@
             margin: 30px 0;
         }
 
-        .description-preview {
-            background: #f0f7fa;
-            border-left: 4px solid #0a1a2a;
+        .description-format {
+            background: #e6f7e6;
+            border-left: 4px solid #1e8b4c;
             padding: 20px;
             border-radius: 12px;
             margin: 20px 0;
-            font-size: 0.9rem;
-            max-height: 200px;
-            overflow-y: auto;
+            font-size: 0.95rem;
         }
     </style>
     
@@ -134,13 +149,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 OPEN LIBRARY · FULL DESCRIPTION</h1>
+            <h1>📚 OPEN LIBRARY · INSTANT FALLBACK</h1>
             <p style="font-size: 1.1rem; color: #aad0e0; margin-bottom: 20px;">
-                ✅ COVER 100% WORKING · ✅ 5-7 PARAGRAPH DESCRIPTION · ✅ CLOUDFLARE PAGES READY
+                ✅ NO COVER = LANGSUNG FALLBACK · ✅ TIDAK LOADING MUTER · ✅ FORMAT DESKRIPSI BARU
             </p>
             <div>
-                <span class="badge">🖼️ Triple Cover Fallback</span>
-                <span class="badge">📖 Full Book Description</span>
+                <span class="badge">🖼️ Instant No Cover</span>
+                <span class="badge">📖 Download or Read Online {title} ...</span>
                 <span class="badge">🔗 title-by-author-8random.html</span>
             </div>
         </div>
@@ -167,6 +182,16 @@
                         <option value="50">50 books</option>
                         <option value="100" selected>100 books</option>
                     </select>
+                </div>
+
+                <!-- DESCRIPTION FORMAT PREVIEW -->
+                <div class="description-format">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <span style="background: #1e8b4c; color: white; padding: 6px 20px; border-radius: 60px; font-weight: bold;">📖 NEW DESCRIPTION FORMAT</span>
+                    </div>
+                    <p style="font-family: monospace; background: white; padding: 15px; border-radius: 8px;">
+                        Download or Read Online <strong>Python Programming</strong> ebook (PDF ePub Mobi) - <strong>John Smith</strong>, published in <strong>2020</strong>.
+                    </p>
                 </div>
 
                 <!-- SMARTLINK -->
@@ -211,7 +236,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
                 
                 <button onclick="fetchBooks()" class="btn">
-                    📥 FETCH 100 BOOKS + FULL DESCRIPTIONS
+                    📥 FETCH 100 BOOKS + INSTANT COVER FALLBACK
                 </button>
                 
                 <div id="progressBlock" style="display: none; margin-top: 25px;">
@@ -237,25 +262,25 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- COVER STATS -->
                 <div id="coverStats" style="display: none; background: #f8fcff; border-radius: 16px; padding: 20px; margin-bottom: 20px;">
                     <span style="font-weight: 700;">🖼️ COVER STATUS:</span>
-                    <div style="display: flex; gap: 20px; margin-top: 10px;">
+                    <div style="display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap;">
                         <span id="statCoverId" style="color: #1e8b4c;">✅ Cover ID: 0</span>
                         <span id="statCoverEdition" style="color: #2980b9;">📚 Cover Edition: 0</span>
                         <span id="statCoverIsbn" style="color: #9b59b6;">📘 ISBN: 0</span>
-                        <span id="statPlaceholder" style="color: #e67e22;">🖼️ Placeholder: 0</span>
+                        <span id="statNoCover" style="color: #e67e22;">🚫 No Cover (Fallback): 0</span>
                     </div>
                 </div>
                 
                 <!-- PREVIEW GRID -->
                 <div id="bookGridPreview" class="book-preview-grid" style="min-height: 400px;">
                     <div style="grid-column: 1/-1; text-align: center; color: #6c7a89; padding: 60px;">
-                        ⏳ Generate to see books with full descriptions
+                        ⏳ Generate to see books with instant cover fallback
                     </div>
                 </div>
                 
                 <!-- DESCRIPTION PREVIEW -->
                 <div id="descriptionPreview" style="display: none; margin-top: 25px;">
                     <span style="font-weight: 700;">📖 DESCRIPTION PREVIEW (First Book):</span>
-                    <div id="descriptionText" class="description-preview">
+                    <div id="descriptionText" style="background: #f0f7fa; border-left: 4px solid #0a1a2a; padding: 20px; border-radius: 12px; margin-top: 10px; font-size: 0.95rem;">
                         Loading description...
                     </div>
                 </div>
@@ -274,14 +299,13 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
     <script>
         // ============================================
-        // OPEN LIBRARY - FULL DESCRIPTION GENERATOR
-        // COVER 100% WORKING - 5 LEVEL FALLBACK
-        // 5-7 PARAGRAPH DESCRIPTION FROM REAL DATA
+        // OPEN LIBRARY - INSTANT COVER FALLBACK
+        // TIDAK ADA LOOPING - LANGSUNG FALLBACK
+        // FORMAT DESKRIPSI: Download or Read Online...
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
         const OPEN_LIBRARY_SEARCH = 'https://openlibrary.org/search.json';
-        const OPEN_LIBRARY_WORKS = 'https://openlibrary.org/works';
         
         // 6 TITLE FORMATS
         const TITLE_FORMATS = [
@@ -309,18 +333,18 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
         
         // ============================================
-        // COVER FALLBACK SYSTEM - 5 LEVELS
+        // INSTANT COVER FALLBACK - TIDAK ADA LOOPING
         // ============================================
-        let coverStats = { coverId: 0, coverEdition: 0, isbn: 0, placeholder: 0 };
+        let coverStats = { coverId: 0, coverEdition: 0, isbn: 0, noCover: 0 };
         
-        async function getCoverWithFallback(book) {
+        function getCoverUrl(book) {
             // LEVEL 1: Cover ID (Best Quality)
             if (book.cover_i) {
                 coverStats.coverId++;
                 return { 
                     url: `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`, 
                     source: 'Cover ID',
-                    retry: 0
+                    hasCover: true
                 };
             }
             
@@ -330,158 +354,71 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 return { 
                     url: `https://covers.openlibrary.org/b/olid/${book.cover_edition_key}-L.jpg`, 
                     source: 'Cover Edition',
-                    retry: 0
+                    hasCover: true
                 };
             }
             
-            // LEVEL 3: ISBN (Medium Quality)
+            // LEVEL 3: ISBN
             if (book.isbn && book.isbn.length > 0) {
                 coverStats.isbn++;
                 return { 
                     url: `https://covers.openlibrary.org/b/isbn/${book.isbn[0]}-L.jpg`, 
                     source: 'ISBN',
-                    retry: 0
+                    hasCover: true
                 };
             }
             
-            // LEVEL 4: Open Library ID (Fallback)
-            if (book.edition_key && book.edition_key.length > 0) {
-                coverStats.coverEdition++;
-                return { 
-                    url: `https://covers.openlibrary.org/b/olid/${book.edition_key[0]}-L.jpg`, 
-                    source: 'Edition Key',
-                    retry: 0
-                };
-            }
-            
-            // LEVEL 5: Placeholder with Title (100% Working)
-            coverStats.placeholder++;
-            const cleanTitle = encodeURIComponent((book.title || 'Book').substring(0, 30).replace(/[^\w\s]/g, ''));
-            const colors = ['0a1a2a', '1e3a4a', '2c5a6a', '3a6a7a', '4a7a8a'];
-            return { 
-                url: `https://via.placeholder.com/400x600/${colors[Math.floor(Math.random() * colors.length)]}/FFFFFF?text=${cleanTitle}`,
-                source: 'Placeholder',
-                retry: 0
+            // LEVEL 4: NO COVER - LANGSUNG FALLBACK, TIDAK FETCH LAGI!
+            coverStats.noCover++;
+            return {
+                url: null,
+                source: 'No Cover',
+                hasCover: false
             };
         }
         
         // ============================================
-        // DESCRIPTION GENERATOR - 5-7 PARAGRAPHS
+        // DESCRIPTION GENERATOR - FORMAT BARU
         // ============================================
-        async function getBookDescription(book) {
-            let description = '';
+        function generateDescription(book) {
+            const title = book.title || 'Untitled';
+            const author = book.author_name ? book.author_name[0] : 'Unknown Author';
+            const year = book.first_publish_year || (book.publish_year ? book.publish_year[0] : 'Unknown Year');
             
-            // TRY 1: Get from first_sentence
-            if (book.first_sentence && book.first_sentence.length > 0) {
-                description += book.first_sentence[0] + ' ';
-            }
+            // FORMAT WAJIB: Download or Read Online {title} ebook (PDF ePub Mobi) - {author}, published in {year}.
+            let desc = `<p><strong>Download or Read Online ${title} ebook (PDF ePub Mobi) - ${author}, published in ${year}.</strong></p>`;
             
-            // TRY 2: Get from subject (tags/categories)
+            // Tambah deskripsi tambahan dari Open Library
             if (book.subject && book.subject.length > 0) {
-                let subjects = book.subject.slice(0, 8).join(', ');
-                description += `This book covers topics including: ${subjects}. `;
+                let subjects = book.subject.slice(0, 5).join(', ');
+                desc += `<p>This book covers topics including: ${subjects}.</p>`;
             }
             
-            // TRY 3: Get from place/time (if available)
+            if (book.first_sentence && book.first_sentence.length > 0) {
+                desc += `<p>${book.first_sentence[0]}</p>`;
+            }
+            
             if (book.place && book.place.length > 0) {
-                description += `Set in ${book.place.slice(0, 3).join(', ')}. `;
+                desc += `<p>Set in ${book.place.slice(0, 3).join(', ')}.</p>`;
             }
+            
             if (book.time && book.time.length > 0) {
-                description += `Time period: ${book.time.slice(0, 2).join(', ')}. `;
+                desc += `<p>Time period: ${book.time.slice(0, 2).join(', ')}.</p>`;
             }
             
-            // TRY 4: Get from person/characters
             if (book.person && book.person.length > 0) {
-                description += `Features ${book.person.slice(0, 3).join(', ')}. `;
+                desc += `<p>Features: ${book.person.slice(0, 3).join(', ')}.</p>`;
             }
             
-            // If we have enough description, format it into paragraphs
-            if (description.length > 100) {
-                return formatParagraphs(description, book);
-            }
-            
-            // TRY 5: Fetch from works API (detailed description)
-            if (book.key) {
-                try {
-                    const workUrl = `${OPEN_LIBRARY_WORKS}${book.key}.json`;
-                    const proxyUrl = CORS_PROXY + encodeURIComponent(workUrl);
-                    const response = await fetch(proxyUrl);
-                    const workData = await response.json();
-                    
-                    if (workData.description) {
-                        if (typeof workData.description === 'string') {
-                            description = workData.description;
-                        } else if (workData.description.value) {
-                            description = workData.description.value;
-                        }
-                    }
-                } catch (e) {
-                    // Silent fail, use generated description
-                }
-            }
-            
-            // If still no description, generate from title and author
-            if (description.length < 50) {
-                description = generateSmartDescription(book);
-            }
-            
-            return formatParagraphs(description, book);
-        }
-        
-        function formatParagraphs(text, book) {
-            // Split into sentences
-            let sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 20);
-            
-            // If not enough sentences, generate more
-            while (sentences.length < 5) {
-                sentences.push(generateParagraph(book, sentences.length));
-            }
-            
-            // Group into 5-7 paragraphs (2-3 sentences each)
-            let paragraphs = [];
-            for (let i = 0; i < Math.min(7, sentences.length); i += 2) {
-                let paragraph = sentences.slice(i, i + 2).join('. ') + '.';
-                paragraphs.push(`<p>${paragraph}</p>`);
-            }
-            
-            return paragraphs.join('\n');
-        }
-        
-        function generateParagraph(book, index) {
-            const templates = [
-                `This book by ${book.author_name ? book.author_name[0] : 'the author'} has been highly regarded by readers worldwide.`,
-                `Published in ${book.first_publish_year || 'recent years'}, it continues to be a valuable resource.`,
-                `The work demonstrates deep understanding of ${book.subject ? book.subject[0] : 'its subject matter'}.`,
-                `Readers appreciate the clear writing style and comprehensive coverage.`,
-                `This edition is part of the Open Library collection, making knowledge accessible to everyone.`,
-                `Whether you're a beginner or expert, this book offers valuable insights.`,
-                `The author's expertise shines through every chapter.`,
-                `Many consider this among the best books in its category.`,
-                `Download and read this book to expand your understanding.`,
-                `Join thousands of readers who have benefited from this work.`
-            ];
-            return templates[index % templates.length];
-        }
-        
-        function generateSmartDescription(book) {
-            let desc = '';
-            const title = book.title || 'This book';
-            const author = book.author_name ? book.author_name[0] : 'the author';
-            const year = book.first_publish_year || 'recent years';
-            const subject = book.subject ? book.subject.slice(0, 3).join(', ') : 'various topics';
-            
-            desc += `${title} is a significant work by ${author}, published in ${year}. `;
-            desc += `This book covers ${subject} in depth, providing readers with comprehensive knowledge and insights. `;
-            desc += `The author's expertise and clear writing style make complex topics accessible. `;
-            desc += `Whether you're a student, professional, or enthusiast, this book serves as an invaluable resource. `;
-            desc += `Available now through Open Library, you can read it online or download in multiple formats. `;
-            desc += `Join the community of readers who have benefited from this remarkable work.`;
+            // Tambah paragraf standar
+            desc += `<p>This book is available in multiple digital formats including PDF, EPUB, and MOBI. You can read it online for free or download it from Open Library.</p>`;
+            desc += `<p>${author} has crafted a comprehensive work that has been appreciated by readers worldwide. Whether you're a beginner or an expert, this book provides valuable insights into ${book.subject ? book.subject[0] : 'its subject matter'}.</p>`;
             
             return desc;
         }
         
         // ============================================
-        // MAIN FETCH FUNCTION
+        // MAIN FETCH FUNCTION - INSTANT COVER
         // ============================================
         let books = [];
         
@@ -495,7 +432,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             }
             
             books = [];
-            coverStats = { coverId: 0, coverEdition: 0, isbn: 0, placeholder: 0 };
+            coverStats = { coverId: 0, coverEdition: 0, isbn: 0, noCover: 0 };
             
             document.getElementById('progressBlock').style.display = 'block';
             document.getElementById('progressFill').style.width = '10%';
@@ -516,7 +453,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 
                 document.getElementById('progressFill').style.width = '30%';
                 document.getElementById('progressPercent').innerHTML = '30%';
-                document.getElementById('progressStatus').innerHTML = '🖼️ Processing covers and descriptions...';
+                document.getElementById('progressStatus').innerHTML = '🖼️ Processing covers (instant fallback)...';
                 
                 const docs = data.docs.slice(0, limit);
                 
@@ -529,11 +466,11 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     const publisher = doc.publisher ? doc.publisher[0] : 'Unknown Publisher';
                     const publishYear = doc.first_publish_year || (doc.publish_year ? doc.publish_year[0] : 'Unknown');
                     
-                    // Get cover with fallback
-                    const coverData = await getCoverWithFallback(doc);
+                    // GET COVER - INSTANT, TIDAK ADA LOOPING
+                    const coverData = getCoverUrl(doc);
                     
-                    // Get full description (5-7 paragraphs)
-                    const description = await getBookDescription(doc);
+                    // Generate description dengan FORMAT WAJIB
+                    const description = generateDescription(doc);
                     
                     // Generate formatted title and slug
                     const formatIndex = Math.floor(Math.random() * TITLE_FORMATS.length);
@@ -548,6 +485,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                         year: publishYear,
                         coverUrl: coverData.url,
                         coverSource: coverData.source,
+                        hasCover: coverData.hasCover,
                         description: description,
                         formattedTitle: formattedTitle,
                         filename: slug,
@@ -562,7 +500,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     document.getElementById('progressPercent').innerHTML = Math.round(progress) + '%';
                     document.getElementById('progressStatus').innerHTML = `📚 Processing ${i+1}/${docs.length}: ${title.substring(0, 30)}...`;
                     
-                    await new Promise(r => setTimeout(r, 5));
+                    await new Promise(r => setTimeout(r, 2));
                 }
                 
                 // Update UI
@@ -575,22 +513,37 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 document.getElementById('statCoverId').innerHTML = `✅ Cover ID: ${coverStats.coverId}`;
                 document.getElementById('statCoverEdition').innerHTML = `📚 Cover Edition: ${coverStats.coverEdition}`;
                 document.getElementById('statCoverIsbn').innerHTML = `📘 ISBN: ${coverStats.isbn}`;
-                document.getElementById('statPlaceholder').innerHTML = `🖼️ Placeholder: ${coverStats.placeholder}`;
+                document.getElementById('statNoCover').innerHTML = `🚫 No Cover (Fallback): ${coverStats.noCover}`;
                 
                 // Preview grid
                 let previewHtml = '';
                 books.slice(0, 8).forEach(book => {
-                    previewHtml += `
-                        <div style="background: white; border-radius: 16px; padding: 16px; border: 1px solid #ecf1f5;">
-                            <img class="cover-preview" src="${book.coverUrl}" alt="${book.title}" 
-                                 onerror="this.src='https://via.placeholder.com/400x600/0a1a2a/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
-                            <div style="font-weight: 600; font-size: 0.85rem;">${book.title.substring(0, 35)}...</div>
-                            <div style="font-size: 0.75rem; color: #4a5a6a;">${book.author}</div>
-                            <span style="display: inline-block; padding: 4px 10px; border-radius: 30px; font-size: 0.65rem; background: #e8f0f5; margin-top: 8px;">
-                                ${book.coverSource}
-                            </span>
-                        </div>
-                    `;
+                    if (book.hasCover) {
+                        previewHtml += `
+                            <div style="background: white; border-radius: 16px; padding: 16px; border: 1px solid #ecf1f5;">
+                                <img class="cover-preview" src="${book.coverUrl}" alt="${book.title}" 
+                                     onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">
+                                <div style="font-weight: 600; font-size: 0.85rem;">${book.title.substring(0, 35)}...</div>
+                                <div style="font-size: 0.75rem; color: #4a5a6a;">${book.author}</div>
+                                <span style="display: inline-block; padding: 4px 10px; border-radius: 30px; font-size: 0.65rem; background: #e8f0f5; margin-top: 8px;">
+                                    ✅ ${book.coverSource}
+                                </span>
+                            </div>
+                        `;
+                    } else {
+                        previewHtml += `
+                            <div style="background: white; border-radius: 16px; padding: 16px; border: 1px solid #ecf1f5;">
+                                <div class="nocover-preview">
+                                    📘<br>${book.title.substring(0, 30)}<br>No Cover Available
+                                </div>
+                                <div style="font-weight: 600; font-size: 0.85rem; margin-top: 8px;">${book.title.substring(0, 35)}...</div>
+                                <div style="font-size: 0.75rem; color: #4a5a6a;">${book.author}</div>
+                                <span style="display: inline-block; padding: 4px 10px; border-radius: 30px; font-size: 0.65rem; background: #fee2e2; color: #991b1b; margin-top: 8px;">
+                                    🚫 No Cover
+                                </span>
+                            </div>
+                        `;
+                    }
                 });
                 document.getElementById('bookGridPreview').innerHTML = previewHtml;
                 
@@ -618,45 +571,59 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             const year = new Date().getFullYear();
             const today = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
             
+            // Cover HTML - Jika tidak ada cover, tampilkan No Cover box
+            let coverHtml = '';
+            if (book.hasCover) {
+                coverHtml = `<img src="${book.coverUrl}" alt="${book.title} Cover" 
+                             onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">`;
+            } else {
+                coverHtml = `<div style="width: 100%; height: 100%; min-height: 300px; background: linear-gradient(145deg, #e2e8f0, #d0d8e0); 
+                            display: flex; align-items: center; justify-content: center; border-radius: 16px; 
+                            color: #334e68; font-weight: 600; text-align: center; padding: 20px; border: 2px dashed #94a3b8;">
+                            <div>📘<br>${book.title}<br><span style="font-size: 0.9rem;">No Cover Available</span></div>
+                        </div>`;
+            }
+            
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${book.formattedTitle}</title>
-    <meta name="description" content="Download ${book.title} by ${book.author}. Free PDF, EPUB formats available. ${book.description.replace(/<[^>]*>/g, '').substring(0, 160)}">
+    <meta name="description" content="Download or Read Online ${book.title} ebook (PDF ePub Mobi) - ${book.author}, published in ${book.year}.">
     <meta name="keywords" content="${book.title}, ${book.author}, download book, free pdf, epub download, open library">
     <link rel="canonical" href="https://${domain}/${book.filename}">
     
     <meta property="og:title" content="${book.formattedTitle}">
-    <meta property="og:description" content="Download ${book.title} by ${book.author}. Free PDF/EPUB.">
-    <meta property="og:image" content="${book.coverUrl}">
+    <meta property="og:description" content="Download or Read Online ${book.title} ebook (PDF ePub Mobi) - ${book.author}, published in ${book.year}.">
+    <meta property="og:image" content="${book.hasCover ? book.coverUrl : `https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover`}">
     <meta property="og:url" content="https://${domain}/${book.filename}">
     <meta property="og:type" content="book">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${book.formattedTitle}">
-    <meta name="twitter:description" content="Download ${book.title} by ${book.author} - Free PDF/EPUB">
-    <meta name="twitter:image" content="${book.coverUrl}">
+    <meta name="twitter:description" content="Download or Read Online ${book.title} ebook (PDF ePub Mobi) - ${book.author}, published in ${book.year}.">
+    <meta name="twitter:image" content="${book.hasCover ? book.coverUrl : `https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover`}">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fcff; padding: 30px 20px; }
         .container { max-width: 1100px; margin: 0 auto; }
-        .card { background: white; border-radius: 32px; padding: 45px; border: 1px solid #ecf1f5; }
+        .card { background: white; border-radius: 32px; padding: 45px; border: 1px solid #ecf1f5; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
         .header { display: flex; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
         .cover { flex: 0 0 250px; }
-        .cover img { width: 100%; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .cover img, .cover div { width: 100%; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; color: #0a1a2a; line-height: 1.2; }
         .meta { color: #4a5a6a; margin-bottom: 25px; font-size: 1.1rem; }
         .btn { padding: 16px 32px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: 0.2s; flex: 1; font-size: 1.1rem; }
         .btn-primary { background: #0a1a2a; color: white; }
-        .btn-primary:hover { background: #1e3a4a; transform: translateY(-3px); }
+        .btn-primary:hover { background: #1e3a4a; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(10,26,42,0.2); }
         .btn-ads { background: #f39c12; color: white; }
-        .btn-ads:hover { background: #e67e22; transform: translateY(-3px); }
+        .btn-ads:hover { background: #e67e22; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(243,156,18,0.2); }
         .button-group { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
         .description { background: #f8fcff; border-radius: 24px; padding: 30px; margin: 40px 0; border-left: 5px solid #0a1a2a; }
         .description p { margin-bottom: 20px; line-height: 1.7; }
+        .description strong { color: #0a1a2a; }
         .ads-container { margin: 40px 0; padding: 25px; background: #fff6e5; border-radius: 20px; text-align: center; border: 2px dashed #f39c12; }
         .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #ecf1f5; color: #5a6a7a; text-align: center; }
         .id-badge { display: inline-block; background: #0a1a2a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
@@ -671,12 +638,11 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 ${adsScript}
             </div>
             
-            <span class="id-badge">🔢 ID: ${book.id} · Open Library</span>
+            <span class="id-badge">🔢 ID: ${book.id} · Open Library · ${book.coverSource}</span>
             
             <div class="header">
                 <div class="cover">
-                    <img src="${book.coverUrl}" alt="${book.title} Cover" 
-                         onerror="this.src='https://via.placeholder.com/400x600/0a1a2a/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
+                    ${coverHtml}
                 </div>
                 <div class="info">
                     <h1>${book.formattedTitle}</h1>
@@ -706,7 +672,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <p><strong>Author:</strong> ${book.author}</p>
                 <p><strong>Publisher:</strong> ${book.publisher}</p>
                 <p><strong>Published:</strong> ${book.year}</p>
-                <p><strong>Cover Source:</strong> Open Library · ${book.coverSource}</p>
+                <p><strong>Cover Source:</strong> ${book.coverSource}</p>
                 <p><strong>Open Library ID:</strong> ${book.id}</p>
             </div>
             
@@ -760,6 +726,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 .card{background:white;border-radius:20px;padding:20px;border:1px solid #ecf1f5;transition:0.2s;}
                 .card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,0.05);}
                 img{width:100%;height:200px;object-fit:contain;margin-bottom:15px;}
+                .nocover{width:100%;height:200px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;border-radius:8px;color:#4a5a6a;margin-bottom:15px;}
                 a{text-decoration:none;color:#0a1a2a;font-weight:600;}
                 .btn{display:inline-block;background:#0a1a2a;color:white;padding:8px 20px;border-radius:40px;margin-top:15px;font-size:0.85rem;}
             </style>\n`;
@@ -770,7 +737,11 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             
             books.slice(0, 50).forEach(b => {
                 html += `<div class="card">\n`;
-                html += `<img src="${b.coverUrl}" alt="${b.title} Cover" onerror="this.src='https://via.placeholder.com/400x600/0a1a2a/FFFFFF?text=${encodeURIComponent(b.title.substring(0, 30))}'">\n`;
+                if (b.hasCover) {
+                    html += `<img src="${b.coverUrl}" alt="${b.title} Cover" onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">\n`;
+                } else {
+                    html += `<div class="nocover">📘<br>${b.title.substring(0, 30)}<br>No Cover</div>\n`;
+                }
                 html += `<h3 style="font-size:0.9rem;margin-bottom:6px;">${b.title.substring(0, 50)}${b.title.length > 50 ? '...' : ''}</h3>\n`;
                 html += `<p style="color:#4a5a6a;font-size:0.8rem;margin-bottom:10px;">${b.author}</p>\n`;
                 html += `<a href="${b.filename}" class="btn">📥 Download</a>\n`;
