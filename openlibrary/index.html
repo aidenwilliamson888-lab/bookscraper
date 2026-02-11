@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📥 OPEN LIBRARY LANDING PAGE GENERATOR - 100 BUKU/REQUEST</title>
+    <title>📥 OPEN LIBRARY · LANDING PAGE GENERATOR · RANDOM TITLES · 100% ENGLISH</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: linear-gradient(145deg, #f8fafc 0%, #eef2f6 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f0f4fa;
             padding: 30px 20px;
+            color: #1e293b;
         }
         .container { max-width: 1400px; margin: 0 auto; }
         
         .header {
-            background: linear-gradient(145deg, #0a2a3a, #0e3a4a);
+            background: linear-gradient(145deg, #0c1f2e, #123544);
             color: white;
             border-radius: 32px;
             padding: 45px;
             margin-bottom: 35px;
-            box-shadow: 0 20px 40px rgba(10,42,58,0.2);
+            box-shadow: 0 20px 30px rgba(0,20,30,0.2);
         }
         h1 { font-size: 2.6rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -0.02em; }
         .subhead {
             font-size: 1.2rem;
-            color: #b0e0e0;
+            color: #aad0e0;
             margin-bottom: 25px;
         }
         .badge {
@@ -33,12 +34,11 @@
             border-radius: 60px;
             font-weight: 600;
             margin-right: 15px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
         }
         .badge-success {
-            background: #27ae60;
+            background: #1e8b4c;
             color: white;
         }
         
@@ -53,18 +53,17 @@
             background: white;
             border-radius: 28px;
             padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.02);
-            border: 1px solid rgba(255,255,255,0.5);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
         }
         .card h2 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #0a2a3a;
-            border-bottom: 2px solid #ecf3fa;
+            color: #0c1f2e;
+            border-bottom: 2px solid #eef2f6;
             padding-bottom: 20px;
         }
         
@@ -73,26 +72,26 @@
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
-            color: #2c3e50;
+            color: #334e68;
             font-size: 0.95rem;
         }
         input, select, textarea {
             width: 100%;
             padding: 16px 20px;
-            border: 2px solid #e0e8f0;
+            border: 2px solid #dce5ec;
             border-radius: 16px;
             font-size: 1rem;
             transition: 0.2s;
             background: white;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #0a2a3a;
+            border-color: #0c1f2e;
             outline: none;
-            box-shadow: 0 0 0 4px rgba(10,42,58,0.05);
+            box-shadow: 0 0 0 4px rgba(12,31,46,0.05);
         }
         
         .btn {
-            background: #0a2a3a;
+            background: #0c1f2e;
             color: white;
             border: none;
             padding: 16px 28px;
@@ -108,72 +107,58 @@
             gap: 12px;
         }
         .btn:hover {
-            background: #1e4a5a;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(10,42,58,0.2);
+            background: #1e3a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(12,31,46,0.2);
         }
         .btn-success {
-            background: #27ae60;
-        }
-        .btn-warning {
-            background: #e67e22;
+            background: #1e8b4c;
         }
         
         .book-preview-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 20px;
             max-height: 600px;
             overflow-y: auto;
             padding: 15px;
-            background: #f8fbfe;
+            background: #f8fcff;
             border-radius: 20px;
-            border: 1px solid #e0e8f0;
+            border: 1px solid #e2e8f0;
         }
         
-        .book-card-preview {
+        .book-card {
             background: white;
             border-radius: 16px;
             padding: 16px;
-            border: 1px solid #ecf0f1;
+            border: 1px solid #ecf1f5;
             transition: 0.2s;
         }
-        .book-card-preview:hover {
-            border-color: #0a2a3a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        .book-card:hover {
+            border-color: #0c1f2e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.02);
         }
         
         .cover-preview {
             width: 100%;
-            height: 180px;
+            height: 160px;
             object-fit: contain;
-            background: #f8f9fa;
+            background: #f8fafc;
             border-radius: 8px;
             margin-bottom: 12px;
         }
         
         .stats-panel {
-            background: linear-gradient(145deg, #f8fbfe, #f0f5fa);
+            background: #f8fcff;
             border-radius: 20px;
             padding: 25px;
             margin-top: 25px;
-            border: 1px solid #d0e0f0;
-        }
-        .stats-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #d0e0f0;
-        }
-        .stats-value {
-            font-weight: 700;
-            color: #0a2a3a;
+            border: 1px solid #e2e8f0;
         }
         
         .filename-example {
-            background: #0a2a3a;
+            background: #0c1f2e;
             color: white;
             padding: 16px 20px;
             border-radius: 40px;
@@ -183,34 +168,22 @@
             word-break: break-all;
         }
         
-        .button-preview {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .btn-sample {
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            background: #f8f9fa;
-            border: 1px solid #d0e0f0;
-        }
-        .btn-sample-primary {
-            background: #0a2a3a;
-            color: white;
-        }
-        .btn-sample-ads {
-            background: #f39c12;
-            color: white;
-        }
-        
         .smartlink-section {
-            background: #fff9e6;
+            background: #fff6e5;
             border: 2px dashed #f39c12;
             border-radius: 20px;
             padding: 25px;
             margin: 30px 0;
+        }
+        
+        .title-format-badge {
+            display: inline-block;
+            background: #4a6a7a;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin: 0 5px 5px 0;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -222,13 +195,13 @@
         <div class="header">
             <h1>📥 OPEN LIBRARY · LANDING PAGE GENERATOR</h1>
             <p class="subhead">
-                Format: [Download|PDF|EPUB] Judul Buku by Penulis · 2 Button · SEO Ready
+                🎲 RANDOM TITLE FORMAT · 100% ENGLISH · 100 BOOKS/REQUEST
             </p>
             <div>
                 <span class="badge">📚 Open Library API</span>
-                <span class="badge">🎯 100 buku/request</span>
-                <span class="badge badge-success">🖼️ Cover 100% working</span>
-                <span class="badge">🔗 2 Button (Source + Smartlink)</span>
+                <span class="badge badge-success">🎲 6 Random Title Formats</span>
+                <span class="badge">🇺🇸 100% English</span>
+                <span class="badge">🖼️ Cover 100% Working</span>
             </div>
         </div>
 
@@ -238,89 +211,90 @@
             <div class="card">
                 <h2>
                     <span>⚙️</span>
-                    1. Konfigurasi Landing Page
+                    1. Configuration
                 </h2>
                 
                 <div class="form-group">
-                    <label>📚 Keyword Pencarian Buku</label>
-                    <input type="text" id="keyword" value="programming python" placeholder="Contoh: harry potter, tolkien, python programming">
-                    <p style="color: #27ae60; font-size: 0.85rem; margin-top: 6px;">
-                        ✅ Open Library API: 100 buku per request, tanpa API key
+                    <label>📚 Search Keyword (English)</label>
+                    <input type="text" id="keyword" value="programming python" placeholder="harry potter, tolkien, python, javascript">
+                    <p style="color: #1e8b4c; font-size: 0.85rem; margin-top: 6px;">
+                        ✅ Open Library API: 100 books per request, no API key required
                     </p>
                 </div>
                 
                 <div class="form-group">
-                    <label>🌐 Domain / Nama Situs</label>
-                    <input type="text" id="domain" value="download-buku-gratis.com" placeholder="namasituskamu.com">
+                    <label>🌐 Domain Name</label>
+                    <input type="text" id="domain" value="free-ebooks-download.com" placeholder="yourdomain.com">
                 </div>
                 
                 <div class="form-group">
-                    <label>📄 Format Judul File</label>
-                    <select id="titleFormat">
-                        <option value="1" selected>[Download] {title} by {author}</option>
-                        <option value="2">[PDF] {title} by {author}</option>
-                        <option value="3">[EPUB] {title} by {author}</option>
-                        <option value="4">[Download PDF] {title} by {author}</option>
-                        <option value="5">[Free Download] {title} by {author}</option>
-                        <option value="6">{title} by {author} [PDF/EPUB]</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>🔗 Limit Buku</label>
+                    <label>📄 Number of Books</label>
                     <select id="limit">
-                        <option value="20">20 buku</option>
-                        <option value="50">50 buku</option>
-                        <option value="100" selected>100 buku (maksimal)</option>
+                        <option value="20">20 books</option>
+                        <option value="50">50 books</option>
+                        <option value="100" selected>100 books (maximum)</option>
                     </select>
+                </div>
+                
+                <!-- TITLE FORMAT PREVIEW - RANDOM EACH BOOK -->
+                <div style="background: #e9f2f5; border-radius: 16px; padding: 20px; margin: 25px 0;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                        <span style="background: #0c1f2e; color: white; padding: 6px 20px; border-radius: 60px; font-weight: bold;">🎲 RANDOM TITLE FORMATS</span>
+                        <span style="color: #0c1f2e;">Each book gets RANDOM format from 6 variations</span>
+                    </div>
+                    <div>
+                        <span class="title-format-badge">[Download] {title} by {author}</span>
+                        <span class="title-format-badge">[PDF] {title} by {author}</span>
+                        <span class="title-format-badge">[EPUB] {title} by {author}</span>
+                        <span class="title-format-badge">[Download PDF] {title} by {author}</span>
+                        <span class="title-format-badge">[Free Download] {title} by {author}</span>
+                        <span class="title-format-badge">{title} by {author} [PDF/EPUB]</span>
+                    </div>
                 </div>
                 
                 <!-- SMARTLINK SECTION -->
                 <div class="smartlink-section">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <span style="background: #f39c12; color: white; padding: 6px 20px; border-radius: 60px; font-weight: bold;">💰 SMARTLINK ADS</span>
-                        <span style="color: #b45f06;">Button 2 akan mengarah ke link ini</span>
+                        <span style="color: #8a4d0e;">Button 2 will redirect to this link</span>
                     </div>
                     
                     <div class="form-group">
-                        <label>🔗 Smartlink URL (Adsterra / Adsense / Afiliasi)</label>
-                        <input type="text" id="smartlink" value="https://adsterra.com/referral/your-id" placeholder="https://smartlinkanda.com/ref=xxx">
-                        <p style="color: #666; font-size: 0.8rem; margin-top: 6px;">
-                            ⚡ Button "Download via Partner" akan menggunakan link ini
-                        </p>
+                        <label>🔗 Smartlink URL (Adsterra / Affiliate)</label>
+                        <input type="text" id="smartlink" value="https://adsterra.com/referral/your-id" placeholder="https://your-smartlink.com/ref=xxx">
                     </div>
                     
                     <div class="form-group">
-                        <label>📢 Teks Button Smartlink</label>
-                        <input type="text" id="buttonText" value="📥 Download via Partner (Fast Server)">
+                        <label>📢 Smartlink Button Text</label>
+                        <input type="text" id="buttonText" value="📥 Download via Fast Server">
                     </div>
                 </div>
                 
                 <!-- ADS SCRIPT -->
-                <div style="background: #f0f9ff; border: 1px dashed #3498db; border-radius: 20px; padding: 25px; margin: 30px 0;">
+                <div style="background: #f0f7fa; border: 1px dashed #3498db; border-radius: 20px; padding: 25px; margin: 30px 0;">
                     <label style="color: #1a4a5a;">📢 ADS SCRIPT (Header/Footer)</label>
-                    <textarea id="adsScript" rows="3" placeholder="&lt;!-- Script iklan Adsterra/Adsense --&gt;">&lt;div style=&quot;background: #0a2a3a; color: white; padding: 20px; border-radius: 12px; text-align: center;&quot;&gt;
-    📢 IKLAN ANDA DI SINI
+                    <textarea id="adsScript" rows="3" placeholder="&lt;!-- Adsterra / Adsense script --&gt;">&lt;div style=&quot;background: #0c1f2e; color: white; padding: 20px; border-radius: 12px; text-align: center;&quot;&gt;
+    📢 YOUR ADVERTISEMENT HERE
 &lt;/div&gt;</textarea>
                 </div>
                 
                 <button onclick="fetchOpenLibraryBooks()" class="btn">
-                    📥 AMBIL 100 BUKU DARI OPEN LIBRARY API
+                    📥 FETCH 100 BOOKS FROM OPEN LIBRARY API
                 </button>
                 
                 <div id="progressBlock" style="display: none; margin-top: 25px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span id="progressStatus">Memproses...</span>
+                        <span id="progressStatus">Processing...</span>
                         <span id="progressPercent">0%</span>
                     </div>
-                    <div style="width: 100%; height: 8px; background: #ecf0f1; border-radius: 10px; overflow: hidden;">
-                        <div id="progressFill" style="height: 100%; background: #27ae60; width: 0%; transition: width 0.25s;"></div>
+                    <div style="width: 100%; height: 8px; background: #ecf1f5; border-radius: 10px; overflow: hidden;">
+                        <div id="progressFill" style="height: 100%; background: #1e8b4c; width: 0%; transition: width 0.25s;"></div>
                     </div>
                 </div>
                 
-                <!-- CONTOH FILENAME -->
+                <!-- FILENAME EXAMPLE -->
                 <div class="filename-example" id="filenameExample">
-                    📄 [Download] Python Programming by John Smith - download-buku-gratis.com.html
+                    📄 [Download] Python Programming by John Smith - free-ebooks-download.com.html
                 </div>
             </div>
             
@@ -332,48 +306,39 @@
                 </h2>
                 
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <span style="font-weight: 700; font-size: 1.1rem;">📚 Buku Ditemukan:</span>
-                    <span id="bookCount" style="background: #0a2a3a; color: white; padding: 8px 24px; border-radius: 60px; font-weight: 600;">0</span>
+                    <span style="font-weight: 700; font-size: 1.1rem;">📚 Books Found:</span>
+                    <span id="bookCount" style="background: #0c1f2e; color: white; padding: 8px 24px; border-radius: 60px; font-weight: 600;">0</span>
                 </div>
                 
                 <!-- COVER STATS -->
-                <div id="coverStats" style="display: none; background: #f8fbfe; border-radius: 16px; padding: 20px; margin-bottom: 25px;">
-                    <span style="font-weight: 700;">🖼️ STATUS COVER:</span>
+                <div id="coverStats" style="display: none; background: #f8fcff; border-radius: 16px; padding: 20px; margin-bottom: 25px;">
+                    <span style="font-weight: 700;">🖼️ COVER STATUS:</span>
                     <div style="display: flex; gap: 25px; margin-top: 12px; flex-wrap: wrap;">
-                        <span id="statCoverId" style="color: #27ae60;">✅ Cover ID: 0</span>
-                        <span id="statCoverEdition" style="color: #3498db;">📚 Cover Edition: 0</span>
+                        <span id="statCoverId" style="color: #1e8b4c;">✅ Cover ID: 0</span>
+                        <span id="statCoverEdition" style="color: #2980b9;">📚 Cover Edition/ISBN: 0</span>
                         <span id="statPlaceholder" style="color: #e67e22;">🖼️ Placeholder: 0</span>
                     </div>
                 </div>
                 
                 <!-- PREVIEW GRID -->
                 <div id="bookGridPreview" class="book-preview-grid" style="min-height: 400px;">
-                    <div style="grid-column: 1/-1; text-align: center; color: #7f8c8d; padding: 60px;">
-                        ⏳ Generate untuk melihat 100 buku dengan cover
+                    <div style="grid-column: 1/-1; text-align: center; color: #6c7a89; padding: 60px;">
+                        ⏳ Generate to see 100 books with covers
                     </div>
                 </div>
                 
-                <!-- PREVIEW BUTTON -->
-                <div style="margin-top: 25px; background: #f8fbfe; border-radius: 16px; padding: 20px;">
-                    <span style="font-weight: 700; display: block; margin-bottom: 15px;">🔘 PREVIEW 2 BUTTON:</span>
-                    <div class="button-preview">
-                        <div class="btn-sample btn-sample-primary">
-                            📖 Baca di Open Library
-                        </div>
-                        <div class="btn-sample btn-sample-ads">
-                            📥 Download via Partner
-                        </div>
+                <!-- TITLE FORMAT PREVIEW PER BOOK -->
+                <div style="margin-top: 25px; background: #f8fcff; border-radius: 16px; padding: 20px;">
+                    <span style="font-weight: 700; display: block; margin-bottom: 15px;">📋 RANDOM TITLE EXAMPLES (First 5 books):</span>
+                    <div id="titlePreviewList" style="font-family: monospace; font-size: 0.85rem; color: #0c1f2e;">
+                        <span style="color: #6c7a89;">⏳ Generate to see examples...</span>
                     </div>
-                    <p style="color: #666; font-size: 0.85rem; margin-top: 15px;">
-                        ✅ Button 1: Link ke Open Library (sumber asli)<br>
-                        ✅ Button 2: Link ke Smartlink Ads Anda
-                    </p>
                 </div>
                 
                 <!-- DOWNLOAD BUTTONS -->
                 <div style="display: flex; gap: 15px; margin-top: 30px;">
                     <button onclick="downloadAllLandingPages()" class="btn btn-success" id="downloadBtn" disabled style="flex: 2;">
-                        📦 DOWNLOAD 100 LANDING PAGE (ZIP)
+                        📦 DOWNLOAD 100 LANDING PAGES (ZIP)
                     </button>
                     <button onclick="downloadSitemap()" class="btn" id="sitemapBtn" disabled style="flex: 1; background: #3498db;">
                         🗺️ SITEMAP
@@ -386,15 +351,26 @@
     <script>
         // ============================================
         // OPEN LIBRARY API - LANDING PAGE GENERATOR
-        // 100 BUKU/REQUEST - TANPA API KEY
-        // FORMAT: [Download] Title by Author
-        // 2 BUTTON: Open Library + Smartlink Ads
+        // RANDOM TITLE FORMATS - 100% ENGLISH
+        // 100 BOOKS PER REQUEST - NO API KEY
         // ============================================
         
-        let currentBooks = [];
-        let coverStats = { coverId: 0, coverEdition: 0, placeholder: 0 };
+        // 6 TITLE FORMATS - RANDOM PER BOOK
+        const TITLE_FORMATS = [
+            (title, author) => `[Download] ${title} by ${author}`,
+            (title, author) => `[PDF] ${title} by ${author}`,
+            (title, author) => `[EPUB] ${title} by ${author}`,
+            (title, author) => `[Download PDF] ${title} by ${author}`,
+            (title, author) => `[Free Download] ${title} by ${author}`,
+            (title, author) => `${title} by ${author} [PDF/EPUB]`
+        ];
         
-        // GENERATE ID UNIK
+        // RANDOM FORMAT INDEX
+        function getRandomFormat() {
+            return Math.floor(Math.random() * TITLE_FORMATS.length);
+        }
+        
+        // GENERATE UNIQUE ID
         function generateId() {
             const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
             let id = '';
@@ -402,25 +378,17 @@
             return id;
         }
         
-        // FORMAT JUDUL BERDASARKAN TEMPLATE
-        function formatTitle(template, title, author, uniqueId) {
-            const cleanTitle = title.substring(0, 80);
-            const cleanAuthor = author !== 'Unknown Author' ? author : 'Unknown';
-            
-            switch(template) {
-                case '1': return `[Download] ${cleanTitle} by ${cleanAuthor}`;
-                case '2': return `[PDF] ${cleanTitle} by ${cleanAuthor}`;
-                case '3': return `[EPUB] ${cleanTitle} by ${cleanAuthor}`;
-                case '4': return `[Download PDF] ${cleanTitle} by ${cleanAuthor}`;
-                case '5': return `[Free Download] ${cleanTitle} by ${cleanAuthor}`;
-                case '6': return `${cleanTitle} by ${cleanAuthor} [PDF/EPUB]`;
-                default: return `[Download] ${cleanTitle} by ${cleanAuthor}`;
-            }
+        // FORMAT TITLE WITH RANDOM FORMAT
+        function formatRandomTitle(title, author) {
+            const formatIndex = getRandomFormat();
+            return TITLE_FORMATS[formatIndex](title, author);
         }
         
-        // GENERATE COVER URL - OPEN LIBRARY
+        // GET COVER URL - OPEN LIBRARY
+        let coverStats = { coverId: 0, coverEdition: 0, placeholder: 0 };
+        
         function getCoverUrl(book) {
-            // LEVEL 1: Cover ID (paling umum)
+            // Level 1: Cover ID (most common)
             if (book.cover_i) {
                 coverStats.coverId++;
                 return {
@@ -429,7 +397,7 @@
                 };
             }
             
-            // LEVEL 2: Cover Edition Key
+            // Level 2: Cover Edition Key
             if (book.cover_edition_key) {
                 coverStats.coverEdition++;
                 return {
@@ -438,7 +406,7 @@
                 };
             }
             
-            // LEVEL 3: ISBN (jika ada)
+            // Level 3: ISBN
             if (book.isbn && book.isbn.length > 0) {
                 const isbn = book.isbn[0];
                 coverStats.coverEdition++;
@@ -448,10 +416,10 @@
                 };
             }
             
-            // LEVEL 4: Placeholder dengan judul
+            // Level 4: Placeholder with title (100% working)
             coverStats.placeholder++;
-            const cleanTitle = encodeURIComponent(book.title.substring(0, 50));
-            const colors = ['0a2a3a', '1e4a5a', '2c5a6a', '3a6a7a', '4a7a8a'];
+            const cleanTitle = encodeURIComponent(book.title.substring(0, 50).replace(/[^\w\s]/g, ''));
+            const colors = ['0c1f2e', '1e3a4a', '2c5a6a', '3a6a7a', '4a7a8a'];
             const color = colors[Math.floor(Math.random() * colors.length)];
             return {
                 url: `https://via.placeholder.com/400x600/${color}/FFFFFF?text=${cleanTitle}`,
@@ -459,13 +427,15 @@
             };
         }
         
-        // FETCH BUKU DARI OPEN LIBRARY API
+        // FETCH BOOKS FROM OPEN LIBRARY API
+        let currentBooks = [];
+        
         async function fetchOpenLibraryBooks() {
             const keyword = document.getElementById('keyword').value.trim();
             const limit = parseInt(document.getElementById('limit').value);
             
             if (!keyword) {
-                alert('Masukkan keyword!');
+                alert('Please enter a keyword!');
                 return;
             }
             
@@ -477,22 +447,22 @@
             document.getElementById('progressBlock').style.display = 'block';
             document.getElementById('progressFill').style.width = '20%';
             document.getElementById('progressPercent').innerHTML = '20%';
-            document.getElementById('progressStatus').innerHTML = '📡 Mengambil data dari Open Library API...';
+            document.getElementById('progressStatus').innerHTML = '📡 Fetching data from Open Library API...';
             
             try {
-                // Open Library Search API - GRATIS, TANPA API KEY
+                // Open Library Search API - No API Key Required
                 const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(keyword)}&limit=${limit}`;
                 
                 const response = await fetch(url);
                 const data = await response.json();
                 
                 if (!data.docs || data.docs.length === 0) {
-                    throw new Error('Tidak ada buku ditemukan');
+                    throw new Error('No books found');
                 }
                 
                 document.getElementById('progressFill').style.width = '50%';
                 document.getElementById('progressPercent').innerHTML = '50%';
-                document.getElementById('progressStatus').innerHTML = '🖼️ Memproses cover dan metadata...';
+                document.getElementById('progressStatus').innerHTML = '🖼️ Processing covers and metadata...';
                 
                 const books = data.docs.slice(0, limit);
                 
@@ -506,7 +476,7 @@
                         author = book.author_name[0];
                     }
                     
-                    // Tahun publikasi
+                    // Publication year
                     let publishYear = 'Unknown';
                     if (book.first_publish_year) {
                         publishYear = book.first_publish_year;
@@ -529,20 +499,20 @@
                     // Open Library ID
                     let olid = book.cover_edition_key || book.edition_key?.[0] || '';
                     
-                    // Cover
+                    // Get cover
                     const coverData = getCoverUrl(book);
                     
-                    // Format judul file
-                    const template = document.getElementById('titleFormat').value;
+                    // RANDOM TITLE FORMAT - each book gets random format
+                    const cleanTitle = book.title || 'Untitled';
+                    const cleanAuthor = author;
+                    
+                    const formattedTitle = formatRandomTitle(cleanTitle, cleanAuthor);
+                    
+                    // Domain
                     const domain = document.getElementById('domain').value.trim();
                     
-                    let cleanTitle = book.title || 'Untitled';
-                    let cleanAuthor = author;
-                    
-                    const fileTitle = formatTitle(template, cleanTitle, cleanAuthor, uniqueId);
-                    
-                    // Slug untuk filename
-                    const slug = fileTitle
+                    // Slug for filename
+                    const slug = formattedTitle
                         .toLowerCase()
                         .replace(/[^\w\s-]/gi, '')
                         .replace(/\s+/g, '-')
@@ -561,7 +531,7 @@
                         coverUrl: coverData.url,
                         coverSource: coverData.source,
                         openLibraryUrl: `https://openlibrary.org${book.key || ''}`,
-                        fileTitle: fileTitle,
+                        formattedTitle: formattedTitle,
                         filename: filename
                     };
                     
@@ -571,7 +541,7 @@
                     const progress = 50 + ((i + 1) / books.length * 40);
                     document.getElementById('progressFill').style.width = progress + '%';
                     document.getElementById('progressPercent').innerHTML = Math.round(progress) + '%';
-                    document.getElementById('progressStatus').innerHTML = `📚 Memproses buku ${i+1}/${books.length}...`;
+                    document.getElementById('progressStatus').innerHTML = `📚 Processing book ${i+1}/${books.length}...`;
                     
                     await new Promise(r => setTimeout(r, 2));
                 }
@@ -590,14 +560,17 @@
                 // Preview grid
                 displayPreview();
                 
-                // Update contoh filename
+                // Update filename example
                 if (currentBooks.length > 0) {
-                    document.getElementById('filenameExample').innerHTML = `📄 ${currentBooks[0].fileTitle} - ${document.getElementById('domain').value}.html`;
+                    document.getElementById('filenameExample').innerHTML = `📄 ${currentBooks[0].formattedTitle} - ${document.getElementById('domain').value}.html`;
                 }
+                
+                // Update title preview list
+                displayTitlePreviews();
                 
                 document.getElementById('progressFill').style.width = '100%';
                 document.getElementById('progressPercent').innerHTML = '100%';
-                document.getElementById('progressStatus').innerHTML = '✅ Selesai! 100 buku siap didownload';
+                document.getElementById('progressStatus').innerHTML = '✅ Complete! 100 books ready to download';
                 
             } catch (error) {
                 console.error(error);
@@ -611,38 +584,61 @@
             let html = '';
             
             currentBooks.slice(0, 12).forEach(book => {
-                let badgeClass = 'cover-success';
-                let badgeText = '✓ Cover ID';
+                let badgeClass = '';
+                let badgeText = '';
                 
-                if (book.coverSource === 'Cover Edition' || book.coverSource === 'ISBN') {
-                    badgeClass = 'cover-fallback';
+                if (book.coverSource === 'Cover ID') {
+                    badgeText = '✅ Cover ID';
+                } else if (book.coverSource === 'Cover Edition' || book.coverSource === 'ISBN') {
                     badgeText = '📚 ' + book.coverSource;
-                } else if (book.coverSource === 'Placeholder') {
-                    badgeClass = 'cover-fallback';
+                } else {
                     badgeText = '🖼️ Placeholder';
                 }
                 
                 html += `
-                    <div class="book-card-preview">
+                    <div class="book-card">
                         <img class="cover-preview" src="${book.coverUrl}" alt="${book.title}" 
-                             onerror="this.src='https://via.placeholder.com/400x600/0a2a3a/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
-                        <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">${book.title.substring(0, 40)}${book.title.length > 40 ? '...' : ''}</div>
-                        <div style="color: #666; font-size: 0.7rem; margin-bottom: 8px;">${book.author}</div>
-                        <span style="display: inline-block; padding: 4px 10px; border-radius: 30px; font-size: 0.65rem; background: #e8f5e9; color: #27ae60;">${badgeText}</span>
+                             onerror="this.src='https://via.placeholder.com/400x600/0c1f2e/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
+                        <div style="font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">${book.title.substring(0, 35)}${book.title.length > 35 ? '...' : ''}</div>
+                        <div style="color: #4a5a6a; font-size: 0.7rem; margin-bottom: 8px;">${book.author}</div>
+                        <span style="display: inline-block; padding: 4px 10px; border-radius: 30px; font-size: 0.65rem; background: #e8f0f5; color: #0c1f2e;">${badgeText}</span>
                     </div>
                 `;
             });
             
             if (currentBooks.length > 12) {
-                html += `<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #7f8c8d;">
-                    ... dan ${currentBooks.length - 12} buku lainnya
+                html += `<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #6c7a89;">
+                    ... and ${currentBooks.length - 12} more books
                 </div>`;
             }
             
             grid.innerHTML = html;
         }
         
-        // GENERATE HTML LANDING PAGE
+        function displayTitlePreviews() {
+            const previewList = document.getElementById('titlePreviewList');
+            let html = '';
+            
+            currentBooks.slice(0, 5).forEach((book, index) => {
+                // Determine which format was used
+                let formatType = '';
+                if (book.formattedTitle.startsWith('[Download]')) formatType = '[Download]';
+                else if (book.formattedTitle.startsWith('[PDF]')) formatType = '[PDF]';
+                else if (book.formattedTitle.startsWith('[EPUB]')) formatType = '[EPUB]';
+                else if (book.formattedTitle.startsWith('[Download PDF]')) formatType = '[Download PDF]';
+                else if (book.formattedTitle.startsWith('[Free Download]')) formatType = '[Free Download]';
+                else formatType = '[PDF/EPUB]';
+                
+                html += `<div style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed #dce5ec;">
+                    <span style="background: #0c1f2e; color: white; padding: 4px 12px; border-radius: 30px; font-size: 0.65rem; margin-right: 12px;">${formatType}</span>
+                    <span style="color: #0c1f2e;">${book.formattedTitle.substring(0, 60)}${book.formattedTitle.length > 60 ? '...' : ''}</span>
+                </div>`;
+            });
+            
+            previewList.innerHTML = html;
+        }
+        
+        // GENERATE HTML LANDING PAGE - 100% ENGLISH
         function generateLandingPage(book, domain, smartlink, buttonText, adsScript) {
             const year = new Date().getFullYear();
             const today = new Date().toLocaleDateString('en-US', { 
@@ -654,14 +650,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${book.fileTitle}</title>
-    <meta name="description" content="Download ${book.title} by ${book.author}. Free PDF, EPUB available. Read online or download from Open Library.">
-    <meta name="keywords" content="${book.title}, ${book.author}, download book, free pdf, epub download, open library">
+    <title>${book.formattedTitle}</title>
+    <meta name="description" content="Download ${book.title} by ${book.author}. Free PDF, EPUB formats available. Read online or download from Open Library.">
+    <meta name="keywords" content="${book.title}, ${book.author}, download book, free pdf, epub download, open library, free ebooks">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://${domain}/${book.filename}">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="${book.fileTitle}">
+    <meta property="og:title" content="${book.formattedTitle}">
     <meta property="og:description" content="Download ${book.title} by ${book.author}. Free PDF/EPUB.">
     <meta property="og:image" content="${book.coverUrl}">
     <meta property="og:url" content="https://${domain}/${book.filename}">
@@ -670,7 +666,7 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${book.fileTitle}">
+    <meta name="twitter:title" content="${book.formattedTitle}">
     <meta name="twitter:description" content="Download ${book.title} by ${book.author} - Free PDF/EPUB">
     <meta name="twitter:image" content="${book.coverUrl}">
     
@@ -698,8 +694,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(145deg, #f8fafc, #f0f4f8);
-            color: #1a2a3a;
+            background: linear-gradient(145deg, #f8fcff, #f0f4fa);
+            color: #1e293b;
             line-height: 1.7;
             padding: 30px 20px;
         }
@@ -709,7 +705,7 @@
             border-radius: 32px;
             padding: 45px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.02);
-            border: 1px solid #ecf0f1;
+            border: 1px solid #ecf1f5;
         }
         .book-header {
             display: flex;
@@ -732,11 +728,11 @@
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 15px;
-            color: #0a2a3a;
+            color: #0c1f2e;
             line-height: 1.2;
         }
         .meta {
-            color: #4a6a7a;
+            color: #4a5a6a;
             margin-bottom: 25px;
             font-size: 1.1rem;
         }
@@ -760,13 +756,13 @@
             font-size: 1.1rem;
         }
         .btn-primary {
-            background: #0a2a3a;
+            background: #0c1f2e;
             color: white;
         }
         .btn-primary:hover {
-            background: #1e4a5a;
+            background: #1e3a4a;
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(10,42,58,0.2);
+            box-shadow: 0 15px 30px rgba(12,31,46,0.2);
         }
         .btn-ads {
             background: #f39c12;
@@ -778,7 +774,7 @@
             box-shadow: 0 15px 30px rgba(243,156,18,0.2);
         }
         .details {
-            background: #f8fbfe;
+            background: #f8fcff;
             border-radius: 24px;
             padding: 30px;
             margin: 40px 0;
@@ -787,20 +783,20 @@
             display: flex;
             margin-bottom: 12px;
             padding-bottom: 12px;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid #ecf1f5;
         }
         .detail-label {
             font-weight: 700;
-            width: 120px;
-            color: #4a6a7a;
+            width: 140px;
+            color: #4a5a6a;
         }
         .detail-value {
-            color: #0a2a3a;
+            color: #0c1f2e;
         }
         .ads-container {
             margin: 40px 0;
             padding: 25px;
-            background: #fff9e6;
+            background: #fff6e5;
             border-radius: 20px;
             text-align: center;
             border: 2px dashed #f39c12;
@@ -808,14 +804,14 @@
         .footer {
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid #ecf0f1;
-            color: #6a7a8a;
+            border-top: 1px solid #ecf1f5;
+            color: #5a6a7a;
             text-align: center;
             font-size: 0.9rem;
         }
         .id-badge {
             display: inline-block;
-            background: #0a2a3a;
+            background: #0c1f2e;
             color: white;
             padding: 6px 20px;
             border-radius: 60px;
@@ -825,7 +821,7 @@
         @media (max-width: 768px) {
             .landing-card { padding: 25px; }
             .book-header { flex-direction: column; }
-            h1 { font-size: 1.6rem; }
+            h1 { font-size: 1.8rem; }
             .button-group { flex-direction: column; }
         }
     </style>
@@ -844,31 +840,31 @@
             <div class="book-header">
                 <div class="cover">
                     <img src="${book.coverUrl}" alt="${book.title} Cover" 
-                         onerror="this.src='https://via.placeholder.com/400x600/0a2a3a/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
+                         onerror="this.src='https://via.placeholder.com/400x600/0c1f2e/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">
                 </div>
                 <div class="info">
-                    <h1>${book.fileTitle}</h1>
+                    <h1>${book.formattedTitle}</h1>
                     <div class="meta">
                         By <strong>${book.author}</strong> · Published: ${book.publishYear}
                     </div>
                     
-                    <!-- 2 BUTTON UTAMA -->
+                    <!-- 2 BUTTONS - Open Library + Smartlink -->
                     <div class="button-group">
                         <a href="${book.openLibraryUrl}" class="btn btn-primary" target="_blank" rel="nofollow">
-                            📖 Baca di Open Library
+                            📖 Read at Open Library
                         </a>
                         <a href="${smartlink}" class="btn btn-ads" target="_blank" rel="nofollow sponsored">
                             ${buttonText}
                         </a>
                     </div>
                     
-                    <p style="color: #27ae60; font-size: 0.9rem;">
-                        ⚡ Format tersedia: PDF, EPUB, MOBI (via Open Library)
+                    <p style="color: #1e8b4c; font-size: 0.9rem;">
+                        ⚡ Formats available: PDF, EPUB, MOBI (via Open Library)
                     </p>
                 </div>
             </div>
             
-            <!-- DETAIL BUKU -->
+            <!-- BOOK DETAILS -->
             <div class="details">
                 <h2 style="margin-bottom: 20px; font-size: 1.4rem;">📘 Book Details</h2>
                 <div class="detail-row">
@@ -910,7 +906,7 @@
             <div class="footer">
                 <p>© ${year} ${domain} · Free Book Download Portal</p>
                 <p style="margin-top: 12px; font-size: 0.8rem;">
-                    📚 Sumber konten: Open Library (openlibrary.org) · File ini adalah landing page, bukan file buku.<br>
+                    📚 Content source: Open Library (openlibrary.org) · This is a landing page, not the actual book file.<br>
                     ID: ${book.id} · Generated: ${today}
                 </p>
             </div>
@@ -935,34 +931,37 @@
         // GENERATE INDEX HTML
         function generateIndexHTML(books, domain) {
             let html = `<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Free Book Downloads - ${domain}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Book Downloads - ${domain}</title>
+    <meta name="description" content="Download ${books.length} free books in PDF/EPUB format. Open Library collection.">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f8fafc; padding: 40px 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f8fcff; padding: 40px 20px; }
         .container { max-width: 1200px; margin: 0 auto; }
-        h1 { color: #0a2a3a; margin-bottom: 30px; }
+        h1 { color: #0c1f2e; margin-bottom: 30px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 20px; padding: 20px; border: 1px solid #ecf0f1; }
+        .card { background: white; border-radius: 20px; padding: 20px; border: 1px solid #ecf1f5; transition: 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }
-        a { text-decoration: none; color: #0a2a3a; font-weight: 600; }
-        .btn { display: inline-block; background: #0a2a3a; color: white; padding: 8px 20px; border-radius: 40px; margin-top: 15px; }
+        a { text-decoration: none; color: #0c1f2e; font-weight: 600; }
+        .btn { display: inline-block; background: #0c1f2e; color: white; padding: 8px 20px; border-radius: 40px; margin-top: 15px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 ${books.length} Free Books Download</h1>
+        <h1>📚 ${books.length} Free eBooks Download</h1>
+        <p style="margin-bottom: 30px; color: #4a5a6a;">All books are sourced from Open Library. PDF/EPUB formats available.</p>
         <div class="grid">`;
             
             books.slice(0, 50).forEach(book => {
                 html += `
             <div class="card">
-                <img src="${book.coverUrl}" alt="${book.title}">
-                <h3 style="font-size: 0.95rem;">${book.title.substring(0, 50)}</h3>
-                <p style="color: #666; font-size: 0.8rem;">${book.author}</p>
+                <img src="${book.coverUrl}" alt="${book.title} Cover">
+                <h3 style="font-size: 0.9rem; margin-bottom: 6px;">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</h3>
+                <p style="color: #4a5a6a; font-size: 0.8rem;">${book.author}</p>
                 <a href="${book.filename}" class="btn">📥 Download</a>
             </div>`;
             });
@@ -975,10 +974,10 @@
             return html;
         }
         
-        // DOWNLOAD SEMUA LANDING PAGE
+        // DOWNLOAD ALL LANDING PAGES
         async function downloadAllLandingPages() {
             if (currentBooks.length === 0) {
-                alert('Generate dulu!');
+                alert('Generate books first!');
                 return;
             }
             
@@ -991,16 +990,14 @@
             const folderName = `open-library-${document.getElementById('keyword').value.replace(/\s+/g, '-').toLowerCase()}`;
             const folder = zip.folder(folderName);
             
-            document.getElementById('progressStatus').innerHTML = '📦 Membuat file HTML landing page...';
+            document.getElementById('progressStatus').innerHTML = '📦 Generating HTML landing pages...';
             
             for (let i = 0; i < currentBooks.length; i++) {
                 const book = currentBooks[i];
                 const html = generateLandingPage(book, domain, smartlink, buttonText, adsScript);
                 folder.file(book.filename, html);
                 
-                if (i % 20 === 0) {
-                    await new Promise(r => setTimeout(r, 5));
-                }
+                if (i % 20 === 0) await new Promise(r => setTimeout(r, 5));
             }
             
             // Sitemap
@@ -1011,16 +1008,16 @@
             const indexHtml = generateIndexHTML(currentBooks, domain);
             folder.file('index.html', indexHtml);
             
-            document.getElementById('progressStatus').innerHTML = '✅ Download ZIP...';
+            document.getElementById('progressStatus').innerHTML = '✅ Downloading ZIP...';
             
             const zipBlob = await zip.generateAsync({ type: 'blob' });
             saveAs(zipBlob, `${folderName}-${currentBooks.length}books-${Date.now()}.zip`);
         }
         
-        // DOWNLOAD SITEMAP
+        // DOWNLOAD SITEMAP ONLY
         function downloadSitemap() {
             if (currentBooks.length === 0) {
-                alert('Generate dulu!');
+                alert('Generate books first!');
                 return;
             }
             
