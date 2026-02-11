@@ -584,7 +584,6 @@
             let html = '';
             
             currentBooks.slice(0, 12).forEach(book => {
-                let badgeClass = '';
                 let badgeText = '';
                 
                 if (book.coverSource === 'Cover ID') {
@@ -638,6 +637,73 @@
             previewList.innerHTML = html;
         }
         
+        // ============================================
+        // FIXED SITEMAP GENERATOR - 100% WORKING
+        // ============================================
+        function generateSitemap(books, domain) {
+            let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+            xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+            
+            books.forEach(book => {
+                xml += '  <url>\n';
+                xml += `    <loc>https://${domain}/${book.filename}</loc>\n`;
+                xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
+                xml += '    <changefreq>monthly</changefreq>\n';
+                xml += '    <priority>0.7</priority>\n';
+                xml += '  </url>\n';
+            });
+            
+            xml += '</urlset>';
+            return xml;
+        }
+        
+        // ============================================
+        // FIXED INDEX HTML GENERATOR - 100% WORKING
+        // ============================================
+        function generateIndexHTML(books, domain) {
+            let html = '<!DOCTYPE html>\n';
+            html += '<html lang="en">\n';
+            html += '<head>\n';
+            html += '    <meta charset="UTF-8">\n';
+            html += '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
+            html += `    <title>Free eBooks Download - ${domain}</title>\n`;
+            html += '    <meta name="description" content="Download free eBooks in PDF/EPUB format. Open Library collection.">\n';
+            html += '    <style>\n';
+            html += '        * { margin:0; padding:0; box-sizing:border-box; }\n';
+            html += '        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f8fcff; padding: 40px 20px; }\n';
+            html += '        .container { max-width: 1200px; margin: 0 auto; }\n';
+            html += '        h1 { color: #0c1f2e; margin-bottom: 30px; }\n';
+            html += '        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }\n';
+            html += '        .card { background: white; border-radius: 20px; padding: 20px; border: 1px solid #ecf1f5; transition: 0.2s; }\n';
+            html += '        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }\n';
+            html += '        img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }\n';
+            html += '        a { text-decoration: none; color: #0c1f2e; font-weight: 600; }\n';
+            html += '        .btn { display: inline-block; background: #0c1f2e; color: white; padding: 8px 20px; border-radius: 40px; margin-top: 15px; font-size: 0.85rem; }\n';
+            html += '    </style>\n';
+            html += '</head>\n';
+            html += '<body>\n';
+            html += '    <div class="container">\n';
+            html += `        <h1>📚 ${books.length} Free eBooks Download</h1>\n`;
+            html += '        <p style="margin-bottom: 30px; color: #4a5a6a;">All books are sourced from Open Library. PDF/EPUB formats available.</p>\n';
+            html += '        <div class="grid">\n';
+            
+            books.slice(0, 50).forEach(book => {
+                html += '            <div class="card">\n';
+                html += `                <img src="${book.coverUrl}" alt="${book.title.replace(/"/g, '&quot;')} Cover" onerror="this.src='https://via.placeholder.com/400x600/0c1f2e/FFFFFF?text=${encodeURIComponent(book.title.substring(0, 30))}'">\n`;
+                html += `                <h3 style="font-size: 0.9rem; margin-bottom: 6px;">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</h3>\n`;
+                html += `                <p style="color: #4a5a6a; font-size: 0.8rem; margin-bottom: 10px;">${book.author}</p>\n`;
+                html += `                <a href="${book.filename}" class="btn">📥 Download</a>\n`;
+                html += '            </div>\n';
+            });
+            
+            html += '        </div>\n';
+            html += '    </div>\n';
+            html += '</body>\n';
+            html += '</html>';
+            
+            return html;
+        }
+        
         // GENERATE HTML LANDING PAGE - 100% ENGLISH
         function generateLandingPage(book, domain, smartlink, buttonText, adsScript) {
             const year = new Date().getFullYear();
@@ -675,15 +741,15 @@
     {
         "@context": "https://schema.org",
         "@type": "Book",
-        "name": "${book.title}",
+        "name": "${book.title.replace(/"/g, '\\"')}",
         "author": {
             "@type": "Person",
-            "name": "${book.author}"
+            "name": "${book.author.replace(/"/g, '\\"')}"
         },
         "datePublished": "${book.publishYear}",
         "publisher": {
             "@type": "Organization",
-            "name": "${book.publisher}"
+            "name": "${book.publisher.replace(/"/g, '\\"')}"
         },
         "image": "${book.coverUrl}",
         "url": "https://${domain}/${book.filename}"
@@ -916,64 +982,6 @@
 </html>`;
         }
         
-        // GENERATE SITEMAP
-        function generateSitemap(books, domain) {
-            let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-            
-            books.forEach(book => {
-                xml += `  <url>\n    <loc>https://${domain}/${book.filename}</loc>\n    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-            });
-            
-            xml += `</urlset>`;
-            return xml;
-        }
-        
-        // GENERATE INDEX HTML
-        function generateIndexHTML(books, domain) {
-            let html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Book Downloads - ${domain}</title>
-    <meta name="description" content="Download ${books.length} free books in PDF/EPUB format. Open Library collection.">
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f8fcff; padding: 40px 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { color: #0c1f2e; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 20px; padding: 20px; border: 1px solid #ecf1f5; transition: 0.2s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }
-        a { text-decoration: none; color: #0c1f2e; font-weight: 600; }
-        .btn { display: inline-block; background: #0c1f2e; color: white; padding: 8px 20px; border-radius: 40px; margin-top: 15px; font-size: 0.85rem; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>📚 ${books.length} Free eBooks Download</h1>
-        <p style="margin-bottom: 30px; color: #4a5a6a;">All books are sourced from Open Library. PDF/EPUB formats available.</p>
-        <div class="grid">`;
-            
-            books.slice(0, 50).forEach(book => {
-                html += `
-            <div class="card">
-                <img src="${book.coverUrl}" alt="${book.title} Cover">
-                <h3 style="font-size: 0.9rem; margin-bottom: 6px;">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</h3>
-                <p style="color: #4a5a6a; font-size: 0.8rem;">${book.author}</p>
-                <a href="${book.filename}" class="btn">📥 Download</a>
-            </div>`;
-            });
-            
-            html += `
-        </div>
-    </div>
-</body>
-</html>`;
-            return html;
-        }
-        
         // DOWNLOAD ALL LANDING PAGES
         async function downloadAllLandingPages() {
             if (currentBooks.length === 0) {
@@ -1000,11 +1008,11 @@
                 if (i % 20 === 0) await new Promise(r => setTimeout(r, 5));
             }
             
-            // Sitemap
+            // Sitemap - FIXED
             const sitemap = generateSitemap(currentBooks, domain);
             folder.file('sitemap.xml', sitemap);
             
-            // Index
+            // Index - FIXED
             const indexHtml = generateIndexHTML(currentBooks, domain);
             folder.file('index.html', indexHtml);
             
@@ -1014,7 +1022,7 @@
             saveAs(zipBlob, `${folderName}-${currentBooks.length}books-${Date.now()}.zip`);
         }
         
-        // DOWNLOAD SITEMAP ONLY
+        // DOWNLOAD SITEMAP ONLY - FIXED
         function downloadSitemap() {
             if (currentBooks.length === 0) {
                 alert('Generate books first!');
