@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · 3 SMARTLINK BANNERS · MASS GENERATOR</title>
+    <title>✨ OPEN LIBRARY · 7 PARAGRAPH DESCRIPTION · 3 SMARTLINK BANNERS</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -33,14 +33,6 @@
             --gray-700: #334155;
             --gray-800: #1e293b;
             --gray-900: #0f172a;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
         }
 
         * {
@@ -68,12 +60,12 @@
         .header {
             background: linear-gradient(145deg, var(--primary), var(--primary-light));
             color: white;
-            border-radius: var(--radius-xl);
+            border-radius: 32px;
             padding: 50px 60px;
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .header::before {
@@ -98,23 +90,17 @@
         }
 
         .header h1 i {
-            background: var(--accent-gradient);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 2.8rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 700px;
-            margin-bottom: 25px;
         }
 
         .badge-container {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .badge {
@@ -128,10 +114,6 @@
             align-items: center;
             gap: 8px;
             border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .badge i {
-            color: var(--accent-light);
         }
 
         /* ============================================
@@ -203,7 +185,6 @@
             margin-top: 30px;
         }
 
-        /* BANNER ANIMATIONS */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -218,12 +199,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0px); }
         }
 
         /* BANNER COMPONENTS */
@@ -249,26 +224,6 @@
             margin-bottom: 20px;
         }
 
-        .banner-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .banner-stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.95rem;
-        }
-
-        .banner-stat-item i {
-            color: #f59e0b;
-        }
-
         .banner-button {
             display: inline-block;
             background: linear-gradient(145deg, #3b82f6, #2563eb);
@@ -287,24 +242,12 @@
         .banner-button:hover {
             transform: scale(1.08);
             box-shadow: 0 15px 35px rgba(59,130,246,0.6);
-            background: linear-gradient(145deg, #2563eb, #1d4ed8);
-        }
-
-        .banner-button i {
-            margin-right: 10px;
         }
 
         .banner-button-secondary {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: none;
             animation: none;
-        }
-
-        .banner-button-secondary:hover {
-            background: rgba(59,130,246,0.3);
-            border-color: #3b82f6;
         }
 
         .countdown-badge {
@@ -324,16 +267,6 @@
             text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6;
         }
 
-        .glass-badge {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(5px);
-            padding: 6px 16px;
-            border-radius: 60px;
-            color: white;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
         /* ============================================
            MAIN UI COMPONENTS
            ============================================ */
@@ -349,17 +282,10 @@
 
         .card {
             background: white;
-            border-radius: var(--radius-lg);
+            border-radius: 24px;
             padding: 35px;
-            border: 1px solid rgba(255,255,255,0.5);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-4px);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
 
         .card h2 {
@@ -383,16 +309,14 @@
             margin-bottom: 10px;
             font-weight: 600;
             color: var(--gray-700);
-            font-size: 0.95rem;
         }
 
         input, select, textarea {
             width: 100%;
             padding: 16px 20px;
             border: 2px solid var(--gray-200);
-            border-radius: var(--radius-md);
+            border-radius: 16px;
             font-size: 1rem;
-            transition: all 0.2s;
             background: var(--gray-50);
             font-family: 'Inter', sans-serif;
         }
@@ -431,24 +355,19 @@
             background: var(--success);
         }
 
-        .btn-success:hover {
-            background: #0d9488;
-        }
-
-        /* TITLE MODE SELECTOR */
         .title-mode-container {
             display: flex;
             gap: 20px;
             margin-bottom: 30px;
             padding: 20px;
             background: var(--gray-50);
-            border-radius: var(--radius-lg);
+            border-radius: 24px;
         }
 
         .title-mode-option {
             flex: 1;
             padding: 20px;
-            border-radius: var(--radius-md);
+            border-radius: 16px;
             background: white;
             border: 2px solid var(--gray-200);
             cursor: pointer;
@@ -464,12 +383,12 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            margin-bottom: 25px;
+            margin: 25px 0;
         }
 
         .stat-card {
             background: white;
-            border-radius: var(--radius-md);
+            border-radius: 16px;
             padding: 20px;
             border: 1px solid var(--gray-200);
             text-align: center;
@@ -490,12 +409,12 @@
             overflow-y: auto;
             padding: 20px;
             background: var(--gray-50);
-            border-radius: var(--radius-lg);
+            border-radius: 24px;
         }
 
         .progress-container {
             background: var(--gray-50);
-            border-radius: var(--radius-lg);
+            border-radius: 24px;
             padding: 25px;
             margin-top: 25px;
         }
@@ -510,7 +429,7 @@
 
         .progress-fill {
             height: 100%;
-            background: var(--accent-gradient);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             width: 0%;
             transition: width 0.3s ease;
         }
@@ -527,9 +446,35 @@
             align-items: center;
             gap: 12px;
         }
+
+        /* DESCRIPTION PREVIEW */
+        .description-preview {
+            background: white;
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            border-radius: 16px;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border: 1px solid var(--gray-200);
+        }
+
+        .description-preview p {
+            margin-bottom: 16px;
+        }
+
+        .description-preview strong {
+            color: var(--primary);
+        }
+
+        .description-preview i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
     </style>
     
-    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
@@ -539,16 +484,16 @@
         <div class="header">
             <h1>
                 <i class="fas fa-crown"></i>
-                OPEN LIBRARY · 3 SMARTLINK BANNERS
+                OPEN LIBRARY · 7 PARAGRAPH DESCRIPTION
             </h1>
-            <p>
-                ✦ 3 PREMIUM BANNER VARIATIONS ✦ 1000+ BUKU PER KEYWORD ✦ 2 MODE TITLE ✦ NO UNKNOWN PUBLISHER
+            <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
+                ✦ 7 Paragraf Premium Description ✦ 3 Smartlink Banners ✦ 1000+ Buku/Keyword
             </p>
             <div class="badge-container">
-                <span class="badge"><i class="fas fa-bolt"></i> Banner 1: Gradient</span>
-                <span class="badge"><i class="fas fa-fire"></i> Banner 2: Neon</span>
-                <span class="badge"><i class="fas fa-glass-cheers"></i> Banner 3: Glass</span>
+                <span class="badge"><i class="fas fa-paragraph"></i> 7 Paragraphs</span>
+                <span class="badge"><i class="fas fa-bolt"></i> 3 Banners</span>
                 <span class="badge"><i class="fas fa-dice"></i> Random/Fixed Title</span>
+                <span class="badge"><i class="fas fa-ban"></i> No Unknown Publisher</span>
             </div>
         </div>
 
@@ -564,7 +509,7 @@
                 <!-- KEYWORD -->
                 <div class="form-group">
                     <label><i class="fas fa-key"></i> Keyword Utama</label>
-                    <input type="text" id="keyword" value="programming python" placeholder="contoh: harry potter, python, fiction">
+                    <input type="text" id="keyword" value="the lightning thief" placeholder="contoh: harry potter, python, fiction">
                 </div>
 
                 <!-- DOMAIN -->
@@ -611,32 +556,32 @@
                 </div>
 
                 <!-- FIXED MODE OPTIONS -->
-                <div id="fixedModeOptions" style="display: none; margin-bottom: 30px; padding: 20px; background: var(--gray-50); border-radius: var(--radius-lg);">
+                <div id="fixedModeOptions" style="display: none; margin-bottom: 30px; padding: 20px; background: var(--gray-50); border-radius: 24px;">
                     <label style="margin-bottom: 15px; display: block;">Pilih Format Fixed</label>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                        <div id="format1" class="format-item active" onclick="selectFixedFormat(1)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format1" class="format-item active" onclick="selectFixedFormat(1)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">[Download] {title} by {author}</div>
                         </div>
-                        <div id="format2" class="format-item" onclick="selectFixedFormat(2)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format2" class="format-item" onclick="selectFixedFormat(2)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">[PDF] {title} by {author}</div>
                         </div>
-                        <div id="format3" class="format-item" onclick="selectFixedFormat(3)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format3" class="format-item" onclick="selectFixedFormat(3)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">[EPUB] {title} by {author}</div>
                         </div>
-                        <div id="format4" class="format-item" onclick="selectFixedFormat(4)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format4" class="format-item" onclick="selectFixedFormat(4)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">[Download PDF] {title} by {author}</div>
                         </div>
-                        <div id="format5" class="format-item" onclick="selectFixedFormat(5)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format5" class="format-item" onclick="selectFixedFormat(5)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">[Free Download] {title} by {author}</div>
                         </div>
-                        <div id="format6" class="format-item" onclick="selectFixedFormat(6)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-md); cursor: pointer;">
+                        <div id="format6" class="format-item" onclick="selectFixedFormat(6)" style="padding: 15px; background: white; border: 2px solid var(--gray-200); border-radius: 16px; cursor: pointer;">
                             <div style="font-weight: 600;">{title} by {author} [PDF/EPUB]</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- SMARTLINK URL -->
-                <div class="premium-section" style="background: linear-gradient(145deg, #f0f9ff, white); border-left: 4px solid #3b82f6; padding: 25px; border-radius: var(--radius-lg); margin-bottom: 25px;">
+                <div style="background: linear-gradient(145deg, #f0f9ff, white); border-left: 4px solid #3b82f6; padding: 25px; border-radius: 24px; margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-bolt" style="font-size: 1.5rem; color: #3b82f6;"></i>
                         <h3 style="font-weight: 700;">🔗 SMARTLINK URL (3 BANNER OTOMATIS)</h3>
@@ -644,13 +589,10 @@
                     <div class="form-group">
                         <input type="text" id="smartlink" value="https://adsterra.com/referral/your-id" placeholder="https://your-smartlink.com" style="border-color: #3b82f6;">
                     </div>
-                    <p style="color: var(--gray-600); font-size: 0.9rem;">
-                        <i class="fas fa-check-circle" style="color: #10b981;"></i> Akan dipasang di 3 banner premium + button CTA
-                    </p>
                 </div>
 
                 <!-- HISTATS -->
-                <div style="background: var(--gray-50); border-radius: var(--radius-lg); padding: 25px; margin-bottom: 25px;">
+                <div style="background: var(--gray-50); border-radius: 24px; padding: 25px; margin-bottom: 25px;">
                     <label><i class="fas fa-chart-line"></i> Histats Script</label>
                     <textarea id="histatsScript" rows="4" style="margin-top: 15px; font-family: monospace;">&lt;!-- Histats.com START --&gt;
 &lt;script&gt;
@@ -665,13 +607,13 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
 
                 <!-- GENERATE BUTTON -->
-                <button onclick="startMassGeneration()" class="btn" style="background: var(--accent-gradient); font-size: 1.2rem; padding: 20px;">
+                <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU + 3 BANNER PREMIUM
+                    GENERATE 1.000+ BUKU · 7 PARAGRAF · 3 BANNER
                 </button>
 
                 <!-- PROGRESS -->
-                <div id="progressContainer" class="progress-container" style="display: none; margin-top: 25px;">
+                <div id="progressContainer" class="progress-container" style="display: none;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                         <span id="progressStatus"><i class="fas fa-spinner fa-spin"></i> Memproses...</span>
                         <span id="progressPercent">0%</span>
@@ -685,7 +627,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- FILENAME EXAMPLE -->
                 <div id="filenameExample" class="filename-example">
                     <i class="fas fa-file-alt"></i>
-                    <span>python-programming-by-john-smith-a7k9f2m1.html</span>
+                    <span>the-lightning-thief-by-rick-riordan-a7k9f2m1.html</span>
                 </div>
             </div>
 
@@ -693,41 +635,45 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             <div class="card">
                 <h2>
                     <i class="fas fa-chart-bar"></i>
-                    2. Preview 3 Banner Premium
+                    2. Preview 7 Paragraf + 3 Banner
                 </h2>
 
-                <!-- BANNER 1 PREVIEW - GRADIENT -->
+                <!-- BANNER 1 PREVIEW -->
                 <div style="margin-bottom: 25px;">
                     <span style="display: inline-block; background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px;">
-                        <i class="fas fa-bolt"></i> BANNER 1 · HEADER (ANIMATED GRADIENT)
+                        <i class="fas fa-bolt"></i> BANNER 1 · HEADER
                     </span>
-                    <div id="bannerPreview1" class="banner-premium-1" style="margin-bottom: 0;">
-                        <!-- Preview akan di-update via JS -->
-                    </div>
+                    <div id="bannerPreview1" class="banner-premium-1"></div>
                 </div>
 
-                <!-- BANNER 2 PREVIEW - NEON -->
+                <!-- DESKRIPSI PREVIEW - 7 PARAGRAF -->
                 <div style="margin-bottom: 25px;">
                     <span style="display: inline-block; background: #8b5cf6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px;">
-                        <i class="fas fa-fire"></i> BANNER 2 · IN-CONTENT (NEON CYBER)
+                        <i class="fas fa-paragraph"></i> DESKRIPSI · 7 PARAGRAF PREMIUM
                     </span>
-                    <div id="bannerPreview2" class="banner-premium-2" style="margin-bottom: 0;">
-                        <!-- Preview akan di-update via JS -->
+                    <div id="descriptionPreview" class="description-preview">
+                        <!-- Akan diisi via JS -->
                     </div>
                 </div>
 
-                <!-- BANNER 3 PREVIEW - GLASS -->
+                <!-- BANNER 2 PREVIEW -->
+                <div style="margin-bottom: 25px;">
+                    <span style="display: inline-block; background: #8b5cf6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px;">
+                        <i class="fas fa-fire"></i> BANNER 2 · IN-CONTENT
+                    </span>
+                    <div id="bannerPreview2" class="banner-premium-2"></div>
+                </div>
+
+                <!-- BANNER 3 PREVIEW -->
                 <div style="margin-bottom: 25px;">
                     <span style="display: inline-block; background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px;">
-                        <i class="fas fa-glass-cheers"></i> BANNER 3 · FOOTER (GLASS MORPHISM)
+                        <i class="fas fa-glass-cheers"></i> BANNER 3 · FOOTER
                     </span>
-                    <div id="bannerPreview3" class="banner-premium-3" style="margin-bottom: 0;">
-                        <!-- Preview akan di-update via JS -->
-                    </div>
+                    <div id="bannerPreview3" class="banner-premium-3"></div>
                 </div>
 
-                <!-- STATS & DOWNLOAD -->
-                <div class="stats-grid" style="margin-top: 30px;">
+                <!-- STATS -->
+                <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-value" id="statTotalBooks">0</div>
                         <div class="stat-label">Total Buku</div>
@@ -752,18 +698,13 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                         <span style="font-weight: 700;"><i class="fas fa-book-open"></i> Preview Buku</span>
                         <span id="bookCount" style="background: var(--primary); color: white; padding: 6px 20px; border-radius: 60px;">0 buku</span>
                     </div>
-                    <div id="bookGridPreview" class="book-grid" style="min-height: 200px;">
-                        <div style="grid-column: 1/-1; text-align: center; color: var(--gray-500); padding: 40px;">
-                            <i class="fas fa-bolt" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                            <p>Generate untuk melihat preview buku</p>
-                        </div>
-                    </div>
+                    <div id="bookGridPreview" class="book-grid" style="min-height: 200px;"></div>
                 </div>
 
                 <!-- DOWNLOAD BUTTONS -->
                 <div style="display: flex; gap: 15px; margin-top: 30px;">
                     <button onclick="downloadAll()" class="btn btn-success" id="downloadBtn" disabled style="flex: 2;">
-                        <i class="fas fa-download"></i> 📦 DOWNLOAD ZIP (1000+ BUKU)
+                        <i class="fas fa-download"></i> 📦 DOWNLOAD ZIP
                     </button>
                     <button onclick="downloadSitemap()" class="btn" id="sitemapBtn" disabled style="flex: 1; background: var(--accent);">
                         <i class="fas fa-sitemap"></i> SITEMAP
@@ -775,7 +716,9 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
     <script>
         // ============================================
-        // OPEN LIBRARY MASS GENERATOR - 3 BANNER PREMIUM
+        // OPEN LIBRARY MASS GENERATOR
+        // 7 PARAGRAPH PREMIUM DESCRIPTION
+        // 3 SMARTLINK BANNERS
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -840,6 +783,51 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
+        // GENERATE 7 PARAGRAPH PREMIUM DESCRIPTION
+        // ============================================
+        function generatePremiumDescription(doc) {
+            const title = doc.title || 'Untitled';
+            const author = doc.author_name ? doc.author_name[0] : 'Unknown Author';
+            const year = doc.first_publish_year || (doc.publish_year ? doc.publish_year[0] : 'Unknown');
+            const publisher = doc.publisher ? doc.publisher[0] : '';
+            const cleanPublisher = (publisher && publisher !== 'Unknown Publisher' && !publisher.includes('Unknown')) ? publisher : '';
+            
+            let desc = '';
+            
+            // PARAGRAPH 1: Main description with required format
+            desc += `<p><strong><i class="fas fa-book"></i> Download or Read Online ${title} ebook (PDF ePub Mobi) - ${author}, published in ${year}${cleanPublisher ? ` by ${cleanPublisher}` : ''}.</strong> This comprehensive work is available through Open Library's digital collection, offering readers worldwide access to this valuable resource.</p>\n\n`;
+            
+            // PARAGRAPH 2: First sentence or topic introduction
+            if (doc.first_sentence) {
+                desc += `<p><i class="fas fa-quote-left"></i> ${doc.first_sentence} This opening sets the stage for what promises to be an engaging exploration of the subject matter.</p>\n\n`;
+            } else {
+                desc += `<p><i class="fas fa-info-circle"></i> ${title} represents a significant contribution to the field, showcasing ${author}'s expertise and deep understanding of the subject. The book has garnered attention from readers and critics alike for its comprehensive approach and engaging writing style.</p>\n\n`;
+            }
+            
+            // PARAGRAPH 3: Subjects/Categories
+            if (doc.subject && doc.subject.length > 0) {
+                let subjects = doc.subject.slice(0, 7).join(', ');
+                desc += `<p><strong><i class="fas fa-tags"></i> Topics Covered:</strong> This book delves into ${subjects}, providing readers with a thorough understanding of these interconnected themes. Each chapter builds upon the last, creating a cohesive learning experience that will benefit readers at any level.</p>\n\n`;
+            } else {
+                desc += `<p><strong><i class="fas fa-tags"></i> Content Overview:</strong> The book is structured to guide readers from fundamental concepts to advanced applications. Whether you're new to the subject or looking to deepen your knowledge, this book offers valuable insights at every level with clear explanations and practical examples.</p>\n\n`;
+            }
+            
+            // PARAGRAPH 4: Author expertise
+            desc += `<p><strong><i class="fas fa-user"></i> About the Author:</strong> ${author} brings years of experience and research to this work. Known for their ability to explain complex topics with clarity and insight, ${author} has established themselves as a trusted voice in the field. This book represents the culmination of their expertise and dedication, offering readers a unique perspective on the subject matter.</p>\n\n`;
+            
+            // PARAGRAPH 5: What readers will learn
+            desc += `<p><strong><i class="fas fa-graduation-cap"></i> What You'll Learn:</strong> Through ${title}, readers will gain practical knowledge that can be applied immediately. The book covers essential theories, real-world applications, and emerging trends. Each section includes detailed examples, case studies, and practical exercises that bring the concepts to life and ensure deep understanding.</p>\n\n`;
+            
+            // PARAGRAPH 6: Target audience
+            desc += `<p><strong><i class="fas fa-users"></i> Who This Book Is For:</strong> This book is ideal for students, professionals, and enthusiasts who want to master the subject. The clear explanations make it accessible for beginners, while the depth of content ensures even experienced readers will find new insights and perspectives. Educators will also find this to be an excellent resource for course material and classroom discussion.</p>\n\n`;
+            
+            // PARAGRAPH 7: Formats and call to action
+            desc += `<p><strong><i class="fas fa-mobile-alt"></i> Available Formats:</strong> You can read ${title} online for free through Open Library, or download it in multiple digital formats including PDF, EPUB, and MOBI. These formats are compatible with all major e-readers, tablets, and smartphones. Start reading today and join thousands of readers who have already benefited from this remarkable book. The digital edition maintains all the richness of the print version with added convenience and accessibility.</p>`;
+            
+            return desc;
+        }
+
+        // ============================================
         // GENERATE 3 BANNER PREVIEWS
         // ============================================
         function updateBannerPreviews(smartlink) {
@@ -849,12 +837,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     <i class="fas fa-bolt" style="color: #f59e0b;"></i>
                     <i class="fas fa-book" style="color: #3b82f6;"></i>
                 </div>
-                <div class="banner-title">
-                    ⚡ LIMITED TIME OFFER ⚡
-                </div>
-                <div class="banner-subtitle">
-                    Download this book + 50,000 more premium ebooks for FREE!
-                </div>
+                <div class="banner-title">⚡ LIMITED TIME OFFER ⚡</div>
+                <div class="banner-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
                 <a href="${smartlink}" class="banner-button" target="_blank">
                     <i class="fas fa-download"></i> GET ACCESS NOW
                     <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
@@ -920,6 +904,22 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
+        // UPDATE DESCRIPTION PREVIEW
+        // ============================================
+        function updateDescriptionPreview() {
+            const sampleDoc = {
+                title: "The Lightning Thief",
+                author_name: ["Rick Riordan"],
+                first_publish_year: "2005",
+                publisher: ["Miramax Books"],
+                subject: ["Fantasy", "Mythology", "Young Adult", "Adventure", "Greek Mythology"],
+                first_sentence: "Look, I didn't want to be a half-blood."
+            };
+            const previewDesc = generatePremiumDescription(sampleDoc);
+            document.getElementById('descriptionPreview').innerHTML = previewDesc;
+        }
+
+        // ============================================
         // UTILITY FUNCTIONS
         // ============================================
         function generateRandomId() {
@@ -966,32 +966,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             } else {
                 return FIXED_TITLE_FORMATS[currentFixedFormat - 1](title, author);
             }
-        }
-
-        function generatePremiumDescription(doc) {
-            const title = doc.title || 'Untitled';
-            const author = doc.author_name ? doc.author_name[0] : 'Unknown Author';
-            const year = doc.first_publish_year || (doc.publish_year ? doc.publish_year[0] : 'Unknown');
-            const publisher = cleanPublisher(doc.publisher ? doc.publisher[0] : '');
-            
-            let desc = '';
-            let publisherText = publisher ? ` by ${publisher}` : '';
-            
-            desc += `<p><strong>📘 Download or Read Online ${title} ebook (PDF ePub Mobi) - ${author}, published in ${year}${publisherText}.</strong> This comprehensive work is available through Open Library's digital collection.</p>\n\n`;
-            
-            if (doc.first_sentence) {
-                desc += `<p>${doc.first_sentence}</p>\n\n`;
-            }
-            
-            if (doc.subject && doc.subject.length > 0) {
-                let subjects = doc.subject.slice(0, 7).join(', ');
-                desc += `<p><strong>📚 Topics Covered:</strong> ${subjects}</p>\n\n`;
-            }
-            
-            desc += `<p><strong>✍️ About the Author:</strong> ${author} brings years of experience to this work.</p>\n\n`;
-            desc += `<p><strong>📱 Available Formats:</strong> PDF, EPUB, MOBI. Read online or download.</p>`;
-            
-            return desc;
         }
 
         function processBook(doc) {
@@ -1174,7 +1148,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     <div class="banner-title">⚡ LIMITED TIME OFFER ⚡</div>
                     <div class="banner-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
                     <a href="${smartlink}" class="banner-button" target="_blank">
-                        <i class="fas fa-download"></i> GET ACCESS NOW <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                        <i class="fas fa-download"></i> GET ACCESS NOW
+                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                     </a>
                     <div style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
                         <i class="fas fa-shield-alt"></i> 100% Safe · No Credit Card Required
@@ -1248,9 +1223,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${book.formattedTitle}</title>
-    <meta name="description" content="Download or Read Online ${book.title} ebook - ${book.author}, ${book.year}.">
+    <meta name="description" content="Download or Read Online ${book.title} ebook (PDF ePub Mobi) - ${book.author}, published in ${book.year}. Free access via Open Library.">
     <link rel="canonical" href="https://${domain}/${book.filename}">
     <meta property="og:title" content="${book.formattedTitle}">
+    <meta property="og:description" content="Download or Read Online ${book.title} ebook - ${book.author}, ${book.year}">
     <meta property="og:image" content="${book.hasCover ? book.coverUrl : 'https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'}">
     <meta property="og:url" content="https://${domain}/${book.filename}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1259,18 +1235,24 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8fafc; padding: 30px 20px; }
         .container { max-width: 1100px; margin: 0 auto; }
-        .card { background: white; border-radius: 32px; padding: 45px; border: 1px solid #e2e8f0; }
+        .card { background: white; border-radius: 32px; padding: 45px; border: 1px solid #e2e8f0; box-shadow: 0 20px 40px rgba(0,0,0,0.02); }
         .header { display: flex; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
         .cover { flex: 0 0 250px; }
-        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 15px; color: #0f172a; }
-        .btn { padding: 16px 32px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex:1; }
+        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 15px; color: #0f172a; line-height: 1.2; }
+        .meta { color: #475569; margin-bottom: 25px; }
+        .btn { padding: 16px 32px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; flex:1; }
         .btn-primary { background: #0f172a; color: white; }
+        .btn-primary:hover { background: #1e293b; transform: translateY(-3px); }
         .btn-ads { background: #f59e0b; color: white; }
+        .btn-ads:hover { background: #d97706; transform: translateY(-3px); }
         .button-group { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
         .description { background: #f8fafc; border-radius: 24px; padding: 30px; margin: 40px 0; border-left: 5px solid #0f172a; }
+        .description p { margin-bottom: 16px; line-height: 1.7; }
+        .description i { color: #3b82f6; margin-right: 8px; }
         .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #64748b; text-align: center; }
+        .id-badge { display: inline-block; background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
         
-        /* BANNER STYLES - IMPORTED */
+        /* Banner Styles */
         .banner-premium-1, .banner-premium-2, .banner-premium-3 { margin-bottom: 30px; }
         ${document.querySelector('style').innerHTML.split('/* BANNER')[1].split('/* ============================================')[0]}
     </style>
@@ -1280,20 +1262,19 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         <div class="card">
             ${banner1}
             
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                <span style="background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem;">
-                    <i class="fas fa-fingerprint"></i> ID: ${book.id} · ${book.coverSource}
-                </span>
-            </div>
+            <span class="id-badge">
+                <i class="fas fa-fingerprint"></i> ID: ${book.id} · ${book.coverSource}
+            </span>
             
             <div class="header">
                 <div class="cover">${coverHtml}</div>
                 <div style="flex:1;">
                     <h1>${book.formattedTitle}</h1>
-                    <div style="color: #475569; margin-bottom: 25px;">
-                        <i class="fas fa-user"></i> ${book.author} · 
+                    <div class="meta">
+                        <i class="fas fa-user"></i> <strong>${book.author}</strong> · 
                         <i class="fas fa-calendar"></i> ${book.year}${publisherDisplay}
                     </div>
+                    
                     <div class="button-group">
                         <a href="${book.olUrl}" class="btn btn-primary" target="_blank">
                             <i class="fas fa-book-open"></i> Read at Open Library
@@ -1306,7 +1287,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             </div>
             
             <div class="description">
-                <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+                <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-quote-right"></i> Book Description
                 </h2>
                 ${book.description}
@@ -1317,8 +1298,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             
             <div class="footer">
                 <p>© ${year} ${domain} · Free Book Download Portal</p>
-                <p style="margin-top:12px; font-size:0.8rem;">
-                    ID: ${book.id} · Generated: ${today}
+                <p style="margin-top: 12px; font-size: 0.8rem;">
+                    <i class="fas fa-database"></i> Source: Open Library · 
+                    <i class="fas fa-file"></i> ID: ${book.id} · 
+                    <i class="fas fa-clock"></i> Generated: ${today}
                 </p>
             </div>
         </div>
@@ -1341,26 +1324,47 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
         function generateIndexHTML(books, domain) {
             let html = `<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>${books.length} Free eBooks - ${domain}</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-    body{font-family:'Inter',sans-serif;background:#f8fafc;padding:40px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:25px;}
-    .card{background:white;border-radius:16px;padding:20px;border:1px solid #e2e8f0;}
-    img{width:100%;height:200px;object-fit:contain;}
-    a{display:inline-block;background:#0f172a;color:white;padding:10px 20px;border-radius:40px;text-decoration:none;}
-</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 ${books.length} Free eBooks Download - ${domain}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',sans-serif;background:#f8fafc;padding:40px 20px;color:#0f172a;}
+        .container{max-width:1200px;margin:0 auto;}
+        h1{font-size:2rem;margin-bottom:30px;display:flex;align-items:center;gap:15px;}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:25px;}
+        .card{background:white;border-radius:20px;padding:20px;border:1px solid #e2e8f0;transition:0.3s;}
+        .card:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.05);border-color:#0f172a;}
+        img{width:100%;height:200px;object-fit:contain;margin-bottom:15px;}
+        .nocover{width:100%;height:200px;background:#e2e8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;color:#475569;}
+        a{text-decoration:none;color:#0f172a;font-weight:600;}
+        .btn{display:inline-block;background:#0f172a;color:white;padding:10px 24px;border-radius:40px;margin-top:15px;font-size:0.9rem;transition:0.3s;}
+        .btn:hover{background:#1e293b;}
+    </style>
 </head>
 <body>
-    <h1><i class="fas fa-crown" style="color:#f59e0b;"></i> ${books.length} Free eBooks</h1>
-    <div class="grid">`;
+    <div class="container">
+        <h1><i class="fas fa-crown" style="color:#f59e0b;"></i> ${books.length} Free eBooks Download</h1>
+        <p style="margin-bottom:30px;color:#475569;">All books are sourced from Open Library. PDF/EPUB formats available.</p>
+        <div class="grid">`;
+            
             books.slice(0, 50).forEach(b => {
                 html += `<div class="card">`;
-                if (b.hasCover) html += `<img src="${b.coverUrl}" onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">`;
-                else html += `<div style="width:100%;height:200px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;"><i class="fas fa-book"></i></div>`;
-                html += `<h3>${b.title.substring(0,50)}</h3><p>${b.author}</p><a href="${b.filename}">Download</a></div>`;
+                if (b.hasCover) {
+                    html += `<img src="${b.coverUrl}" onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">`;
+                } else {
+                    html += `<div class="nocover"><i class="fas fa-book" style="font-size:2rem; margin-bottom:10px;"></i>No Cover</div>`;
+                }
+                html += `<h3 style="font-size:0.95rem;">${b.title.substring(0, 50)}${b.title.length > 50 ? '...' : ''}</h3>`;
+                html += `<p style="color:#475569; font-size:0.85rem; margin-top:5px;">${b.author}</p>`;
+                html += `<a href="${b.filename}" class="btn"><i class="fas fa-download"></i> Download</a>`;
+                html += `</div>`;
             });
+            
             html += `</div></body></html>`;
             return html;
         }
@@ -1400,6 +1404,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             setTitleMode('random');
             const defaultSmartlink = 'https://adsterra.com/referral/your-id';
             updateBannerPreviews(defaultSmartlink);
+            updateDescriptionPreview();
         };
     </script>
 </body>
