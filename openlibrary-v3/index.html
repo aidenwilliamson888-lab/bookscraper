@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · BANNER 2 MINIMALIS · BANNER 3 GLASS</title>
+    <title>✨ OPEN LIBRARY · MASS GENERATOR · + ROBOTS.TXT + URLS.TXT</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
             --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
             --success: #10b981;
             --warning: #f59e0b;
-            --danger: #ef4444;
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
@@ -155,7 +154,7 @@
         }
 
         /* ============================================
-           BANNER 2 - PREMIUM ACCESS (VERSI MINIMALIS - TIDAK BESAR)
+           BANNER 2 - PREMIUM ACCESS (MINIMALIS)
            ============================================ */
         .banner-2 {
             background: linear-gradient(145deg, rgba(0,0,0,0.85), rgba(15,25,35,0.95)), 
@@ -335,7 +334,7 @@
         }
 
         /* ============================================
-           BANNER 3 - GLASS MORPHISM PREMIUM (SEPERTI DULU)
+           BANNER 3 - GLASS MORPHISM PREMIUM
            ============================================ */
         .banner-3 {
             background: rgba(15,23,42,0.75);
@@ -395,7 +394,7 @@
         }
 
         /* ============================================
-           MAIN UI (SAMA SEPERTI SEBELUMNYA)
+           MAIN UI
            ============================================ */
         .grid-main {
             display: grid;
@@ -521,6 +520,30 @@
             border-color: var(--accent);
             background: linear-gradient(145deg, white, #f0f9ff);
         }
+
+        .robots-preview {
+            background: #0a1a2a;
+            color: #aad0e0;
+            padding: 20px;
+            border-radius: 16px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            border: 1px solid #3b82f6;
+            margin-top: 20px;
+        }
+
+        .urls-preview {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 20px;
+            border-radius: 16px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #10b981;
+            margin-top: 20px;
+        }
     </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -532,10 +555,10 @@
         <div class="card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; margin-bottom: 35px;">
             <h1 style="color: white; border-bottom-color: rgba(255,255,255,0.2);">
                 <i class="fas fa-crown" style="color: #f59e0b;"></i>
-                OPEN LIBRARY · BANNER 2 MINIMALIS · BANNER 3 GLASS
+                OPEN LIBRARY · + ROBOTS.TXT + URLS.TXT
             </h1>
             <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
-                ✦ BANNER 2: LEBIH RAMAH, TIDAK DOMINAN ✦ BANNER 3: GLASS MORPHISM PREMIUM
+                ✦ 1000+ BUKU ✦ SITEMAP.XML ✦ ROBOTS.TXT ✦ ALL-URLS.TXT ✦ HIDDEN SMARTLINK
             </p>
         </div>
 
@@ -610,7 +633,7 @@
                     </div>
                 </div>
 
-                <!-- SMARTLINK URL (HIDDEN + BACK TRIGGER) -->
+                <!-- SMARTLINK URL -->
                 <div style="background: linear-gradient(145deg, #f0f9ff, white); border-left: 4px solid #3b82f6; padding: 25px; border-radius: 24px; margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-bolt" style="font-size: 1.5rem; color: #3b82f6;"></i>
@@ -619,9 +642,6 @@
                     <div class="form-group">
                         <input type="text" id="smartlink" value="https://adsterra.com/referral/your-id" placeholder="https://your-smartlink.com" style="border-color: #3b82f6;">
                     </div>
-                    <p style="color: #059669; font-size: 0.9rem; margin-top: 10px;">
-                        <i class="fas fa-check-circle"></i> Link akan HIDDEN (tidak di href) + BACK button trigger
-                    </p>
                 </div>
 
                 <!-- HISTATS -->
@@ -640,10 +660,25 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
 
                 <!-- GENERATE BUTTON -->
-                <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
+                <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px; margin-bottom: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU · BANNER 2 MINIMALIS · BANNER 3 GLASS
+                    GENERATE 1.000+ BUKU · +ROBOTS.TXT · +URLS.TXT
                 </button>
+
+                <!-- ROBOTS.TXT PREVIEW -->
+                <div class="robots-preview" id="robotsPreview">
+                    <span style="color: #f59e0b; font-weight: 700;">📄 robots.txt</span><br>
+                    User-agent: *<br>
+                    Allow: /<br>
+                    Sitemap: https://yourdomain.com/sitemap.xml<br>
+                    <span style="color: #94a3b8;"># Generated: -</span>
+                </div>
+
+                <!-- URLS.TXT PREVIEW -->
+                <div class="urls-preview" id="urlsPreview">
+                    <span style="color: #10b981; font-weight: 700;">🔗 all-urls.txt (preview 5 URLs)</span><br>
+                    <span style="color: #94a3b8;">⏳ Generate untuk melihat URLs...</span>
+                </div>
 
                 <!-- PROGRESS -->
                 <div id="progressContainer" style="display: none; margin-top: 25px; padding: 25px; background: var(--gray-50); border-radius: 24px;">
@@ -658,41 +693,9 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             </div>
 
-            <!-- RIGHT PANEL - PREVIEW BANNER -->
+            <!-- RIGHT PANEL - PREVIEW -->
             <div class="card">
-                <h2><i class="fas fa-chart-bar"></i> 2. Preview Banner Premium</h2>
-
-                <!-- BANNER 1 PREVIEW -->
-                <div style="margin-bottom: 30px;">
-                    <span style="background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 600;">
-                        <i class="fas fa-bolt"></i> BANNER 1 · LIMITED TIME OFFER
-                    </span>
-                    <div id="bannerPreview1" class="banner-1"></div>
-                </div>
-
-                <!-- DESKRIPSI 7 PARAGRAF -->
-                <div style="margin-bottom: 30px;">
-                    <span style="background: #8b5cf6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-paragraph"></i> DESKRIPSI · 7 PARAGRAF PREMIUM
-                    </span>
-                    <div id="descriptionPreview" style="background: white; border-left: 6px solid #3b82f6; border-radius: 20px; padding: 30px; line-height: 1.8; border: 1px solid #e2e8f0;"></div>
-                </div>
-
-                <!-- BANNER 2 PREVIEW - MINIMALIS -->
-                <div style="margin-bottom: 30px;">
-                    <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
-                        <i class="fas fa-crown"></i> BANNER 2 · MINIMALIS (TIDAK DOMINAN)
-                    </span>
-                    <div id="bannerPreview2" class="banner-2"></div>
-                </div>
-
-                <!-- BANNER 3 PREVIEW - GLASS MORPHISM (SEPERTI DULU) -->
-                <div style="margin-bottom: 30px;">
-                    <span style="background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-glass-cheers"></i> BANNER 3 · GLASS MORPHISM PREMIUM
-                    </span>
-                    <div id="bannerPreview3" class="banner-3"></div>
-                </div>
+                <h2><i class="fas fa-chart-bar"></i> 2. Preview & Download</h2>
 
                 <!-- STATS -->
                 <div class="stats-grid">
@@ -709,12 +712,36 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                         <div class="stat-label">No Cover</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="statBanners">3</div>
-                        <div class="stat-label">Smartlinks</div>
+                        <div class="stat-value" id="statFiles">0</div>
+                        <div class="stat-label">Total Files</div>
                     </div>
                 </div>
 
-                <!-- BOOK GRID -->
+                <!-- BANNER 1 PREVIEW -->
+                <div style="margin-bottom: 30px;">
+                    <span style="background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 600;">
+                        <i class="fas fa-bolt"></i> BANNER 1 · LIMITED TIME OFFER
+                    </span>
+                    <div id="bannerPreview1" class="banner-1"></div>
+                </div>
+
+                <!-- BANNER 2 PREVIEW -->
+                <div style="margin-bottom: 30px;">
+                    <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
+                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS
+                    </span>
+                    <div id="bannerPreview2" class="banner-2"></div>
+                </div>
+
+                <!-- BANNER 3 PREVIEW -->
+                <div style="margin-bottom: 30px;">
+                    <span style="background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
+                        <i class="fas fa-glass-cheers"></i> BANNER 3 · GLASS MORPHISM
+                    </span>
+                    <div id="bannerPreview3" class="banner-3"></div>
+                </div>
+
+                <!-- BOOK GRID PREVIEW -->
                 <div style="margin-top: 25px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                         <span style="font-weight: 700;"><i class="fas fa-book-open"></i> Preview Buku</span>
@@ -723,13 +750,21 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     <div id="bookGridPreview" class="book-grid" style="min-height: 200px;"></div>
                 </div>
 
-                <!-- DOWNLOAD -->
+                <!-- DOWNLOAD BUTTONS -->
                 <div style="display: flex; gap: 15px; margin-top: 30px;">
                     <button onclick="downloadAll()" class="btn btn-success" id="downloadBtn" disabled style="flex: 2;">
-                        <i class="fas fa-download"></i> 📦 DOWNLOAD ZIP
+                        <i class="fas fa-download"></i> 📦 DOWNLOAD ZIP (BUKU + ROBOTS + SITEMAP + URLS)
                     </button>
                     <button onclick="downloadSitemap()" class="btn" id="sitemapBtn" disabled style="flex: 1; background: var(--accent);">
-                        <i class="fas fa-sitemap"></i> SITEMAP
+                        🗺️ SITEMAP
+                    </button>
+                </div>
+                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                    <button onclick="downloadRobots()" class="btn" id="robotsBtn" disabled style="flex: 1; background: #475569;">
+                        🤖 ROBOTS.TXT
+                    </button>
+                    <button onclick="downloadUrls()" class="btn" id="urlsBtn" disabled style="flex: 1; background: #059669;">
+                        🔗 ALL-URLS.TXT
                     </button>
                 </div>
             </div>
@@ -738,7 +773,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
     <script>
         // ============================================
-        // OPEN LIBRARY · BANNER 2 MINIMALIS · BANNER 3 GLASS
+        // OPEN LIBRARY · MASS GENERATOR
+        // + ROBOTS.TXT + ALL-URLS.TXT
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -770,6 +806,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         let books = [];
         let coverStats = { coverId: 0, coverEdition: 0, isbn: 0, noCover: 0 };
         let isGenerating = false;
+        let generatedUrls = [];
 
         // ============================================
         // 7 PARAGRAPH PREMIUM DESCRIPTION
@@ -837,7 +874,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // UPDATE BANNER PREVIEWS - HIDDEN SMARTLINK
+        // UPDATE BANNER PREVIEWS
         // ============================================
         function updateBannerPreviews(smartlink) {
             // BANNER 1
@@ -857,7 +894,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             `;
 
-            // BANNER 2 - MINIMALIS
+            // BANNER 2
             document.getElementById('bannerPreview2').innerHTML = `
                 <div class="banner-2-content">
                     <div class="banner-2-icon">
@@ -890,7 +927,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             `;
 
-            // BANNER 3 - GLASS MORPHISM (SEPERTI DULU)
+            // BANNER 3
             document.getElementById('bannerPreview3').innerHTML = `
                 <div class="banner-3-content">
                     <div class="banner-3-badge">
@@ -913,24 +950,35 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // UPDATE DESCRIPTION PREVIEW
+        // GENERATE ROBOTS.TXT
         // ============================================
-        function updateDescriptionPreview() {
-            const sampleDoc = {
-                title: "The Lightning Thief",
-                author_name: ["Rick Riordan"],
-                first_publish_year: "2005",
-                publisher: ["Miramax Books"],
-                subject: ["Fantasy", "Mythology", "Young Adult", "Adventure", "Greek Mythology"],
-                first_sentence: "Look, I didn't want to be a half-blood."
-            };
-            const previewDesc = generatePremiumDescription(sampleDoc);
-            document.getElementById('descriptionPreview').innerHTML = `
-                <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-quote-right" style="color: #3b82f6;"></i> Book Description
-                </h2>
-                ${previewDesc}
-            `;
+        function generateRobotsTxt(domain, sitemapUrl) {
+            const today = new Date().toISOString().split('T')[0];
+            return `# robots.txt for ${domain}
+# Generated: ${today}
+# Optimized for Google Search Console
+
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+
+# Sitemap location
+Sitemap: ${sitemapUrl}
+
+# Crawl-delay: 1 (optional)
+`;
+        }
+
+        // ============================================
+        // GENERATE ALL URLS TXT
+        // ============================================
+        function generateUrlsTxt(books, domain) {
+            let urls = '';
+            books.forEach(book => {
+                urls += `https://${domain}/${book.filename}\n`;
+            });
+            return urls;
         }
 
         // ============================================
@@ -1046,12 +1094,16 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             isGenerating = true;
             books = [];
             coverStats = { coverId: 0, coverEdition: 0, isbn: 0, noCover: 0 };
+            generatedUrls = [];
             
             document.getElementById('progressContainer').style.display = 'block';
             document.getElementById('downloadBtn').disabled = true;
             document.getElementById('sitemapBtn').disabled = true;
+            document.getElementById('robotsBtn').disabled = true;
+            document.getElementById('urlsBtn').disabled = true;
             document.getElementById('statTotalBooks').innerHTML = '0';
             document.getElementById('bookCount').innerHTML = '0 buku';
+            document.getElementById('statFiles').innerHTML = '0';
             
             try {
                 const PAGE_SIZE = 100;
@@ -1085,6 +1137,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                                 document.getElementById('bookCount').innerHTML = collected + ' buku';
                                 document.getElementById('statCoverId').innerHTML = coverStats.coverId;
                                 document.getElementById('statNoCover').innerHTML = coverStats.noCover;
+                                document.getElementById('statFiles').innerHTML = collected + 3; // + robots, sitemap, urls
                             }
                             
                             await new Promise(r => setTimeout(r, 5));
@@ -1099,15 +1152,46 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 }
                 
                 isGenerating = false;
+                
+                // Update UI
                 document.getElementById('progressStatus').innerHTML = '<i class="fas fa-check-circle"></i> Selesai!';
                 document.getElementById('progressFill').style.width = '100%';
                 document.getElementById('progressPercent').innerHTML = '100%';
                 document.getElementById('statTotalBooks').innerHTML = books.length;
                 document.getElementById('bookCount').innerHTML = books.length + ' buku';
+                document.getElementById('statFiles').innerHTML = books.length + 3;
+                
+                // Enable download buttons
                 document.getElementById('downloadBtn').disabled = false;
                 document.getElementById('sitemapBtn').disabled = false;
+                document.getElementById('robotsBtn').disabled = false;
+                document.getElementById('urlsBtn').disabled = false;
                 
+                // Update preview grid
                 updatePreviewGrid();
+                
+                // Update robots.txt preview
+                const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+                const sitemapUrl = `https://${domain}/sitemap.xml`;
+                const robotsTxt = generateRobotsTxt(domain, sitemapUrl);
+                document.getElementById('robotsPreview').innerHTML = `
+                    <span style="color: #f59e0b; font-weight: 700;">📄 robots.txt</span><br>
+                    ${robotsTxt.replace(/\n/g, '<br>')}
+                `;
+                
+                // Update URLs preview
+                generatedUrls = books.map(b => `https://${domain}/${b.filename}`);
+                let urlsPreview = '';
+                generatedUrls.slice(0, 10).forEach((url, i) => {
+                    urlsPreview += `<span style="color: #a5f3fc;">${i+1}.</span> ${url}<br>`;
+                });
+                if (generatedUrls.length > 10) {
+                    urlsPreview += `<span style="color: #94a3b8;">... dan ${generatedUrls.length - 10} URLs lainnya</span>`;
+                }
+                document.getElementById('urlsPreview').innerHTML = `
+                    <span style="color: #10b981; font-weight: 700;">🔗 all-urls.txt (${generatedUrls.length} URLs)</span><br>
+                    ${urlsPreview}
+                `;
                 
             } catch (e) {
                 console.error(e);
@@ -1143,22 +1227,19 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // GENERATE LANDING PAGE - HIDDEN SMARTLINK + BACK TRIGGER
-        // BANNER 2 MINIMALIS · BANNER 3 GLASS
+        // GENERATE LANDING PAGE
         // ============================================
         function generateLandingPage(book, domain, smartlink, histatsScript) {
             const year = new Date().getFullYear();
             const today = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
             const publisherDisplay = book.publisher ? ` · ${book.publisher}` : '';
             
-            // HIDDEN SMARTLINK + BACK BUTTON TRIGGER
             const hiddenSmartlinkScript = `
                 <script>
                     function redirectSmartlink() {
                         window.location.href = '${smartlink}';
                     }
                     
-                    // BACK BUTTON TRIGGER
                     (function() {
                         history.pushState({ backlink: true }, '', window.location.href);
                         history.pushState({}, '', window.location.href);
@@ -1172,7 +1253,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <\/script>
             `;
             
-            // BANNER 1
             const banner1 = `
                 <div class="banner-1">
                     <div class="banner-1-icon">
@@ -1190,7 +1270,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>`;
 
-            // BANNER 2 - MINIMALIS
             const banner2 = `
                 <div class="banner-2">
                     <div class="banner-2-content">
@@ -1224,7 +1303,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>`;
 
-            // BANNER 3 - GLASS MORPHISM (SEPERTI DULU)
             const banner3 = `
                 <div class="banner-3">
                     <div class="banner-3-content">
@@ -1253,7 +1331,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     <div style="margin-top:15px; color:#475569; font-weight:500;">No Cover Available</div>
                    </div>`;
 
-            // MAIN HTML
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1373,7 +1450,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // SITEMAP & INDEX
+        // SITEMAP
         // ============================================
         function generateSitemap(books, domain) {
             let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -1386,6 +1463,9 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             return xml;
         }
 
+        // ============================================
+        // INDEX HTML
+        // ============================================
         function generateIndexHTML(books, domain) {
             let html = `<!DOCTYPE html>
 <html lang="en">
@@ -1434,7 +1514,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             const smartlink = document.getElementById('smartlink').value.trim();
             const histatsScript = document.getElementById('histatsScript').value;
             
-            const folder = zip.folder(`open-library-${books.length}books`);
+            const folderName = `open-library-${books.length}books`;
+            const folder = zip.folder(folderName);
+            
+            document.getElementById('progressStatus').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Membuat file HTML...';
             
             for (let i = 0; i < books.length; i++) {
                 const html = generateLandingPage(books[i], domain, smartlink, histatsScript);
@@ -1442,18 +1525,54 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 if (i % 50 === 0) await new Promise(r => setTimeout(r, 5));
             }
             
-            folder.file('sitemap.xml', generateSitemap(books, domain));
-            folder.file('index.html', generateIndexHTML(books, domain));
+            // SITEMAP
+            const sitemap = generateSitemap(books, domain);
+            folder.file('sitemap.xml', sitemap);
+            
+            // INDEX
+            const indexHtml = generateIndexHTML(books, domain);
+            folder.file('index.html', indexHtml);
+            
+            // ROBOTS.TXT
+            const sitemapUrl = `https://${domain}/sitemap.xml`;
+            const robotsTxt = generateRobotsTxt(domain, sitemapUrl);
+            folder.file('robots.txt', robotsTxt);
+            
+            // ALL-URLS.TXT
+            const urlsTxt = generateUrlsTxt(books, domain);
+            folder.file('all-urls.txt', urlsTxt);
+            
+            document.getElementById('progressStatus').innerHTML = '<i class="fas fa-download"></i> Downloading ZIP...';
             
             const zipBlob = await zip.generateAsync({ type: 'blob' });
-            saveAs(zipBlob, `open-library-${books.length}books-${Date.now()}.zip`);
+            saveAs(zipBlob, `${folderName}-${Date.now()}.zip`);
+            
+            document.getElementById('progressStatus').innerHTML = '<i class="fas fa-check-circle"></i> Selesai!';
         }
 
         function downloadSitemap() {
             if (books.length === 0) return alert('Generate dulu!');
             const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
-            const blob = new Blob([generateSitemap(books, domain)], { type: 'application/xml' });
+            const sitemap = generateSitemap(books, domain);
+            const blob = new Blob([sitemap], { type: 'application/xml' });
             saveAs(blob, `sitemap-${Date.now()}.xml`);
+        }
+
+        function downloadRobots() {
+            if (books.length === 0) return alert('Generate dulu!');
+            const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+            const sitemapUrl = `https://${domain}/sitemap.xml`;
+            const robotsTxt = generateRobotsTxt(domain, sitemapUrl);
+            const blob = new Blob([robotsTxt], { type: 'text/plain' });
+            saveAs(blob, `robots-${Date.now()}.txt`);
+        }
+
+        function downloadUrls() {
+            if (books.length === 0) return alert('Generate dulu!');
+            const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+            const urlsTxt = generateUrlsTxt(books, domain);
+            const blob = new Blob([urlsTxt], { type: 'text/plain' });
+            saveAs(blob, `all-urls-${Date.now()}.txt`);
         }
 
         // INITIALIZE
@@ -1461,7 +1580,15 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             setTitleMode('random');
             const defaultSmartlink = 'https://adsterra.com/referral/your-id';
             updateBannerPreviews(defaultSmartlink);
-            updateDescriptionPreview();
+            
+            // Set default robots preview
+            const domain = document.getElementById('domain').value.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+            const sitemapUrl = `https://${domain}/sitemap.xml`;
+            const robotsTxt = generateRobotsTxt(domain, sitemapUrl);
+            document.getElementById('robotsPreview').innerHTML = `
+                <span style="color: #f59e0b; font-weight: 700;">📄 robots.txt</span><br>
+                ${robotsTxt.replace(/\n/g, '<br>')}
+            `;
         };
     </script>
 </body>
