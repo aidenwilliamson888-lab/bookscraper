@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM</title>
+    <title>✨ OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM · FINAL FIX</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -42,34 +42,18 @@
            BANNER 1 - LIMITED TIME OFFER (BACKGROUND)
            ============================================ */
         .banner-1 {
-            background: linear-gradient(145deg, rgba(10,26,42,0.85), rgba(20,40,60,0.9)), 
+            background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(15,23,42,0.9)), 
                         url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
             background-size: cover;
             background-position: center;
             border-radius: 24px;
             padding: 40px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             position: relative;
             overflow: hidden;
             margin-bottom: 30px;
-            backdrop-filter: blur(2px);
-        }
-
-        .banner-1::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            animation: shimmer 4s infinite;
-        }
-
-        @keyframes shimmer {
-            100% { left: 200%; }
         }
 
         .banner-1-icon {
@@ -81,7 +65,7 @@
         }
 
         .banner-1-icon i {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.1);
             padding: 15px;
             border-radius: 50%;
             backdrop-filter: blur(5px);
@@ -89,23 +73,23 @@
         }
 
         .banner-1-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: white;
             margin-bottom: 15px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
             letter-spacing: -0.02em;
         }
 
         .banner-1-subtitle {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.95);
+            color: white;
             margin-bottom: 25px;
             font-weight: 500;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .banner-1-button {
@@ -117,15 +101,9 @@
             font-weight: 700;
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(59,130,246,0.4);
+            box-shadow: 0 10px 25px rgba(59,130,246,0.5);
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.2);
-            animation: pulse 2s infinite;
-        }
-
-        .banner-1-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(59,130,246,0.6);
         }
 
         .banner-1-badge {
@@ -133,7 +111,7 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             font-size: 0.95rem;
         }
 
@@ -143,21 +121,19 @@
         }
 
         /* ============================================
-           BANNER 2 - PREMIUM ACCESS (BACKGROUND)
+           BANNER 2 - PREMIUM ACCESS (FIXED - KONTRAST TINGGI)
            ============================================ */
         .banner-2 {
-            background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(30,41,59,0.95)), 
+            background: linear-gradient(145deg, rgba(0,0,0,0.85), rgba(10,20,30,0.95)), 
                         url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
             background-size: cover;
             background-position: center;
             border-radius: 28px;
             padding: 45px;
-            text-align: center;
-            border: 1px solid rgba(59,130,246,0.3);
-            box-shadow: 0 0 40px rgba(59,130,246,0.2);
             margin: 40px 0;
             position: relative;
-            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .banner-2::after {
@@ -167,10 +143,10 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
+            background: linear-gradient(45deg, #f59e0b, #ffb347, #f59e0b);
             border-radius: 30px;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.2;
             filter: blur(12px);
         }
 
@@ -178,7 +154,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
@@ -187,13 +163,14 @@
         }
 
         .banner-2-icon i {
-            font-size: 4rem;
-            color: #f59e0b;
-            text-shadow: 0 0 30px rgba(245,158,11,0.5);
-            background: rgba(255,255,255,0.1);
+            font-size: 4.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 30px rgba(255,215,0,0.8);
+            background: rgba(0,0,0,0.3);
             padding: 20px;
             border-radius: 50%;
             backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,215,0,0.5);
         }
 
         .banner-2-text {
@@ -203,47 +180,68 @@
 
         .banner-2-tag {
             display: inline-block;
-            background: rgba(245,158,11,0.2);
-            backdrop-filter: blur(5px);
+            background: linear-gradient(145deg, #f59e0b, #d97706);
             padding: 8px 24px;
             border-radius: 60px;
             color: white;
             font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 15px;
-            border: 1px solid rgba(245,158,11,0.5);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 12px rgba(245,158,11,0.3);
         }
 
         .banner-2-tag i {
-            color: #f59e0b;
+            color: white;
             margin-right: 8px;
         }
 
+        .banner-2-vip {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 6px 18px;
+            border-radius: 60px;
+            color: white;
+            font-size: 0.8rem;
+            margin-left: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 600;
+        }
+
+        .banner-2-vip i {
+            color: #ffd700;
+            margin-right: 5px;
+        }
+
         .banner-2-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 8px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            letter-spacing: -0.02em;
         }
 
         .banner-2-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .banner-2-formats {
             display: flex;
-            gap: 15px;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95rem;
+            gap: 20px;
+            color: white;
+            font-size: 1rem;
             flex-wrap: wrap;
         }
 
         .banner-2-formats i {
-            color: #3b82f6;
-            margin-right: 5px;
+            margin-right: 6px;
+            color: #f59e0b;
         }
 
         .banner-2-cta {
@@ -255,28 +253,27 @@
             display: inline-block;
             background: linear-gradient(145deg, #f59e0b, #d97706);
             color: white;
-            padding: 16px 40px;
+            padding: 16px 45px;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(245,158,11,0.4);
+            box-shadow: 0 10px 25px rgba(245,158,11,0.5);
             transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: pulse 2s infinite;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .banner-2-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(245,158,11,0.6);
+            box-shadow: 0 15px 35px rgba(245,158,11,0.7);
         }
 
         .banner-2-countdown {
             margin-top: 15px;
             display: inline-block;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(5px);
-            padding: 10px 25px;
+            padding: 12px 28px;
             border-radius: 60px;
             color: white;
             font-weight: 600;
@@ -284,7 +281,7 @@
         }
 
         .banner-2-countdown i {
-            color: #f59e0b;
+            color: #ffd700;
             margin-right: 8px;
         }
 
@@ -296,8 +293,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 20px;
-            padding: 24px;
-            text-align: center;
+            padding: 24px 32px;
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             margin-top: 30px;
@@ -306,7 +302,7 @@
         .banner-3-content {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -314,16 +310,16 @@
         .banner-3-badge {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: white;
         }
 
         .banner-3-badge i {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .banner-3-badge span {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 
@@ -331,7 +327,7 @@
             display: inline-block;
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
-            padding: 12px 32px;
+            padding: 12px 36px;
             border-radius: 60px;
             color: white;
             font-weight: 700;
@@ -349,12 +345,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* ============================================
@@ -495,10 +485,10 @@
         <div class="card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; margin-bottom: 35px;">
             <h1 style="color: white; border-bottom-color: rgba(255,255,255,0.2);">
                 <i class="fas fa-crown" style="color: #f59e0b;"></i>
-                OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM
+                OPEN LIBRARY · BANNER PREMIUM KONTRAST TINGGI
             </h1>
             <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
-                ✦ Banner 1: Limited Time Offer ✦ Banner 2: Premium Access ✦ Banner 3: Glass
+                ✦ Banner 2: FIXED - Tulisan PUTIH, Kontras Tinggi ✦ Background Gelap ✦ Emas & Oranye
             </p>
         </div>
 
@@ -602,7 +592,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- GENERATE BUTTON -->
                 <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU · 3 BANNER BACKGROUND
+                    GENERATE 1.000+ BUKU · BANNER FIXED KONTRAST
                 </button>
 
                 <!-- PROGRESS -->
@@ -642,10 +632,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>
 
-                <!-- BANNER 2 - PREMIUM ACCESS -->
+                <!-- BANNER 2 - PREMIUM ACCESS (FIXED - KONTRAST TINGGI) -->
                 <div style="margin-bottom: 35px;">
                     <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
-                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS
+                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS (FIXED)
                     </span>
                     <div id="bannerPreview2" class="banner-2">
                         <!-- Akan diisi JS -->
@@ -707,7 +697,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
     <script>
         // ============================================
         // OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM
-        // PERTAHANKAN DESAIN ORIGINAL + BACKGROUND
+        // BANNER 2 FIXED - KONTRAST TINGGI, TULISAN PUTIH
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -806,7 +796,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // UPDATE BANNER PREVIEWS - ORIGINAL DESIGN + BACKGROUND
+        // UPDATE BANNER PREVIEWS - BANNER 2 FIXED KONTRAST TINGGI
         // ============================================
         function updateBannerPreviews(smartlink) {
             // BANNER 1 - LIMITED TIME OFFER
@@ -826,7 +816,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             `;
 
-            // BANNER 2 - PREMIUM ACCESS
+            // BANNER 2 - PREMIUM ACCESS (FIXED - KONTRAST TINGGI, TULISAN PUTIH)
             document.getElementById('bannerPreview2').innerHTML = `
                 <div class="banner-2-content">
                     <div class="banner-2-icon">
@@ -836,8 +826,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                         <span class="banner-2-tag">
                             <i class="fas fa-bolt"></i> PREMIUM ACCESS
                         </span>
-                        <span style="background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 60px; color: white; font-size: 0.8rem; margin-left: 12px;">
-                            <i class="fas fa-star" style="color: #f59e0b;"></i> VIP
+                        <span class="banner-2-vip">
+                            <i class="fas fa-star"></i> VIP
                         </span>
                         <div class="banner-2-title">Get Unlimited Downloads</div>
                         <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
@@ -1138,7 +1128,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>`;
 
-            // BANNER 2 - PREMIUM ACCESS
+            // BANNER 2 - PREMIUM ACCESS (FIXED - KONTRAST TINGGI)
             const banner2 = `
                 <div class="banner-2">
                     <div class="banner-2-content">
@@ -1149,8 +1139,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                             <span class="banner-2-tag">
                                 <i class="fas fa-bolt"></i> PREMIUM ACCESS
                             </span>
-                            <span style="background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 60px; color: white; font-size: 0.8rem; margin-left: 12px;">
-                                <i class="fas fa-star" style="color: #f59e0b;"></i> VIP
+                            <span class="banner-2-vip">
+                                <i class="fas fa-star"></i> VIP
                             </span>
                             <div class="banner-2-title">Get Unlimited Downloads</div>
                             <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
@@ -1234,27 +1224,23 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #64748b; text-align: center; }
         .id-badge { display: inline-block; background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
         
-        /* BANNER STYLES */
         .banner-1, .banner-2, .banner-3 { margin-bottom: 30px; }
-        .banner-1 { background: linear-gradient(145deg, rgba(10,26,42,0.85), rgba(20,40,60,0.9)), url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 40px; text-align: center; }
-        .banner-2 { background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(30,41,59,0.95)), url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px; margin: 40px 0; }
-        .banner-3 { background: rgba(15,23,42,0.75); backdrop-filter: blur(12px); border-radius: 20px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px; }
-        .banner-1-icon { font-size: 3rem; margin-bottom: 15px; }
-        .banner-1-title { font-size: 2.2rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        .banner-1-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.95); margin-bottom: 25px; }
-        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; animation: pulse 2s infinite; }
-        .banner-1-badge { margin-top: 20px; display: flex; justify-content: center; gap: 25px; color: rgba(255,255,255,0.8); }
-        .banner-2-content { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .banner-2-icon i { font-size: 4rem; color: #f59e0b; text-shadow: 0 0 30px rgba(245,158,11,0.5); }
-        .banner-2-tag { display: inline-block; background: rgba(245,158,11,0.2); backdrop-filter: blur(5px); padding: 8px 24px; border-radius: 60px; color: white; font-weight: 700; }
-        .banner-2-title { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 8px; }
-        .banner-2-button { display: inline-block; background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 16px 40px; border-radius: 60px; font-weight: 700; text-decoration: none; animation: pulse 2s infinite; }
-        .banner-2-countdown { margin-top: 15px; display: inline-block; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 10px 25px; border-radius: 60px; color: white; }
-        .banner-3-content { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; }
-        .banner-3-badge { display: flex; align-items: center; gap: 8px; color: white; }
-        .banner-3-button { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 12px 32px; border-radius: 60px; color: white; text-decoration: none; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        @media (max-width: 768px) { .card { padding: 25px; } .banner-1-title { font-size: 1.8rem; } .banner-2-title { font-size: 1.6rem; } }
+        .banner-1 { background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(15,23,42,0.9)), url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 40px; text-align: center; }
+        .banner-2 { background: linear-gradient(145deg, rgba(0,0,0,0.85), rgba(10,20,30,0.95)), url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px; margin: 40px 0; }
+        .banner-3 { background: rgba(15,23,42,0.75); backdrop-filter: blur(12px); border-radius: 20px; padding: 24px 32px; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px; }
+        .banner-1-title { font-size: 2.4rem; font-weight: 800; color: white; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; text-decoration: none; }
+        .banner-2-icon i { font-size: 4.5rem; color: #ffd700; text-shadow: 0 0 30px rgba(255,215,0,0.8); }
+        .banner-2-tag { background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 8px 24px; border-radius: 60px; display: inline-block; }
+        .banner-2-title { font-size: 2.2rem; font-weight: 800; color: white; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        .banner-2-subtitle { color: white; }
+        .banner-2-formats { color: white; }
+        .banner-2-button { background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 16px 45px; border-radius: 60px; text-decoration: none; display: inline-block; }
+        .banner-2-countdown { background: rgba(0,0,0,0.5); color: white; padding: 12px 28px; border-radius: 60px; display: inline-block; }
+        .banner-3-content { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+        .banner-3-badge { display: flex; align-items: center; gap: 10px; color: white; }
+        .banner-3-button { background: rgba(255,255,255,0.1); color: white; padding: 12px 36px; border-radius: 60px; text-decoration: none; }
+        @media (max-width: 768px) { .card { padding: 25px; } }
     </style>
 </head>
 <body>
