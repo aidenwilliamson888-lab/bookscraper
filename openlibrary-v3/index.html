@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · 3 BANNER PREMIUM · FINAL FIX</title>
+    <title>✨ OPEN LIBRARY · BANNER CENTER + ANIMASI · FINAL FIX</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +39,45 @@
         .container { max-width: 1600px; margin: 0 auto; }
 
         /* ============================================
-           BANNER 1 - LIMITED TIME OFFER (FIXED)
+           ANIMASI KEYFRAMES - PASTI WORKING
+           ============================================ */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(59,130,246,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(59,130,246,0.7); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(59,130,246,0.5); }
+        }
+
+        @keyframes pulseOrange {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(245,158,11,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(245,158,11,0.7); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(245,158,11,0.5); }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite !important;
+        }
+
+        .pulse-orange-animation {
+            animation: pulseOrange 2s infinite !important;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite !important;
+        }
+
+        /* ============================================
+           BANNER 1 - LIMITED TIME OFFER (CENTER + ANIMASI)
            ============================================ */
         .banner-1 {
             background: linear-gradient(145deg, rgba(0,0,0,0.82), rgba(10,20,30,0.92)), 
@@ -48,7 +86,7 @@
             background-position: center;
             border-radius: 24px;
             padding: 45px 35px;
-            text-align: center;
+            text-align: center !important;
             border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             position: relative;
@@ -60,7 +98,7 @@
             font-size: 3rem;
             margin-bottom: 20px;
             display: flex;
-            justify-content: center;
+            justify-content: center !important;
             gap: 15px;
         }
 
@@ -79,6 +117,7 @@
             margin-bottom: 15px;
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
             letter-spacing: -0.02em;
+            text-align: center !important;
         }
 
         .banner-1-subtitle {
@@ -91,6 +130,7 @@
             margin-right: auto;
             text-shadow: 0 2px 8px rgba(0,0,0,0.5);
             line-height: 1.5;
+            text-align: center !important;
         }
 
         .banner-1-button {
@@ -105,6 +145,9 @@
             box-shadow: 0 10px 25px rgba(59,130,246,0.5);
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite !important;
+            text-align: center;
+            margin: 0 auto;
         }
 
         .banner-1-button i {
@@ -119,7 +162,7 @@
         .banner-1-badge {
             margin-top: 25px;
             display: flex;
-            justify-content: center;
+            justify-content: center !important;
             gap: 30px;
             color: rgba(255,255,255,0.9);
             font-size: 1rem;
@@ -132,7 +175,7 @@
         }
 
         /* ============================================
-           BANNER 2 - PREMIUM ACCESS (FIXED - SINGLE FORMAT)
+           BANNER 2 - PREMIUM ACCESS (CENTER + ANIMASI)
            ============================================ */
         .banner-2 {
             background: linear-gradient(145deg, rgba(0,0,0,0.88), rgba(8,18,28,0.96)), 
@@ -145,6 +188,7 @@
             position: relative;
             border: 1px solid rgba(255,255,255,0.15);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            text-align: center !important;
         }
 
         .banner-2::after {
@@ -163,14 +207,15 @@
 
         .banner-2-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px;
+            text-align: center !important;
         }
 
         .banner-2-icon {
-            flex: 0 0 110px;
+            margin-bottom: 5px;
         }
 
         .banner-2-icon i {
@@ -182,11 +227,16 @@
             border-radius: 50%;
             backdrop-filter: blur(5px);
             border: 2px solid rgba(255,215,0,0.6);
+            animation: float 3s ease-in-out infinite;
         }
 
-        .banner-2-text {
-            flex: 1;
-            text-align: left;
+        .banner-2-tag-container {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
         .banner-2-tag {
@@ -197,7 +247,6 @@
             color: white;
             font-weight: 700;
             font-size: 1rem;
-            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
             box-shadow: 0 4px 15px rgba(245,158,11,0.4);
             letter-spacing: 0.5px;
@@ -215,7 +264,6 @@
             border-radius: 60px;
             color: white;
             font-size: 0.9rem;
-            margin-left: 15px;
             border: 1px solid rgba(255,255,255,0.2);
             font-weight: 600;
         }
@@ -232,6 +280,7 @@
             margin-bottom: 12px;
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
             letter-spacing: -0.02em;
+            text-align: center !important;
         }
 
         .banner-2-subtitle {
@@ -240,30 +289,34 @@
             margin-bottom: 18px;
             font-weight: 500;
             text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            text-align: center !important;
         }
 
         .banner-2-formats {
             display: flex;
+            justify-content: center !important;
+            align-items: center !important;
             gap: 25px;
             color: white;
             font-size: 1.05rem;
             flex-wrap: wrap;
+            margin-bottom: 5px;
         }
 
         .banner-2-formats span {
             display: flex;
             align-items: center;
+            gap: 8px;
         }
 
         .banner-2-formats i {
-            margin-right: 8px;
             color: #f59e0b;
             font-size: 1.1rem;
         }
 
         .banner-2-cta {
-            flex: 0 0 auto;
-            text-align: center;
+            margin-top: 20px;
+            text-align: center !important;
         }
 
         .banner-2-button {
@@ -275,14 +328,11 @@
             font-weight: 700;
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(245,158,11,0.5);
+            box-shadow: 0 10px 25px rgba(245,158,11,0.5);
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .banner-2-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(245,158,11,0.7);
+            animation: pulseOrange 2s infinite !important;
+            text-align: center;
         }
 
         .banner-2-button i {
@@ -308,7 +358,7 @@
         }
 
         /* ============================================
-           BANNER 3 - GLASS MORPHISM
+           BANNER 3 - GLASS MORPHISM (CENTER)
            ============================================ */
         .banner-3 {
             background: rgba(15,23,42,0.78);
@@ -319,14 +369,16 @@
             border: 1px solid rgba(255,255,255,0.12);
             box-shadow: 0 10px 35px rgba(0,0,0,0.25);
             margin-top: 30px;
+            text-align: center !important;
         }
 
         .banner-3-content {
             display: flex;
-            align-items: center;
+            align-items: center !important;
+            justify-content: center !important;
             gap: 45px;
             flex-wrap: wrap;
-            justify-content: center;
+            text-align: center !important;
         }
 
         .banner-3-badge {
@@ -364,18 +416,8 @@
             border-color: #3b82f6;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
         /* ============================================
-           MAIN UI
+           MAIN UI (SAMA SEPERTI SEBELUMNYA)
            ============================================ */
         .grid-main {
             display: grid;
@@ -512,10 +554,10 @@
         <div class="card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; margin-bottom: 35px;">
             <h1 style="color: white; border-bottom-color: rgba(255,255,255,0.2);">
                 <i class="fas fa-crown" style="color: #f59e0b;"></i>
-                OPEN LIBRARY · BANNER FINAL FIX
+                OPEN LIBRARY · BANNER CENTER + ANIMASI WORKING
             </h1>
             <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
-                ✦ BANNER 1: "Download this book" ✦ BANNER 2: SINGLE FORMAT ✦ KONTRAST TINGGI
+                ✦ BANNER 1: ANIMASI PULSE ✦ BANNER 2: ALL CENTER + ANIMASI ✦ KONTRAST TINGGI
             </p>
         </div>
 
@@ -619,7 +661,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- GENERATE BUTTON -->
                 <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU · BANNER FINAL FIX
+                    GENERATE 1.000+ BUKU · BANNER CENTER + ANIMASI
                 </button>
 
                 <!-- PROGRESS -->
@@ -637,12 +679,12 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
             <!-- RIGHT PANEL - PREVIEW BANNER -->
             <div class="card">
-                <h2><i class="fas fa-chart-bar"></i> 2. Preview 3 Banner Premium (FIXED)</h2>
+                <h2><i class="fas fa-chart-bar"></i> 2. Preview 3 Banner Premium (CENTER + ANIMASI)</h2>
 
-                <!-- BANNER 1 - LIMITED TIME OFFER (FIXED) -->
+                <!-- BANNER 1 - LIMITED TIME OFFER (ANIMASI WORKING) -->
                 <div style="margin-bottom: 35px;">
                     <span style="background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 600;">
-                        <i class="fas fa-bolt"></i> BANNER 1 · LIMITED TIME OFFER (FIXED)
+                        <i class="fas fa-bolt"></i> BANNER 1 · LIMITED TIME OFFER (ANIMASI PULSE)
                     </span>
                     <div id="bannerPreview1" class="banner-1">
                         <!-- Akan diisi JS -->
@@ -659,10 +701,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>
 
-                <!-- BANNER 2 - PREMIUM ACCESS (FIXED - SINGLE FORMAT) -->
+                <!-- BANNER 2 - PREMIUM ACCESS (CENTER + ANIMASI) -->
                 <div style="margin-bottom: 35px;">
                     <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
-                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS (SINGLE FORMAT)
+                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS (ALL CENTER + ANIMASI)
                     </span>
                     <div id="bannerPreview2" class="banner-2">
                         <!-- Akan diisi JS -->
@@ -724,6 +766,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
     <script>
         // ============================================
         // OPEN LIBRARY · 3 BANNER PREMIUM FINAL FIX
+        // BANNER 1: ANIMASI PULSE WORKING
+        // BANNER 2: ALL CENTER + ANIMASI WORKING
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -823,9 +867,11 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
         // ============================================
         // UPDATE BANNER PREVIEWS - FINAL FIX
+        // BANNER 1: ANIMASI PULSE WORKING
+        // BANNER 2: ALL CENTER + ANIMASI WORKING
         // ============================================
         function updateBannerPreviews(smartlink) {
-            // BANNER 1 - LIMITED TIME OFFER (FIXED: "Download this book")
+            // BANNER 1 - LIMITED TIME OFFER (ANIMASI PULSE WORKING)
             document.getElementById('bannerPreview1').innerHTML = `
                 <div class="banner-1-icon">
                     <i class="fas fa-bolt" style="color: #f59e0b;"></i>
@@ -833,7 +879,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
                 <div class="banner-1-title">⚡ LIMITED TIME OFFER ⚡</div>
                 <div class="banner-1-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
-                <a href="${smartlink}" class="banner-1-button" target="_blank">
+                <a href="${smartlink}" class="banner-1-button" target="_blank" style="animation: pulse 2s infinite !important;">
                     GET ACCESS NOW <i class="fas fa-arrow-right"></i>
                 </a>
                 <div class="banner-1-badge">
@@ -842,30 +888,34 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             `;
 
-            // BANNER 2 - PREMIUM ACCESS (FIXED: SINGLE FORMAT)
+            // BANNER 2 - PREMIUM ACCESS (ALL CENTER + ANIMASI WORKING)
             document.getElementById('bannerPreview2').innerHTML = `
                 <div class="banner-2-content">
                     <div class="banner-2-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <div class="banner-2-text">
+                    
+                    <div class="banner-2-tag-container">
                         <span class="banner-2-tag">
                             <i class="fas fa-bolt"></i> PREMIUM ACCESS
                         </span>
                         <span class="banner-2-vip">
                             <i class="fas fa-star"></i> VIP
                         </span>
-                        <div class="banner-2-title">Get Unlimited Downloads</div>
-                        <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
-                        <div class="banner-2-formats">
-                            <span><i class="fas fa-file-pdf"></i> PDF</span>
-                            <span><i class="fas fa-book"></i> EPUB</span>
-                            <span><i class="fas fa-mobile-alt"></i> MOBI</span>
-                            <span><i class="fas fa-headphones"></i> Audiobooks</span>
-                        </div>
                     </div>
+                    
+                    <div class="banner-2-title">Get Unlimited Downloads</div>
+                    <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
+                    
+                    <div class="banner-2-formats">
+                        <span><i class="fas fa-file-pdf"></i> PDF</span>
+                        <span><i class="fas fa-book"></i> EPUB</span>
+                        <span><i class="fas fa-mobile-alt"></i> MOBI</span>
+                        <span><i class="fas fa-headphones"></i> Audiobooks</span>
+                    </div>
+                    
                     <div class="banner-2-cta">
-                        <a href="${smartlink}" class="banner-2-button" target="_blank">
+                        <a href="${smartlink}" class="banner-2-button" target="_blank" style="animation: pulseOrange 2s infinite !important;">
                             <i class="fas fa-bolt"></i> CLAIM NOW
                         </a>
                         <div class="banner-2-countdown">
@@ -1136,7 +1186,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             const today = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
             const publisherDisplay = book.publisher ? ` · ${book.publisher}` : '';
             
-            // BANNER 1 - LIMITED TIME OFFER (FIXED)
+            // BANNER 1 - LIMITED TIME OFFER (ANIMASI PULSE)
             const banner1 = `
                 <div class="banner-1">
                     <div class="banner-1-icon">
@@ -1145,7 +1195,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                     <div class="banner-1-title">⚡ LIMITED TIME OFFER ⚡</div>
                     <div class="banner-1-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
-                    <a href="${smartlink}" class="banner-1-button" target="_blank">
+                    <a href="${smartlink}" class="banner-1-button" target="_blank" style="animation: pulse 2s infinite !important;">
                         GET ACCESS NOW <i class="fas fa-arrow-right"></i>
                     </a>
                     <div class="banner-1-badge">
@@ -1154,31 +1204,35 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>`;
 
-            // BANNER 2 - PREMIUM ACCESS (FIXED - SINGLE FORMAT)
+            // BANNER 2 - PREMIUM ACCESS (ALL CENTER + ANIMASI)
             const banner2 = `
                 <div class="banner-2">
                     <div class="banner-2-content">
                         <div class="banner-2-icon">
                             <i class="fas fa-crown"></i>
                         </div>
-                        <div class="banner-2-text">
+                        
+                        <div class="banner-2-tag-container">
                             <span class="banner-2-tag">
                                 <i class="fas fa-bolt"></i> PREMIUM ACCESS
                             </span>
                             <span class="banner-2-vip">
                                 <i class="fas fa-star"></i> VIP
                             </span>
-                            <div class="banner-2-title">Get Unlimited Downloads</div>
-                            <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
-                            <div class="banner-2-formats">
-                                <span><i class="fas fa-file-pdf"></i> PDF</span>
-                                <span><i class="fas fa-book"></i> EPUB</span>
-                                <span><i class="fas fa-mobile-alt"></i> MOBI</span>
-                                <span><i class="fas fa-headphones"></i> Audiobooks</span>
-                            </div>
                         </div>
+                        
+                        <div class="banner-2-title">Get Unlimited Downloads</div>
+                        <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
+                        
+                        <div class="banner-2-formats">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span><i class="fas fa-book"></i> EPUB</span>
+                            <span><i class="fas fa-mobile-alt"></i> MOBI</span>
+                            <span><i class="fas fa-headphones"></i> Audiobooks</span>
+                        </div>
+                        
                         <div class="banner-2-cta">
-                            <a href="${smartlink}" class="banner-2-button" target="_blank">
+                            <a href="${smartlink}" class="banner-2-button" target="_blank" style="animation: pulseOrange 2s infinite !important;">
                                 <i class="fas fa-bolt"></i> CLAIM NOW
                             </a>
                             <div class="banner-2-countdown">
@@ -1251,23 +1305,32 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         .id-badge { display: inline-block; background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
         
         .banner-1, .banner-2, .banner-3 { margin-bottom: 30px; }
-        .banner-1 { background: linear-gradient(145deg, rgba(0,0,0,0.82), rgba(10,20,30,0.92)), url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 45px 35px; text-align: center; }
-        .banner-2 { background: linear-gradient(145deg, rgba(0,0,0,0.88), rgba(8,18,28,0.96)), url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px 50px; margin: 40px 0; }
-        .banner-3 { background: rgba(15,23,42,0.78); backdrop-filter: blur(14px); border-radius: 20px; padding: 26px 35px; border: 1px solid rgba(255,255,255,0.12); margin-top: 30px; }
-        .banner-1-title { font-size: 2.4rem; font-weight: 800; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
-        .banner-1-subtitle { font-size: 1.3rem; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-        .banner-1-button { background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 18px 50px; border-radius: 60px; text-decoration: none; display: inline-block; }
-        .banner-1-badge { display: flex; justify-content: center; gap: 30px; color: rgba(255,255,255,0.9); margin-top: 25px; }
+        .banner-1 { background: linear-gradient(145deg, rgba(0,0,0,0.82), rgba(10,20,30,0.92)), url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 45px 35px; text-align: center !important; }
+        .banner-2 { background: linear-gradient(145deg, rgba(0,0,0,0.88), rgba(8,18,28,0.96)), url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px 50px; margin: 40px 0; text-align: center !important; }
+        .banner-3 { background: rgba(15,23,42,0.78); backdrop-filter: blur(14px); border-radius: 20px; padding: 26px 35px; border: 1px solid rgba(255,255,255,0.12); margin-top: 30px; text-align: center !important; }
+        
+        .banner-1-title { font-size: 2.4rem; font-weight: 800; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.6); text-align: center !important; }
+        .banner-1-subtitle { font-size: 1.3rem; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5); text-align: center !important; }
+        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; animation: pulse 2s infinite !important; text-align: center; }
+        .banner-1-badge { display: flex; justify-content: center !important; gap: 30px; color: rgba(255,255,255,0.9); margin-top: 25px; }
+        
+        .banner-2-content { display: flex; flex-direction: column; align-items: center !important; justify-content: center !important; gap: 20px; text-align: center !important; }
         .banner-2-icon i { font-size: 5rem; color: #ffd700; text-shadow: 0 0 30px rgba(255,215,0,0.9); }
+        .banner-2-tag-container { display: flex; justify-content: center !important; align-items: center !important; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
         .banner-2-tag { background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 10px 28px; border-radius: 60px; display: inline-block; }
-        .banner-2-title { font-size: 2.4rem; font-weight: 800; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
-        .banner-2-subtitle { color: white; font-size: 1.2rem; }
-        .banner-2-formats { display: flex; gap: 25px; color: white; }
-        .banner-2-button { background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 18px 50px; border-radius: 60px; text-decoration: none; display: inline-block; }
-        .banner-2-countdown { background: rgba(0,0,0,0.6); color: white; padding: 12px 30px; border-radius: 60px; display: inline-block; margin-top: 18px; }
-        .banner-3-content { display: flex; align-items: center; gap: 45px; flex-wrap: wrap; justify-content: center; }
+        .banner-2-title { font-size: 2.4rem; font-weight: 800; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.6); text-align: center !important; }
+        .banner-2-subtitle { color: white; font-size: 1.2rem; text-align: center !important; }
+        .banner-2-formats { display: flex; justify-content: center !important; align-items: center !important; gap: 25px; color: white; flex-wrap: wrap; }
+        .banner-2-button { display: inline-block; background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; animation: pulseOrange 2s infinite !important; text-align: center; }
+        .banner-2-countdown { display: inline-block; background: rgba(0,0,0,0.6); color: white; padding: 12px 30px; border-radius: 60px; margin-top: 18px; }
+        
+        .banner-3-content { display: flex; align-items: center !important; justify-content: center !important; gap: 45px; flex-wrap: wrap; text-align: center !important; }
         .banner-3-badge { display: flex; align-items: center; gap: 12px; color: white; }
-        .banner-3-button { background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); color: white; padding: 14px 38px; border-radius: 60px; text-decoration: none; display: inline-block; }
+        .banner-3-button { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); color: white; padding: 14px 38px; border-radius: 60px; text-decoration: none; }
+        
+        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 10px 25px rgba(59,130,246,0.5); } 50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(59,130,246,0.7); } 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(59,130,246,0.5); } }
+        @keyframes pulseOrange { 0% { transform: scale(1); box-shadow: 0 10px 25px rgba(245,158,11,0.5); } 50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(245,158,11,0.7); } 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(245,158,11,0.5); } }
+        
         @media (max-width: 768px) { .card { padding: 25px; } }
     </style>
 </head>
