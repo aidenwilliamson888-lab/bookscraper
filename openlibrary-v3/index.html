@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · BANNER BACKGROUND IMAGE · PREMIUM</title>
+    <title>✨ OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,11 +39,11 @@
         .container { max-width: 1600px; margin: 0 auto; }
 
         /* ============================================
-           BANNER 1 - WARTHOUSE STYLE (BACKGROUND IMAGE)
+           BANNER 1 - LIMITED TIME OFFER (BACKGROUND)
            ============================================ */
         .banner-1 {
-            background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                        url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background: linear-gradient(145deg, rgba(10,26,42,0.85), rgba(20,40,60,0.9)), 
+                        url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
             background-size: cover;
             background-position: center;
             border-radius: 24px;
@@ -54,6 +54,7 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 30px;
+            backdrop-filter: blur(2px);
         }
 
         .banner-1::before {
@@ -63,103 +64,100 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
             animation: shimmer 4s infinite;
         }
 
-        .banner-1-tag {
-            display: inline-block;
+        @keyframes shimmer {
+            100% { left: 200%; }
+        }
+
+        .banner-1-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .banner-1-icon i {
             background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 50%;
             backdrop-filter: blur(5px);
-            padding: 8px 24px;
-            border-radius: 60px;
-            color: white;
-            font-weight: 600;
-            margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .banner-1-sale {
-            display: inline-block;
-            background: var(--warning);
-            color: black;
-            padding: 6px 18px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-left: 15px;
-        }
-
         .banner-1-title {
-            font-size: 3.2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: white;
             margin-bottom: 15px;
-            line-height: 1.1;
             text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
         }
 
         .banner-1-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: rgba(255,255,255,0.95);
             margin-bottom: 25px;
             font-weight: 500;
-        }
-
-        .banner-1-store {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
-            color: white;
-        }
-
-        .banner-1-store i {
-            font-size: 1.8rem;
-            color: var(--warning);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .banner-1-button {
             display: inline-block;
-            background: linear-gradient(145deg, #f59e0b, #d97706);
+            background: linear-gradient(145deg, #3b82f6, #2563eb);
             color: white;
             padding: 18px 50px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 1.2rem;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(245,158,11,0.4);
+            box-shadow: 0 10px 25px rgba(59,130,246,0.4);
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
         }
 
         .banner-1-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(245,158,11,0.6);
+            box-shadow: 0 15px 35px rgba(59,130,246,0.6);
         }
 
-        .banner-1-expiry {
+        .banner-1-badge {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
             color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+
+        .banner-1-badge i {
+            margin-right: 8px;
+            color: #f59e0b;
         }
 
         /* ============================================
-           BANNER 2 - VALENTINE PROMO (BACKGROUND IMAGE)
+           BANNER 2 - PREMIUM ACCESS (BACKGROUND)
            ============================================ */
         .banner-2 {
-            background: linear-gradient(145deg, rgba(219,39,119,0.85), rgba(159,18,57,0.9)), 
-                        url('https://images.pexels.com/photos/5632386/pexels-photo-5632386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(30,41,59,0.95)), 
+                        url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
             background-size: cover;
             background-position: center;
             border-radius: 28px;
             padding: 45px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(219,39,119,0.2);
+            border: 1px solid rgba(59,130,246,0.3);
+            box-shadow: 0 0 40px rgba(59,130,246,0.2);
             margin: 40px 0;
             position: relative;
+            backdrop-filter: blur(2px);
         }
 
         .banner-2::after {
@@ -169,102 +167,125 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #ff6b6b, #ff8787, #ff6b6b);
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
             border-radius: 30px;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.3;
             filter: blur(12px);
+        }
+
+        .banner-2-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .banner-2-icon {
+            flex: 0 0 100px;
+        }
+
+        .banner-2-icon i {
+            font-size: 4rem;
+            color: #f59e0b;
+            text-shadow: 0 0 30px rgba(245,158,11,0.5);
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .banner-2-text {
+            flex: 1;
+            text-align: left;
         }
 
         .banner-2-tag {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
+            background: rgba(245,158,11,0.2);
             backdrop-filter: blur(5px);
-            padding: 8px 28px;
+            padding: 8px 24px;
             border-radius: 60px;
             color: white;
             font-weight: 700;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border: 1px solid rgba(245,158,11,0.5);
+        }
+
+        .banner-2-tag i {
+            color: #f59e0b;
+            margin-right: 8px;
         }
 
         .banner-2-title {
-            font-size: 2.8rem;
+            font-size: 2rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            line-height: 1.2;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        .banner-2-discount {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #ffd700;
+        .banner-2-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
             margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255,215,0,0.5);
         }
 
-        .banner-2-gift {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.95);
-            margin-bottom: 25px;
-        }
-
-        .banner-2-countdown {
+        .banner-2-formats {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .countdown-item {
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(5px);
-            padding: 15px 20px;
-            border-radius: 16px;
-            min-width: 100px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .countdown-number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-size: 0.8rem;
+            gap: 15px;
             color: rgba(255,255,255,0.8);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .banner-2-formats i {
+            color: #3b82f6;
+            margin-right: 5px;
+        }
+
+        .banner-2-cta {
+            flex: 0 0 auto;
+            text-align: center;
         }
 
         .banner-2-button {
             display: inline-block;
-            background: linear-gradient(145deg, #ffd700, #ffb347);
-            color: black;
-            padding: 18px 50px;
+            background: linear-gradient(145deg, #f59e0b, #d97706);
+            color: white;
+            padding: 16px 40px;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+            box-shadow: 0 10px 25px rgba(245,158,11,0.4);
             transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
         }
 
         .banner-2-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(255,215,0,0.5);
+            box-shadow: 0 15px 35px rgba(245,158,11,0.6);
         }
 
-        .banner-2-period {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
+        .banner-2-countdown {
+            margin-top: 15px;
+            display: inline-block;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+            padding: 10px 25px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .banner-2-countdown i {
+            color: #f59e0b;
+            margin-right: 8px;
         }
 
         /* ============================================
@@ -298,7 +319,12 @@
         }
 
         .banner-3-badge i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .banner-3-badge span {
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         .banner-3-button {
@@ -319,8 +345,16 @@
             border-color: #3b82f6;
         }
 
-        @keyframes shimmer {
-            100% { left: 200%; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* ============================================
@@ -461,10 +495,10 @@
         <div class="card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; margin-bottom: 35px;">
             <h1 style="color: white; border-bottom-color: rgba(255,255,255,0.2);">
                 <i class="fas fa-crown" style="color: #f59e0b;"></i>
-                OPEN LIBRARY · BANNER BACKGROUND IMAGE
+                OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM
             </h1>
             <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
-                ✦ Banner 1: Warthouse Style ✦ Banner 2: Valentine Promo ✦ Banner 3: Glass
+                ✦ Banner 1: Limited Time Offer ✦ Banner 2: Premium Access ✦ Banner 3: Glass
             </p>
         </div>
 
@@ -568,7 +602,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- GENERATE BUTTON -->
                 <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU · BANNER BACKGROUND IMAGE
+                    GENERATE 1.000+ BUKU · 3 BANNER BACKGROUND
                 </button>
 
                 <!-- PROGRESS -->
@@ -588,10 +622,10 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             <div class="card">
                 <h2><i class="fas fa-chart-bar"></i> 2. Preview 3 Banner Premium</h2>
 
-                <!-- BANNER 1 - WARTHOUSE STYLE (BACKGROUND) -->
+                <!-- BANNER 1 - LIMITED TIME OFFER -->
                 <div style="margin-bottom: 35px;">
-                    <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
-                        <i class="fas fa-warehouse"></i> BANNER 1 · WARTHOUSE STYLE
+                    <span style="background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 600;">
+                        <i class="fas fa-bolt"></i> BANNER 1 · LIMITED TIME OFFER
                     </span>
                     <div id="bannerPreview1" class="banner-1">
                         <!-- Akan diisi JS -->
@@ -608,17 +642,17 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     </div>
                 </div>
 
-                <!-- BANNER 2 - VALENTINE PROMO (BACKGROUND) -->
+                <!-- BANNER 2 - PREMIUM ACCESS -->
                 <div style="margin-bottom: 35px;">
-                    <span style="background: #db2777; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-heart"></i> BANNER 2 · VALENTINE PROMO
+                    <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
+                        <i class="fas fa-crown"></i> BANNER 2 · PREMIUM ACCESS
                     </span>
                     <div id="bannerPreview2" class="banner-2">
                         <!-- Akan diisi JS -->
                     </div>
                 </div>
 
-                <!-- BANNER 3 - GLASS (TETAP) -->
+                <!-- BANNER 3 - GLASS MORPHISM -->
                 <div style="margin-bottom: 35px;">
                     <span style="background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
                         <i class="fas fa-glass-cheers"></i> BANNER 3 · GLASS MORPHISM
@@ -672,8 +706,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
     <script>
         // ============================================
-        // OPEN LIBRARY · BANNER BACKGROUND IMAGE
-        // 2 BANNER BACKGROUND + 1 GLASS
+        // OPEN LIBRARY · 3 BANNER BACKGROUND PREMIUM
+        // PERTAHANKAN DESAIN ORIGINAL + BACKGROUND
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -772,77 +806,60 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // UPDATE BANNER PREVIEWS - DENGAN BACKGROUND
+        // UPDATE BANNER PREVIEWS - ORIGINAL DESIGN + BACKGROUND
         // ============================================
         function updateBannerPreviews(smartlink) {
-            // BANNER 1 - WARTHOUSE STYLE
+            // BANNER 1 - LIMITED TIME OFFER
             document.getElementById('bannerPreview1').innerHTML = `
-                <span class="banner-1-tag">
-                    <i class="fas fa-crown"></i> WARTHOUSE
-                </span>
-                <span class="banner-1-sale">SALE</span>
-                
-                <div class="banner-1-title">SAVE UP TO 70%</div>
-                
-                <div class="banner-1-store">
-                    <i class="fas fa-store"></i>
-                    <span style="font-size: 1.2rem; font-weight: 600;">caribook.com.tt</span>
-                    <i class="fas fa-store-alt"></i>
+                <div class="banner-1-icon">
+                    <i class="fas fa-bolt" style="color: #f59e0b;"></i>
+                    <i class="fas fa-book" style="color: #3b82f6;"></i>
                 </div>
-                
-                <div style="margin-bottom: 20px;">
-                    <span style="color: white; font-size: 1.1rem; background: rgba(0,0,0,0.3); padding: 8px 20px; border-radius: 60px;">
-                        <i class="fas fa-tag"></i> Save Money on Books
-                    </span>
-                </div>
-                
+                <div class="banner-1-title">⚡ LIMITED TIME OFFER ⚡</div>
+                <div class="banner-1-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
                 <a href="${smartlink}" class="banner-1-button" target="_blank">
-                    <i class="fas fa-bolt"></i> SHOP NOW
+                    GET ACCESS NOW <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                 </a>
-                
-                <div class="banner-1-expiry">
-                    <i class="fas fa-clock"></i> Ends Feb 2 · Limited Stock!
+                <div class="banner-1-badge">
+                    <span><i class="fas fa-shield-alt"></i> 100% Safe</span>
+                    <span><i class="fas fa-credit-card"></i> No Credit Card Required</span>
                 </div>
             `;
 
-            // BANNER 2 - VALENTINE PROMO
+            // BANNER 2 - PREMIUM ACCESS
             document.getElementById('bannerPreview2').innerHTML = `
-                <span class="banner-2-tag">
-                    <i class="fas fa-heart" style="color: #ffd700;"></i> PROMO SPECIAL VALENTINE
-                </span>
-                
-                <div class="banner-2-title">DISKON 1,5 JUTA RUPIAH</div>
-                <div class="banner-2-discount">+ FREE LIMITED WIRELESS HEADSET</div>
-                
-                <div class="banner-2-countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number">02</div>
-                        <div class="countdown-label">Days</div>
+                <div class="banner-2-content">
+                    <div class="banner-2-icon">
+                        <i class="fas fa-crown"></i>
                     </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number">16</div>
-                        <div class="countdown-label">Hr</div>
+                    <div class="banner-2-text">
+                        <span class="banner-2-tag">
+                            <i class="fas fa-bolt"></i> PREMIUM ACCESS
+                        </span>
+                        <span style="background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 60px; color: white; font-size: 0.8rem; margin-left: 12px;">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i> VIP
+                        </span>
+                        <div class="banner-2-title">Get Unlimited Downloads</div>
+                        <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
+                        <div class="banner-2-formats">
+                            <span><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span><i class="fas fa-book"></i> EPUB</span>
+                            <span><i class="fas fa-mobile-alt"></i> MOBI</span>
+                            <span><i class="fas fa-headphones"></i> Audiobooks</span>
+                        </div>
                     </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number">26</div>
-                        <div class="countdown-label">Min</div>
+                    <div class="banner-2-cta">
+                        <a href="${smartlink}" class="banner-2-button" target="_blank">
+                            <i class="fas fa-bolt"></i> CLAIM NOW
+                        </a>
+                        <div class="banner-2-countdown">
+                            <i class="fas fa-clock"></i> Offer ends in: 10:00
+                        </div>
                     </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number">59</div>
-                        <div class="countdown-label">Sec</div>
-                    </div>
-                </div>
-                
-                <a href="${smartlink}" class="banner-2-button" target="_blank">
-                    <i class="fas fa-gift"></i> CLAIM NOW
-                </a>
-                
-                <div class="banner-2-period">
-                    <i class="fas fa-calendar"></i> Periodo: 1-14 Februari 2026
                 </div>
             `;
 
-            // BANNER 3 - GLASS (TETAP)
+            // BANNER 3 - GLASS MORPHISM
             document.getElementById('bannerPreview3').innerHTML = `
                 <div class="banner-3-content">
                     <div class="banner-3-badge">
@@ -1103,59 +1120,74 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             const today = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
             const publisherDisplay = book.publisher ? ` · ${book.publisher}` : '';
             
-            // BANNER 1 - WARTHOUSE
+            // BANNER 1 - LIMITED TIME OFFER
             const banner1 = `
                 <div class="banner-1">
-                    <span class="banner-1-tag"><i class="fas fa-crown"></i> WARTHOUSE</span>
-                    <span class="banner-1-sale">SALE</span>
-                    <div class="banner-1-title">SAVE UP TO 70%</div>
-                    <div class="banner-1-store">
-                        <i class="fas fa-store"></i>
-                        <span style="font-size: 1.2rem; font-weight: 600;">caribook.com.tt</span>
-                        <i class="fas fa-store-alt"></i>
+                    <div class="banner-1-icon">
+                        <i class="fas fa-bolt" style="color: #f59e0b;"></i>
+                        <i class="fas fa-book" style="color: #3b82f6;"></i>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <span style="color: white; font-size: 1.1rem; background: rgba(0,0,0,0.3); padding: 8px 20px; border-radius: 60px;">
-                            <i class="fas fa-tag"></i> Save Money on Books
-                        </span>
-                    </div>
+                    <div class="banner-1-title">⚡ LIMITED TIME OFFER ⚡</div>
+                    <div class="banner-1-subtitle">Download this book + 50,000 more premium ebooks for FREE!</div>
                     <a href="${smartlink}" class="banner-1-button" target="_blank">
-                        <i class="fas fa-bolt"></i> SHOP NOW
+                        GET ACCESS NOW <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                     </a>
-                    <div class="banner-1-expiry">
-                        <i class="fas fa-clock"></i> Ends Feb 2 · Limited Stock!
+                    <div class="banner-1-badge">
+                        <span><i class="fas fa-shield-alt"></i> 100% Safe</span>
+                        <span><i class="fas fa-credit-card"></i> No Credit Card Required</span>
                     </div>
                 </div>`;
 
-            // BANNER 2 - VALENTINE
+            // BANNER 2 - PREMIUM ACCESS
             const banner2 = `
                 <div class="banner-2">
-                    <span class="banner-2-tag">
-                        <i class="fas fa-heart" style="color: #ffd700;"></i> PROMO SPECIAL VALENTINE
-                    </span>
-                    <div class="banner-2-title">DISKON 1,5 JUTA RUPIAH</div>
-                    <div class="banner-2-discount">+ FREE LIMITED WIRELESS HEADSET</div>
-                    <div class="banner-2-countdown">
-                        <div class="countdown-item"><div class="countdown-number">02</div><div class="countdown-label">Days</div></div>
-                        <div class="countdown-item"><div class="countdown-number">16</div><div class="countdown-label">Hr</div></div>
-                        <div class="countdown-item"><div class="countdown-number">26</div><div class="countdown-label">Min</div></div>
-                        <div class="countdown-item"><div class="countdown-number">59</div><div class="countdown-label">Sec</div></div>
-                    </div>
-                    <a href="${smartlink}" class="banner-2-button" target="_blank">
-                        <i class="fas fa-gift"></i> CLAIM NOW
-                    </a>
-                    <div class="banner-2-period">
-                        <i class="fas fa-calendar"></i> Periodo: 1-14 Februari 2026
+                    <div class="banner-2-content">
+                        <div class="banner-2-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="banner-2-text">
+                            <span class="banner-2-tag">
+                                <i class="fas fa-bolt"></i> PREMIUM ACCESS
+                            </span>
+                            <span style="background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 60px; color: white; font-size: 0.8rem; margin-left: 12px;">
+                                <i class="fas fa-star" style="color: #f59e0b;"></i> VIP
+                            </span>
+                            <div class="banner-2-title">Get Unlimited Downloads</div>
+                            <div class="banner-2-subtitle">PDF · EPUB · MOBI · Audiobooks</div>
+                            <div class="banner-2-formats">
+                                <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span><i class="fas fa-book"></i> EPUB</span>
+                                <span><i class="fas fa-mobile-alt"></i> MOBI</span>
+                                <span><i class="fas fa-headphones"></i> Audiobooks</span>
+                            </div>
+                        </div>
+                        <div class="banner-2-cta">
+                            <a href="${smartlink}" class="banner-2-button" target="_blank">
+                                <i class="fas fa-bolt"></i> CLAIM NOW
+                            </a>
+                            <div class="banner-2-countdown">
+                                <i class="fas fa-clock"></i> Offer ends in: 10:00
+                            </div>
+                        </div>
                     </div>
                 </div>`;
 
-            // BANNER 3 - GLASS
+            // BANNER 3 - GLASS MORPHISM
             const banner3 = `
                 <div class="banner-3">
                     <div class="banner-3-content">
-                        <div class="banner-3-badge"><i class="fas fa-check-circle" style="color: #10b981;"></i><span>1M+ Downloads</span></div>
-                        <div class="banner-3-badge"><i class="fas fa-star" style="color: #f59e0b;"></i><span>4.8/5 Rating</span></div>
-                        <div class="banner-3-badge"><i class="fas fa-lock" style="color: #3b82f6;"></i><span>Secure Download</span></div>
+                        <div class="banner-3-badge">
+                            <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                            <span>1M+ Downloads</span>
+                        </div>
+                        <div class="banner-3-badge">
+                            <i class="fas fa-star" style="color: #f59e0b;"></i>
+                            <span>4.8/5 Rating</span>
+                        </div>
+                        <div class="banner-3-badge">
+                            <i class="fas fa-lock" style="color: #3b82f6;"></i>
+                            <span>Secure Download</span>
+                        </div>
                         <a href="${smartlink}" class="banner-3-button" target="_blank">
                             <i class="fas fa-download"></i> Download Free
                         </a>
@@ -1202,28 +1234,27 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #64748b; text-align: center; }
         .id-badge { display: inline-block; background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
         
+        /* BANNER STYLES */
         .banner-1, .banner-2, .banner-3 { margin-bottom: 30px; }
-        .banner-1 { background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 40px; text-align: center; }
-        .banner-1-tag { display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 8px 24px; border-radius: 60px; color: white; font-weight: 600; margin-bottom: 20px; }
-        .banner-1-sale { display: inline-block; background: #f59e0b; color: black; padding: 6px 18px; border-radius: 60px; font-weight: 700; margin-left: 15px; }
-        .banner-1-title { font-size: 3.2rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
-        
-        .banner-2 { background: linear-gradient(145deg, rgba(219,39,119,0.85), rgba(159,18,57,0.9)), url('https://images.pexels.com/photos/5632386/pexels-photo-5632386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px; text-align: center; margin: 40px 0; }
-        .banner-2-tag { display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 8px 28px; border-radius: 60px; color: white; font-weight: 700; margin-bottom: 20px; }
-        .banner-2-title { font-size: 2.8rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        .banner-2-discount { font-size: 2.2rem; font-weight: 800; color: #ffd700; margin-bottom: 10px; }
-        .banner-2-countdown { display: flex; align-items: center; justify-content: center; gap: 25px; margin-bottom: 30px; }
-        .countdown-item { background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 15px 20px; border-radius: 16px; min-width: 100px; }
-        .countdown-number { font-size: 2.2rem; font-weight: 800; color: white; }
-        .banner-2-button { display: inline-block; background: linear-gradient(145deg, #ffd700, #ffb347); color: black; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
-        
+        .banner-1 { background: linear-gradient(145deg, rgba(10,26,42,0.85), rgba(20,40,60,0.9)), url('https://images.pexels.com/photos/2954199/pexels-photo-2954199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 40px; text-align: center; }
+        .banner-2 { background: linear-gradient(145deg, rgba(15,23,42,0.9), rgba(30,41,59,0.95)), url('https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px; margin: 40px 0; }
         .banner-3 { background: rgba(15,23,42,0.75); backdrop-filter: blur(12px); border-radius: 20px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px; }
+        .banner-1-icon { font-size: 3rem; margin-bottom: 15px; }
+        .banner-1-title { font-size: 2.2rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .banner-1-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.95); margin-bottom: 25px; }
+        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; animation: pulse 2s infinite; }
+        .banner-1-badge { margin-top: 20px; display: flex; justify-content: center; gap: 25px; color: rgba(255,255,255,0.8); }
+        .banner-2-content { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .banner-2-icon i { font-size: 4rem; color: #f59e0b; text-shadow: 0 0 30px rgba(245,158,11,0.5); }
+        .banner-2-tag { display: inline-block; background: rgba(245,158,11,0.2); backdrop-filter: blur(5px); padding: 8px 24px; border-radius: 60px; color: white; font-weight: 700; }
+        .banner-2-title { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 8px; }
+        .banner-2-button { display: inline-block; background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 16px 40px; border-radius: 60px; font-weight: 700; text-decoration: none; animation: pulse 2s infinite; }
+        .banner-2-countdown { margin-top: 15px; display: inline-block; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 10px 25px; border-radius: 60px; color: white; }
         .banner-3-content { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; }
         .banner-3-badge { display: flex; align-items: center; gap: 8px; color: white; }
-        .banner-3-button { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 12px 32px; border-radius: 60px; color: white; font-weight: 700; text-decoration: none; }
-        
-        @media (max-width: 768px) { .card { padding: 25px; } .banner-1-title { font-size: 2.2rem; } .banner-2-title { font-size: 2rem; } .countdown-item { padding: 10px; min-width: 70px; } }
+        .banner-3-button { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 12px 32px; border-radius: 60px; color: white; text-decoration: none; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        @media (max-width: 768px) { .card { padding: 25px; } .banner-1-title { font-size: 1.8rem; } .banner-2-title { font-size: 1.6rem; } }
     </style>
 </head>
 <body>
