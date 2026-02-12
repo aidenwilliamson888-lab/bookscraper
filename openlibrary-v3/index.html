@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ OPEN LIBRARY · 7 PARAGRAPH · FINAL FIX</title>
+    <title>✨ OPEN LIBRARY · BANNER BACKGROUND IMAGE · PREMIUM</title>
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
             --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
             --success: #10b981;
             --warning: #f59e0b;
+            --danger: #ef4444;
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
@@ -28,122 +29,309 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--gray-100); padding: 40px 30px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--gray-100); 
+            padding: 40px 30px; 
+            color: var(--primary);
+        }
+
+        .container { max-width: 1600px; margin: 0 auto; }
 
         /* ============================================
-           BANNER STYLES - CLEAN VERSION
+           BANNER 1 - WARTHOUSE STYLE (BACKGROUND IMAGE)
            ============================================ */
         .banner-1 {
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b);
-            background-size: 400% 400%;
-            animation: gradient 12s ease infinite;
-            border-radius: 20px;
-            padding: 28px;
+            background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            border-radius: 24px;
+            padding: 40px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
             margin-bottom: 30px;
         }
 
-        .banner-2 {
-            background: linear-gradient(145deg, #0a0f1a, #0f172a);
-            border-radius: 24px;
-            padding: 32px;
-            text-align: center;
-            border: 1px solid rgba(59,130,246,0.5);
-            box-shadow: 0 0 30px rgba(59,130,246,0.2);
-            margin: 40px 0;
+        .banner-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 4s infinite;
         }
 
+        .banner-1-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 8px 24px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .banner-1-sale {
+            display: inline-block;
+            background: var(--warning);
+            color: black;
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-left: 15px;
+        }
+
+        .banner-1-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .banner-1-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .banner-1-store {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .banner-1-store i {
+            font-size: 1.8rem;
+            color: var(--warning);
+        }
+
+        .banner-1-button {
+            display: inline-block;
+            background: linear-gradient(145deg, #f59e0b, #d97706);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(245,158,11,0.4);
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .banner-1-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(245,158,11,0.6);
+        }
+
+        .banner-1-expiry {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           BANNER 2 - VALENTINE PROMO (BACKGROUND IMAGE)
+           ============================================ */
+        .banner-2 {
+            background: linear-gradient(145deg, rgba(219,39,119,0.85), rgba(159,18,57,0.9)), 
+                        url('https://images.pexels.com/photos/5632386/pexels-photo-5632386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            border-radius: 28px;
+            padding: 45px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(219,39,119,0.2);
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .banner-2::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8787, #ff6b6b);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(12px);
+        }
+
+        .banner-2-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 8px 28px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.95rem;
+        }
+
+        .banner-2-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .banner-2-discount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .banner-2-gift {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 25px;
+        }
+
+        .banner-2-countdown {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .countdown-item {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
+            padding: 15px 20px;
+            border-radius: 16px;
+            min-width: 100px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .banner-2-button {
+            display: inline-block;
+            background: linear-gradient(145deg, #ffd700, #ffb347);
+            color: black;
+            padding: 18px 50px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .banner-2-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.5);
+        }
+
+        .banner-2-period {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           BANNER 3 - GLASS MORPHISM (TETAP)
+           ============================================ */
         .banner-3 {
             background: rgba(15,23,42,0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 20px;
             padding: 24px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             margin-top: 30px;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .banner-3-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .banner-button {
-            display: inline-block;
-            background: linear-gradient(145deg, #3b82f6, #2563eb);
+        .banner-3-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             color: white;
-            padding: 16px 40px;
-            border-radius: 60px;
-            font-weight: 700;
-            text-decoration: none;
-            animation: pulse 2s infinite;
         }
 
-        .banner-button-sm {
+        .banner-3-badge i {
+            font-size: 1.5rem;
+        }
+
+        .banner-3-button {
+            display: inline-block;
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
             padding: 12px 32px;
-            animation: none;
-        }
-
-        .countdown-badge {
-            display: inline-block;
-            background: rgba(0,0,0,0.4);
-            padding: 8px 20px;
             border-radius: 60px;
             color: white;
-            margin-top: 15px;
-        }
-
-        .neon-text {
-            color: white;
-            text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
-        }
-
-        /* ============================================
-           DESCRIPTION STYLES - 7 PARAGRAPH
-           ============================================ */
-        .description {
-            background: white;
-            border-left: 6px solid #3b82f6;
-            border-radius: 20px;
-            padding: 35px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            line-height: 1.8;
-        }
-
-        .description p {
-            margin-bottom: 20px;
-            color: #1e293b;
-            font-size: 1.05rem;
-        }
-
-        .description i {
-            color: #3b82f6;
-            margin-right: 10px;
-            width: 24px;
-            text-align: center;
-        }
-
-        .description strong {
-            color: #0f172a;
             font-weight: 700;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .banner-3-button:hover {
+            background: rgba(59,130,246,0.3);
+            border-color: #3b82f6;
+        }
+
+        @keyframes shimmer {
+            100% { left: 200%; }
         }
 
         /* ============================================
-           MAIN UI
+           MAIN UI (SAMA SEPERTI SEBELUMNYA)
            ============================================ */
-        .container { max-width: 1600px; margin: 0 auto; }
-        .grid-main { display: grid; grid-template-columns: 1.1fr 1.4fr; gap: 35px; }
+        .grid-main {
+            display: grid;
+            grid-template-columns: 1.1fr 1.4fr;
+            gap: 35px;
+        }
+
         @media (max-width: 1200px) { .grid-main { grid-template-columns: 1fr; } }
 
         .card {
@@ -151,6 +339,7 @@
             border-radius: 24px;
             padding: 35px;
             border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
 
         .card h2 {
@@ -185,6 +374,13 @@
             font-size: 1.1rem;
             cursor: pointer;
             width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(15,23,42,0.2);
         }
 
         .btn-success { background: var(--success); }
@@ -265,10 +461,10 @@
         <div class="card" style="background: linear-gradient(145deg, #0f172a, #1e293b); color: white; margin-bottom: 35px;">
             <h1 style="color: white; border-bottom-color: rgba(255,255,255,0.2);">
                 <i class="fas fa-crown" style="color: #f59e0b;"></i>
-                OPEN LIBRARY · 7 PARAGRAPH PREMIUM
+                OPEN LIBRARY · BANNER BACKGROUND IMAGE
             </h1>
             <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">
-                ✦ 7 Paragraf Lengkap ✦ 3 Banner Smartlink ✦ 1000+ Buku/Keyword
+                ✦ Banner 1: Warthouse Style ✦ Banner 2: Valentine Promo ✦ Banner 3: Glass
             </p>
         </div>
 
@@ -343,7 +539,7 @@
                     </div>
                 </div>
 
-                <!-- SMARTLINK -->
+                <!-- SMARTLINK URL -->
                 <div style="background: linear-gradient(145deg, #f0f9ff, white); border-left: 4px solid #3b82f6; padding: 25px; border-radius: 24px; margin-bottom: 25px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                         <i class="fas fa-bolt" style="font-size: 1.5rem; color: #3b82f6;"></i>
@@ -372,7 +568,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 <!-- GENERATE BUTTON -->
                 <button onclick="startMassGeneration()" class="btn" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); font-size: 1.2rem; padding: 20px;">
                     <i class="fas fa-magic"></i>
-                    GENERATE 1.000+ BUKU · 7 PARAGRAF · 3 BANNER
+                    GENERATE 1.000+ BUKU · BANNER BACKGROUND IMAGE
                 </button>
 
                 <!-- PROGRESS -->
@@ -388,42 +584,48 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 </div>
             </div>
 
-            <!-- RIGHT PANEL - PREVIEW -->
+            <!-- RIGHT PANEL - PREVIEW BANNER -->
             <div class="card">
-                <h2><i class="fas fa-chart-bar"></i> 2. Preview 7 Paragraf + 3 Banner</h2>
+                <h2><i class="fas fa-chart-bar"></i> 2. Preview 3 Banner Premium</h2>
 
-                <!-- BANNER 1 PREVIEW -->
-                <div style="margin-bottom: 25px;">
-                    <span style="background: #3b82f6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-bolt"></i> BANNER 1 · HEADER
+                <!-- BANNER 1 - WARTHOUSE STYLE (BACKGROUND) -->
+                <div style="margin-bottom: 35px;">
+                    <span style="background: #f59e0b; color: black; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; font-weight: 700;">
+                        <i class="fas fa-warehouse"></i> BANNER 1 · WARTHOUSE STYLE
                     </span>
-                    <div id="bannerPreview1" class="banner-1"></div>
-                </div>
-
-                <!-- DESKRIPSI 7 PARAGRAF PREVIEW - FIXED! -->
-                <div style="margin-bottom: 25px;">
-                    <span style="background: #8b5cf6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-paragraph"></i> DESKRIPSI · 7 PARAGRAF PREMIUM
-                    </span>
-                    <div id="descriptionPreview" class="description">
-                        <!-- Akan diisi via JS - PASTI MUNCUL -->
+                    <div id="bannerPreview1" class="banner-1">
+                        <!-- Akan diisi JS -->
                     </div>
                 </div>
 
-                <!-- BANNER 2 PREVIEW -->
-                <div style="margin-bottom: 25px;">
+                <!-- DESKRIPSI 7 PARAGRAF -->
+                <div style="margin-bottom: 35px;">
                     <span style="background: #8b5cf6; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-fire"></i> BANNER 2 · IN-CONTENT
+                        <i class="fas fa-paragraph"></i> DESKRIPSI · 7 PARAGRAF PREMIUM
                     </span>
-                    <div id="bannerPreview2" class="banner-2"></div>
+                    <div id="descriptionPreview" style="background: white; border-left: 6px solid #3b82f6; border-radius: 20px; padding: 35px; line-height: 1.8; border: 1px solid #e2e8f0;">
+                        <!-- Akan diisi JS -->
+                    </div>
                 </div>
 
-                <!-- BANNER 3 PREVIEW -->
-                <div style="margin-bottom: 25px;">
-                    <span style="background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
-                        <i class="fas fa-glass-cheers"></i> BANNER 3 · FOOTER
+                <!-- BANNER 2 - VALENTINE PROMO (BACKGROUND) -->
+                <div style="margin-bottom: 35px;">
+                    <span style="background: #db2777; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
+                        <i class="fas fa-heart"></i> BANNER 2 · VALENTINE PROMO
                     </span>
-                    <div id="bannerPreview3" class="banner-3"></div>
+                    <div id="bannerPreview2" class="banner-2">
+                        <!-- Akan diisi JS -->
+                    </div>
+                </div>
+
+                <!-- BANNER 3 - GLASS (TETAP) -->
+                <div style="margin-bottom: 35px;">
+                    <span style="background: #10b981; color: white; padding: 4px 16px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block;">
+                        <i class="fas fa-glass-cheers"></i> BANNER 3 · GLASS MORPHISM
+                    </span>
+                    <div id="bannerPreview3" class="banner-3">
+                        <!-- Akan diisi JS -->
+                    </div>
                 </div>
 
                 <!-- STATS -->
@@ -470,8 +672,8 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
 
     <script>
         // ============================================
-        // OPEN LIBRARY · 7 PARAGRAPH PREMIUM
-        // FIXED: DESCRIPTION 100% MUNCUL
+        // OPEN LIBRARY · BANNER BACKGROUND IMAGE
+        // 2 BANNER BACKGROUND + 1 GLASS
         // ============================================
         
         const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -505,7 +707,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         let isGenerating = false;
 
         // ============================================
-        // 7 PARAGRAPH PREMIUM DESCRIPTION - FIXED!
+        // 7 PARAGRAPH PREMIUM DESCRIPTION
         // ============================================
         function generatePremiumDescription(doc) {
             const title = doc.title || 'Untitled';
@@ -516,17 +718,14 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             
             let desc = '';
             
-            // PARAGRAPH 1: Main description
             desc += `<p><strong><i class="fas fa-book"></i> Download or Read Online ${title} ebook (PDF ePub Mobi) - ${author}, published in ${year}${cleanPublisher ? ` by ${cleanPublisher}` : ''}.</strong> This comprehensive work is available through Open Library's digital collection, offering readers worldwide access to this valuable resource.</p>\n`;
             
-            // PARAGRAPH 2: First sentence
             if (doc.first_sentence) {
                 desc += `<p><i class="fas fa-quote-left"></i> ${doc.first_sentence} This opening sets the stage for what promises to be an engaging exploration of the subject matter.</p>\n`;
             } else {
                 desc += `<p><i class="fas fa-info-circle"></i> ${title} represents a significant contribution to the field, showcasing ${author}'s expertise and deep understanding of the subject. The book has garnered attention from readers and critics alike for its comprehensive approach and engaging writing style.</p>\n`;
             }
             
-            // PARAGRAPH 3: Subjects
             if (doc.subject && doc.subject.length > 0) {
                 let subjects = doc.subject.slice(0, 7).join(', ');
                 desc += `<p><strong><i class="fas fa-tags"></i> Topics Covered:</strong> This book delves into ${subjects}, providing readers with a thorough understanding of these interconnected themes. Each chapter builds upon the last, creating a cohesive learning experience that will benefit readers at any level.</p>\n`;
@@ -534,16 +733,12 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 desc += `<p><strong><i class="fas fa-tags"></i> Content Overview:</strong> The book is structured to guide readers from fundamental concepts to advanced applications. Whether you're new to the subject or looking to deepen your knowledge, this book offers valuable insights at every level with clear explanations and practical examples.</p>\n`;
             }
             
-            // PARAGRAPH 4: Author
             desc += `<p><strong><i class="fas fa-user"></i> About the Author:</strong> ${author} brings years of experience and research to this work. Known for their ability to explain complex topics with clarity and insight, ${author} has established themselves as a trusted voice in the field. This book represents the culmination of their expertise and dedication, offering readers a unique perspective on the subject matter.</p>\n`;
             
-            // PARAGRAPH 5: What You'll Learn
             desc += `<p><strong><i class="fas fa-graduation-cap"></i> What You'll Learn:</strong> Through ${title}, readers will gain practical knowledge that can be applied immediately. The book covers essential theories, real-world applications, and emerging trends. Each section includes detailed examples, case studies, and practical exercises that bring the concepts to life and ensure deep understanding.</p>\n`;
             
-            // PARAGRAPH 6: Target Audience
             desc += `<p><strong><i class="fas fa-users"></i> Who This Book Is For:</strong> This book is ideal for students, professionals, and enthusiasts who want to master the subject. The clear explanations make it accessible for beginners, while the depth of content ensures even experienced readers will find new insights and perspectives. Educators will also find this to be an excellent resource for course material and classroom discussion.</p>\n`;
             
-            // PARAGRAPH 7: Formats
             desc += `<p><strong><i class="fas fa-mobile-alt"></i> Available Formats:</strong> You can read ${title} online for free through Open Library, or download it in multiple digital formats including PDF, EPUB, and MOBI. These formats are compatible with all major e-readers, tablets, and smartphones. Start reading today and join thousands of readers who have already benefited from this remarkable book. The digital edition maintains all the richness of the print version with added convenience and accessibility.</p>`;
             
             return desc;
@@ -577,75 +772,92 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // BANNER PREVIEWS
+        // UPDATE BANNER PREVIEWS - DENGAN BACKGROUND
         // ============================================
         function updateBannerPreviews(smartlink) {
-            // BANNER 1
+            // BANNER 1 - WARTHOUSE STYLE
             document.getElementById('bannerPreview1').innerHTML = `
-                <div style="font-size: 2.8rem; margin-bottom: 15px;">
-                    <i class="fas fa-bolt" style="color: #f59e0b;"></i>
-                    <i class="fas fa-book" style="color: #3b82f6;"></i>
+                <span class="banner-1-tag">
+                    <i class="fas fa-crown"></i> WARTHOUSE
+                </span>
+                <span class="banner-1-sale">SALE</span>
+                
+                <div class="banner-1-title">SAVE UP TO 70%</div>
+                
+                <div class="banner-1-store">
+                    <i class="fas fa-store"></i>
+                    <span style="font-size: 1.2rem; font-weight: 600;">caribook.com.tt</span>
+                    <i class="fas fa-store-alt"></i>
                 </div>
-                <div style="font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 10px;">⚡ LIMITED TIME OFFER ⚡</div>
-                <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 20px;">Download this book + 50,000 more premium ebooks for FREE!</div>
-                <a href="${smartlink}" class="banner-button" target="_blank">
-                    <i class="fas fa-download"></i> GET ACCESS NOW
-                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                
+                <div style="margin-bottom: 20px;">
+                    <span style="color: white; font-size: 1.1rem; background: rgba(0,0,0,0.3); padding: 8px 20px; border-radius: 60px;">
+                        <i class="fas fa-tag"></i> Save Money on Books
+                    </span>
+                </div>
+                
+                <a href="${smartlink}" class="banner-1-button" target="_blank">
+                    <i class="fas fa-bolt"></i> SHOP NOW
                 </a>
-                <div style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
-                    <i class="fas fa-shield-alt"></i> 100% Safe · No Credit Card Required
+                
+                <div class="banner-1-expiry">
+                    <i class="fas fa-clock"></i> Ends Feb 2 · Limited Stock!
                 </div>
             `;
 
-            // BANNER 2
+            // BANNER 2 - VALENTINE PROMO
             document.getElementById('bannerPreview2').innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                    <div style="flex: 0 0 80px;">
-                        <i class="fas fa-crown" style="font-size: 3.5rem; color: #f59e0b;"></i>
+                <span class="banner-2-tag">
+                    <i class="fas fa-heart" style="color: #ffd700;"></i> PROMO SPECIAL VALENTINE
+                </span>
+                
+                <div class="banner-2-title">DISKON 1,5 JUTA RUPIAH</div>
+                <div class="banner-2-discount">+ FREE LIMITED WIRELESS HEADSET</div>
+                
+                <div class="banner-2-countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number">02</div>
+                        <div class="countdown-label">Days</div>
                     </div>
-                    <div style="flex: 1; text-align: left;">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                            <span style="background: #f59e0b; color: black; padding: 6px 20px; border-radius: 60px; font-weight: 700; font-size: 0.85rem;">
-                                🔥 PREMIUM ACCESS
-                            </span>
-                            <span class="neon-text" style="font-size: 1.1rem;">✨ VIP</span>
-                        </div>
-                        <div style="color: white; font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">
-                            Get Unlimited Downloads
-                        </div>
-                        <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">
-                            PDF · EPUB · MOBI · Audiobooks
-                        </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">16</div>
+                        <div class="countdown-label">Hr</div>
                     </div>
-                    <div style="flex: 0 0 auto;">
-                        <a href="${smartlink}" class="banner-button" style="animation: pulse 2s infinite;" target="_blank">
-                            <i class="fas fa-bolt"></i> CLAIM NOW
-                        </a>
-                        <div class="countdown-badge">
-                            <i class="fas fa-clock"></i> Offer ends in: 10:00
-                        </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">26</div>
+                        <div class="countdown-label">Min</div>
                     </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">59</div>
+                        <div class="countdown-label">Sec</div>
+                    </div>
+                </div>
+                
+                <a href="${smartlink}" class="banner-2-button" target="_blank">
+                    <i class="fas fa-gift"></i> CLAIM NOW
+                </a>
+                
+                <div class="banner-2-period">
+                    <i class="fas fa-calendar"></i> Periodo: 1-14 Februari 2026
                 </div>
             `;
 
-            // BANNER 3
+            // BANNER 3 - GLASS (TETAP)
             document.getElementById('bannerPreview3').innerHTML = `
-                <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center;">
-                    <div style="display: flex; align-items: center; gap: 20px;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-check-circle" style="color: #10b981; font-size: 1.5rem;"></i>
-                            <span style="color: white; font-weight: 500;">1M+ Downloads</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-star" style="color: #f59e0b; font-size: 1.5rem;"></i>
-                            <span style="color: white; font-weight: 500;">4.8/5 Rating</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-lock" style="color: #3b82f6; font-size: 1.5rem;"></i>
-                            <span style="color: white; font-weight: 500;">Secure Download</span>
-                        </div>
+                <div class="banner-3-content">
+                    <div class="banner-3-badge">
+                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                        <span>1M+ Downloads</span>
                     </div>
-                    <a href="${smartlink}" class="banner-button banner-button-sm" target="_blank">
+                    <div class="banner-3-badge">
+                        <i class="fas fa-star" style="color: #f59e0b;"></i>
+                        <span>4.8/5 Rating</span>
+                    </div>
+                    <div class="banner-3-badge">
+                        <i class="fas fa-lock" style="color: #3b82f6;"></i>
+                        <span>Secure Download</span>
+                    </div>
+                    <a href="${smartlink}" class="banner-3-button" target="_blank">
                         <i class="fas fa-download"></i> Download Free
                     </a>
                 </div>
@@ -653,7 +865,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // DESCRIPTION PREVIEW - FIXED! PASTI MUNCUL
+        // UPDATE DESCRIPTION PREVIEW
         // ============================================
         function updateDescriptionPreview() {
             const sampleDoc = {
@@ -665,7 +877,12 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 first_sentence: "Look, I didn't want to be a half-blood."
             };
             const previewDesc = generatePremiumDescription(sampleDoc);
-            document.getElementById('descriptionPreview').innerHTML = previewDesc;
+            document.getElementById('descriptionPreview').innerHTML = `
+                <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-quote-right" style="color: #3b82f6;"></i> Book Description
+                </h2>
+                ${previewDesc}
+            `;
         }
 
         // ============================================
@@ -702,9 +919,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         function cleanPublisher(publisher) {
-            if (!publisher || publisher === 'Unknown Publisher' || publisher.includes('Unknown')) {
-                return '';
-            }
+            if (!publisher || publisher === 'Unknown Publisher' || publisher.includes('Unknown')) return '';
             return publisher;
         }
 
@@ -732,7 +947,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                 coverUrl: coverData.url,
                 coverSource: coverData.source,
                 hasCover: coverData.hasCover,
-                description: generatePremiumDescription(doc), // PAKAI 7 PARAGRAF!
+                description: generatePremiumDescription(doc),
                 formattedTitle, 
                 filename: slug,
                 olUrl: doc.key ? `https://openlibrary.org${doc.key}` : `https://openlibrary.org/search?q=${encodeURIComponent(title)}`
@@ -881,88 +1096,72 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         }
 
         // ============================================
-        // GENERATE LANDING PAGE - 7 PARAGRAF + 3 BANNER
+        // GENERATE LANDING PAGE - DENGAN BACKGROUND BANNER
         // ============================================
         function generateLandingPage(book, domain, smartlink, histatsScript) {
             const year = new Date().getFullYear();
             const today = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
             const publisherDisplay = book.publisher ? ` · ${book.publisher}` : '';
             
-            // BANNER 1
+            // BANNER 1 - WARTHOUSE
             const banner1 = `
                 <div class="banner-1">
-                    <div style="font-size: 2.8rem; margin-bottom: 15px;">
-                        <i class="fas fa-bolt" style="color: #f59e0b;"></i>
-                        <i class="fas fa-book" style="color: #3b82f6;"></i>
+                    <span class="banner-1-tag"><i class="fas fa-crown"></i> WARTHOUSE</span>
+                    <span class="banner-1-sale">SALE</span>
+                    <div class="banner-1-title">SAVE UP TO 70%</div>
+                    <div class="banner-1-store">
+                        <i class="fas fa-store"></i>
+                        <span style="font-size: 1.2rem; font-weight: 600;">caribook.com.tt</span>
+                        <i class="fas fa-store-alt"></i>
                     </div>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 10px;">⚡ LIMITED TIME OFFER ⚡</div>
-                    <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-bottom: 20px;">Download this book + 50,000 more premium ebooks for FREE!</div>
-                    <a href="${smartlink}" class="banner-button" target="_blank">
-                        <i class="fas fa-download"></i> GET ACCESS NOW
-                        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                    <div style="margin-bottom: 20px;">
+                        <span style="color: white; font-size: 1.1rem; background: rgba(0,0,0,0.3); padding: 8px 20px; border-radius: 60px;">
+                            <i class="fas fa-tag"></i> Save Money on Books
+                        </span>
+                    </div>
+                    <a href="${smartlink}" class="banner-1-button" target="_blank">
+                        <i class="fas fa-bolt"></i> SHOP NOW
                     </a>
-                    <div style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.85rem;">
-                        <i class="fas fa-shield-alt"></i> 100% Safe · No Credit Card Required
+                    <div class="banner-1-expiry">
+                        <i class="fas fa-clock"></i> Ends Feb 2 · Limited Stock!
                     </div>
                 </div>`;
 
-            // BANNER 2
+            // BANNER 2 - VALENTINE
             const banner2 = `
                 <div class="banner-2">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                        <div style="flex: 0 0 80px;">
-                            <i class="fas fa-crown" style="font-size: 3.5rem; color: #f59e0b;"></i>
-                        </div>
-                        <div style="flex: 1; text-align: left;">
-                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                                <span style="background: #f59e0b; color: black; padding: 6px 20px; border-radius: 60px; font-weight: 700; font-size: 0.85rem;">
-                                    🔥 PREMIUM ACCESS
-                                </span>
-                                <span class="neon-text" style="font-size: 1.1rem;">✨ VIP</span>
-                            </div>
-                            <div style="color: white; font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">
-                                Get Unlimited Downloads
-                            </div>
-                            <div style="color: rgba(255,255,255,0.9); font-size: 1rem;">
-                                PDF · EPUB · MOBI · Audiobooks
-                            </div>
-                        </div>
-                        <div style="flex: 0 0 auto;">
-                            <a href="${smartlink}" class="banner-button" style="animation: pulse 2s infinite;" target="_blank">
-                                <i class="fas fa-bolt"></i> CLAIM NOW
-                            </a>
-                            <div class="countdown-badge">
-                                <i class="fas fa-clock"></i> Offer ends in: 10:00
-                            </div>
-                        </div>
+                    <span class="banner-2-tag">
+                        <i class="fas fa-heart" style="color: #ffd700;"></i> PROMO SPECIAL VALENTINE
+                    </span>
+                    <div class="banner-2-title">DISKON 1,5 JUTA RUPIAH</div>
+                    <div class="banner-2-discount">+ FREE LIMITED WIRELESS HEADSET</div>
+                    <div class="banner-2-countdown">
+                        <div class="countdown-item"><div class="countdown-number">02</div><div class="countdown-label">Days</div></div>
+                        <div class="countdown-item"><div class="countdown-number">16</div><div class="countdown-label">Hr</div></div>
+                        <div class="countdown-item"><div class="countdown-number">26</div><div class="countdown-label">Min</div></div>
+                        <div class="countdown-item"><div class="countdown-number">59</div><div class="countdown-label">Sec</div></div>
+                    </div>
+                    <a href="${smartlink}" class="banner-2-button" target="_blank">
+                        <i class="fas fa-gift"></i> CLAIM NOW
+                    </a>
+                    <div class="banner-2-period">
+                        <i class="fas fa-calendar"></i> Periodo: 1-14 Februari 2026
                     </div>
                 </div>`;
 
-            // BANNER 3
+            // BANNER 3 - GLASS
             const banner3 = `
                 <div class="banner-3">
-                    <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center;">
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-check-circle" style="color: #10b981; font-size: 1.5rem;"></i>
-                                <span style="color: white; font-weight: 500;">1M+ Downloads</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-star" style="color: #f59e0b; font-size: 1.5rem;"></i>
-                                <span style="color: white; font-weight: 500;">4.8/5 Rating</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-lock" style="color: #3b82f6; font-size: 1.5rem;"></i>
-                                <span style="color: white; font-weight: 500;">Secure Download</span>
-                            </div>
-                        </div>
-                        <a href="${smartlink}" class="banner-button banner-button-sm" target="_blank">
+                    <div class="banner-3-content">
+                        <div class="banner-3-badge"><i class="fas fa-check-circle" style="color: #10b981;"></i><span>1M+ Downloads</span></div>
+                        <div class="banner-3-badge"><i class="fas fa-star" style="color: #f59e0b;"></i><span>4.8/5 Rating</span></div>
+                        <div class="banner-3-badge"><i class="fas fa-lock" style="color: #3b82f6;"></i><span>Secure Download</span></div>
+                        <a href="${smartlink}" class="banner-3-button" target="_blank">
                             <i class="fas fa-download"></i> Download Free
                         </a>
                     </div>
                 </div>`;
 
-            // COVER HTML
             let coverHtml = book.hasCover 
                 ? `<img src="${book.coverUrl}" alt="${book.title}" style="width:100%; border-radius:16px;" onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">`
                 : `<div style="width:100%; height:100%; min-height:300px; background:linear-gradient(145deg, #e2e8f0, #d0d8e0); display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:16px; padding:30px;">
@@ -970,7 +1169,6 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
                     <div style="margin-top:15px; color:#475569; font-weight:500;">No Cover Available</div>
                    </div>`;
 
-            // FULL HTML
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -996,26 +1194,36 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
         .meta { color: #475569; margin-bottom: 25px; }
         .btn { padding: 16px 32px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; flex:1; }
         .btn-primary { background: #0f172a; color: white; }
-        .btn-primary:hover { background: #1e293b; transform: translateY(-3px); }
         .btn-ads { background: #f59e0b; color: white; }
-        .btn-ads:hover { background: #d97706; transform: translateY(-3px); }
         .button-group { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
         .description { background: white; border-left: 6px solid #3b82f6; border-radius: 20px; padding: 35px; margin: 40px 0; line-height: 1.8; }
         .description p { margin-bottom: 20px; color: #1e293b; font-size: 1.05rem; }
         .description i { color: #3b82f6; margin-right: 10px; width: 24px; text-align: center; }
         .footer { margin-top: 50px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #64748b; text-align: center; }
         .id-badge { display: inline-block; background: #0f172a; color: white; padding: 6px 20px; border-radius: 60px; font-size: 0.8rem; margin-bottom: 20px; }
+        
         .banner-1, .banner-2, .banner-3 { margin-bottom: 30px; }
-        .banner-button { display: inline-block; background: linear-gradient(145deg, #3b82f6, #2563eb); color: white; padding: 16px 40px; border-radius: 60px; font-weight: 700; text-decoration: none; animation: pulse 2s infinite; }
-        .banner-button-sm { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 12px 32px; animation: none; }
-        .countdown-badge { display: inline-block; background: rgba(0,0,0,0.4); padding: 8px 20px; border-radius: 60px; color: white; margin-top: 15px; }
-        .neon-text { color: white; text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .banner-1 { background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b); background-size: 400% 400%; animation: gradient 12s ease infinite; border-radius: 20px; padding: 28px; text-align: center; }
-        .banner-2 { background: linear-gradient(145deg, #0a0f1a, #0f172a); border-radius: 24px; padding: 32px; border: 1px solid rgba(59,130,246,0.5); box-shadow: 0 0 30px rgba(59,130,246,0.2); margin: 40px 0; }
+        .banner-1 { background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 24px; padding: 40px; text-align: center; }
+        .banner-1-tag { display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(5px); padding: 8px 24px; border-radius: 60px; color: white; font-weight: 600; margin-bottom: 20px; }
+        .banner-1-sale { display: inline-block; background: #f59e0b; color: black; padding: 6px 18px; border-radius: 60px; font-weight: 700; margin-left: 15px; }
+        .banner-1-title { font-size: 3.2rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .banner-1-button { display: inline-block; background: linear-gradient(145deg, #f59e0b, #d97706); color: white; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+        
+        .banner-2 { background: linear-gradient(145deg, rgba(219,39,119,0.85), rgba(159,18,57,0.9)), url('https://images.pexels.com/photos/5632386/pexels-photo-5632386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; border-radius: 28px; padding: 45px; text-align: center; margin: 40px 0; }
+        .banner-2-tag { display: inline-block; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 8px 28px; border-radius: 60px; color: white; font-weight: 700; margin-bottom: 20px; }
+        .banner-2-title { font-size: 2.8rem; font-weight: 800; color: white; margin-bottom: 15px; text-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .banner-2-discount { font-size: 2.2rem; font-weight: 800; color: #ffd700; margin-bottom: 10px; }
+        .banner-2-countdown { display: flex; align-items: center; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .countdown-item { background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); padding: 15px 20px; border-radius: 16px; min-width: 100px; }
+        .countdown-number { font-size: 2.2rem; font-weight: 800; color: white; }
+        .banner-2-button { display: inline-block; background: linear-gradient(145deg, #ffd700, #ffb347); color: black; padding: 18px 50px; border-radius: 60px; font-weight: 700; font-size: 1.2rem; text-decoration: none; }
+        
         .banner-3 { background: rgba(15,23,42,0.75); backdrop-filter: blur(12px); border-radius: 20px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); margin-top: 30px; }
-        @media (max-width: 768px) { .card { padding: 25px; } .header { flex-direction: column; } h1 { font-size: 1.6rem; } }
+        .banner-3-content { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; }
+        .banner-3-badge { display: flex; align-items: center; gap: 8px; color: white; }
+        .banner-3-button { display: inline-block; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 12px 32px; border-radius: 60px; color: white; font-weight: 700; text-decoration: none; }
+        
+        @media (max-width: 768px) { .card { padding: 25px; } .banner-1-title { font-size: 2.2rem; } .banner-2-title { font-size: 2rem; } .countdown-item { padding: 10px; min-width: 70px; } }
     </style>
 </head>
 <body>
@@ -1098,27 +1306,24 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
     .container{max-width:1200px;margin:0 auto;}
     h1{font-size:2rem;margin-bottom:30px;display:flex;align-items:center;gap:15px;}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:25px;}
-    .card{background:white;border-radius:20px;padding:20px;border:1px solid #e2e8f0;transition:0.3s;}
-    .card:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.05);border-color:#0f172a;}
+    .card{background:white;border-radius:20px;padding:20px;border:1px solid #e2e8f0;}
     img{width:100%;height:200px;object-fit:contain;margin-bottom:15px;}
-    .nocover{width:100%;height:200px;background:#e2e8f0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;color:#475569;}
-    a{text-decoration:none;color:#0f172a;font-weight:600;}
-    .btn{display:inline-block;background:#0f172a;color:white;padding:10px 24px;border-radius:40px;margin-top:15px;font-size:0.9rem;}
+    .nocover{width:100%;height:200px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;}
+    a{display:inline-block;background:#0f172a;color:white;padding:10px 24px;border-radius:40px;text-decoration:none;margin-top:15px;}
 </style>
 </head>
 <body>
 <div class="container">
 <h1><i class="fas fa-crown" style="color:#f59e0b;"></i> ${books.length} Free eBooks Download</h1>
-<p style="margin-bottom:30px;color:#475569;">All books are sourced from Open Library. PDF/EPUB formats available.</p>
 <div class="grid">`;
             
             books.slice(0, 50).forEach(b => {
                 html += `<div class="card">`;
                 if (b.hasCover) html += `<img src="${b.coverUrl}" onerror="this.src='https://via.placeholder.com/400x600/e2e8f0/4a5a6a?text=No+Cover'">`;
-                else html += `<div class="nocover"><i class="fas fa-book" style="font-size:2rem;"></i>No Cover</div>`;
-                html += `<h3 style="font-size:0.95rem;">${b.title.substring(0, 50)}${b.title.length > 50 ? '...' : ''}</h3>`;
-                html += `<p style="color:#475569; font-size:0.85rem; margin-top:5px;">${b.author}</p>`;
-                html += `<a href="${b.filename}" class="btn"><i class="fas fa-download"></i> Download</a>`;
+                else html += `<div class="nocover"><i class="fas fa-book"></i></div>`;
+                html += `<h3 style="font-size:0.95rem;">${b.title.substring(0, 50)}...</h3>`;
+                html += `<p style="color:#475569;">${b.author}</p>`;
+                html += `<a href="${b.filename}"><i class="fas fa-download"></i> Download</a>`;
                 html += `</div>`;
             });
             
@@ -1164,7 +1369,7 @@ _Hasync.push([&apos;Histats.fasi&apos;, &apos;1&apos;]);
             setTitleMode('random');
             const defaultSmartlink = 'https://adsterra.com/referral/your-id';
             updateBannerPreviews(defaultSmartlink);
-            updateDescriptionPreview(); // FIXED: PASTI MUNCUL!
+            updateDescriptionPreview();
         };
     </script>
 </body>
