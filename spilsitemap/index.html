@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 SITEMAP FIXER TOOL - AUTO CLEAN + SPLIT</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0c10;
+            color: white;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #111316;
+            border: 1px solid #2a2e34;
+            border-radius: 24px;
+            padding: 40px;
+        }
+        h1 { font-size: 2rem; margin-bottom: 20px; }
+        .warning {
+            background: rgba(239,68,68,0.1);
+            border-left: 6px solid #ef4444;
+            padding: 25px;
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+        .code {
+            background: #0a0c10;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: monospace;
+            color: #a1a1aa;
+            margin: 20px 0;
+        }
+        .btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🔍 DIAGNOSA SITEMAP LO:</h1>
+        
+        <div class="warning">
+            <h3 style="color: #f87171; margin-bottom: 15px;">⚠️ 3 MASALAH KRUSIAL TERIDENTIFIKASI!</h3>
+            <ul style="color: #e2e8f0; line-height: 2;">
+                <li>❌ <strong>BROKEN URL:</strong> Judul/kosong, author kosong → 404</li>
+                <li>❌ <strong>SLUG GENERATOR RUSAK:</strong> Hasil "-by---.html"</li>
+                <li>❌ <strong>SITEMAP RAKSASA:</strong> 2000+ URL dalam 1 file</li>
+            </ul>
+        </div>
+        
+        <h2 style="margin: 30px 0 20px;">✅ COPY-PASTE FIX INI KE TOOLS LO:</h2>
+        
+        <div class="code">
+// ============================================<br>
+// 1. FILTER BUKU VALID (WAJIB!)<br>
+// ============================================<br>
+function isValidBook(doc) {<br>
+&nbsp;&nbsp;const title = doc.title || '';<br>
+&nbsp;&nbsp;const author = doc.author_name?.[0] || '';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if (!title || !author) return false;<br>
+&nbsp;&nbsp;if (title === 'Untitled' || author === 'Unknown Author') return false;<br>
+&nbsp;&nbsp;if (title.trim() === '' || author.trim() === '') return false;<br>
+&nbsp;&nbsp;return true;<br>
+}<br><br>
+
+// ============================================<br>
+// 2. SLUG GENERATOR AMAN (TIDAK BIKIN KOSONG)<br>
+// ============================================<br>
+function generateSlug(title, author) {<br>
+&nbsp;&nbsp;if (!title || !author) return null;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;let cleanTitle = title.toLowerCase()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/[^\w\s-]/g, '')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/\s+/g, '-')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/^-+|-+$/g, '')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.substring(0, 50);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;let cleanAuthor = author.toLowerCase()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/[^\w\s-]/g, '')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/\s+/g, '-')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.replace(/^-+|-+$/g, '')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.substring(0, 30);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if (!cleanTitle || !cleanAuthor) return null;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;return `${cleanTitle}-by-${cleanAuthor}-${generateRandomId()}.html`;<br>
+}<br><br>
+
+// ============================================<br>
+// 3. SITEMAP SPLIT (500 URL PER FILE)<br>
+// ============================================<br>
+function generateSitemapIndex(books, domain) {<br>
+&nbsp;&nbsp;const SITEMAP_SIZE = 500;<br>
+&nbsp;&nbsp;const chunks = [];<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;for (let i = 0; i < books.length; i += SITEMAP_SIZE) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chunks.push(books.slice(i, i + SITEMAP_SIZE));<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Generate sitemap-1.xml, sitemap-2.xml, etc<br>
+&nbsp;&nbsp;chunks.forEach((chunk, index) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let xml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xml += '&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;chunk.forEach(book => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `  &lt;url&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `    &lt;loc&gt;https://${domain}/${book.filename}&lt;/loc&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `    &lt;lastmod&gt;${new Date().toISOString().split('T')[0]}&lt;/lastmod&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `    &lt;changefreq&gt;monthly&lt;/changefreq&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `    &lt;priority&gt;0.7&lt;/priority&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xml += `  &lt;/url&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xml += '&lt;/urlset&gt;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;zip.file(`sitemap-${index + 1}.xml`, xml);<br>
+&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;// Generate sitemap-index.xml<br>
+&nbsp;&nbsp;let indexXml = '&lt;?xml version="1.0" encoding="UTF-8"?&gt;\n';<br>
+&nbsp;&nbsp;indexXml += '&lt;sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;\n';<br>
+&nbsp;&nbsp;chunks.forEach((_, index) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indexXml += `  &lt;sitemap&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indexXml += `    &lt;loc&gt;https://${domain}/sitemap-${index + 1}.xml&lt;/loc&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indexXml += `    &lt;lastmod&gt;${new Date().toISOString().split('T')[0]}&lt;/lastmod&gt;\n`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;indexXml += `  &lt;/sitemap&gt;\n`;<br>
+&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;indexXml += '&lt;/sitemapindex&gt;';<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;return indexXml;<br>
+}<br><br>
+
+// ============================================<br>
+// 4. INTEGRASI KE GENERATOR<br>
+// ============================================<br>
+// Di loop utama:<br>
+for (const doc of data.docs) {<br>
+&nbsp;&nbsp;if (!isValidBook(doc)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('⏭️ Skipping invalid book');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;continue;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;const book = processBook(doc);<br>
+&nbsp;&nbsp;if (book) books.push(book);<br>
+}<br><br>
+
+// Di downloadAll():<br>
+const sitemapIndex = generateSitemapIndex(books, domain);<br>
+folder.file('sitemap-index.xml', sitemapIndex);<br>
+// Ganti sitemap.xml biasa dengan sitemap-index.xml
+        </div>
+        
+        <h2 style="margin: 30px 0 20px;">📋 INSTRUKSI PERBAIKAN:</h2>
+        
+        <ol style="color: #e2e8f0; line-height: 2; margin-bottom: 30px;">
+            <li><strong>1. FILTER BUKU INVALID</strong> → Skip judul/author kosong</li>
+            <li><strong>2. FIX SLUG GENERATOR</strong> → Jangan bikin slug kosong</li>
+            <li><strong>3. SPLIT SITEMAP</strong> → 500 URL per file + sitemap-index.xml</li>
+            <li><strong>4. SUBMIT SITEMAP-INDEX.XML KE GSC</strong> → Bukan sitemap.xml biasa</li>
+        </ol>
+        
+        <div style="background: rgba(16,185,129,0.1); border-left: 6px solid #10b981; padding: 25px; border-radius: 16px;">
+            <h3 style="color: #34d399; margin-bottom: 10px;">✅ SETELAH DIFIX:</h3>
+            <p style="color: white;">Google Search Console akan nerima sitemap-index.xml,<br>
+            crawl semua sitemap-1.xml, sitemap-2.xml, dll,<br>
+            dan <strong>TIDAK ADA LAGI BROKEN URL!</strong></p>
+        </div>
+    </div>
+</body>
+</html>
